@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="分治法,总览,">
+  <meta name="keywords" content="总览,回溯法,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="¶思想描述 分治法是一种算法思想，其设计思想为：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，这些子问题相互独立且与原问题相同。从而达到各个击破，分而治之的目的。在实际应用中，分治法往往会和递归算法结合在一起。">
-<meta name="keywords" content="分治法,总览">
+<meta name="description" content="概念思想   回溯法有“通用的解题法”之称，用它可以系统地搜索一个问题的所有解或任一解。回溯法是一个既带有系统性又带有跳跃性的搜索算法，它在问题的解空间中，按深度优先策略，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，先判断该结点是否包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的搜索，转而逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先策略搜索。回溯法求问题的所有解时">
+<meta name="keywords" content="总览,回溯法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分治法-总览">
-<meta property="og:url" content="http://www.wersong.cn/算法/分治法-总览/index.html">
+<meta property="og:title" content="回溯法-总览">
+<meta property="og:url" content="http://www.wersong.cn/算法/回溯法-总览/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="¶思想描述 分治法是一种算法思想，其设计思想为：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，这些子问题相互独立且与原问题相同。从而达到各个击破，分而治之的目的。在实际应用中，分治法往往会和递归算法结合在一起。">
+<meta property="og:description" content="概念思想   回溯法有“通用的解题法”之称，用它可以系统地搜索一个问题的所有解或任一解。回溯法是一个既带有系统性又带有跳跃性的搜索算法，它在问题的解空间中，按深度优先策略，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，先判断该结点是否包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的搜索，转而逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先策略搜索。回溯法求问题的所有解时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-14T13:23:32.992Z">
+<meta property="og:updated_time" content="2019-07-19T13:59:13.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分治法-总览">
-<meta name="twitter:description" content="¶思想描述 分治法是一种算法思想，其设计思想为：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，这些子问题相互独立且与原问题相同。从而达到各个击破，分而治之的目的。在实际应用中，分治法往往会和递归算法结合在一起。">
+<meta name="twitter:title" content="回溯法-总览">
+<meta name="twitter:description" content="概念思想   回溯法有“通用的解题法”之称，用它可以系统地搜索一个问题的所有解或任一解。回溯法是一个既带有系统性又带有跳跃性的搜索算法，它在问题的解空间中，按深度优先策略，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，先判断该结点是否包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的搜索，转而逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先策略搜索。回溯法求问题的所有解时">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wersong.cn/算法/分治法-总览/">
+  <link rel="canonical" href="http://www.wersong.cn/算法/回溯法-总览/">
 
 
 
 
 
-  <title>分治法-总览 | 个人博客</title>
+  <title>回溯法-总览 | 个人博客</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wersong.cn/算法/分治法-总览/">
+    <link itemprop="mainEntityOfPage" href="http://www.wersong.cn/算法/回溯法-总览/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WellCherish">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分治法-总览</h1>
+          <h1 class="post-title" itemprop="name headline">回溯法-总览</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-31T16:21:31+08:00">
-                2018-08-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-18T22:14:35+08:00">
+                2019-07-18
               </time>
             
 
@@ -384,21 +384,20 @@
       
 
       
-        <h6 id="思想描述"><a class="header-anchor" href="#思想描述">¶</a>思想描述</h6>
-<p>分治法是一种算法思想，其设计思想为：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，这些子问题相互独立且与原问题相同。从而达到各个击破，分而治之的目的。在实际应用中，分治法往往会和递归算法结合在一起。</p>
+        <h1>概念思想</h1>
+<p>  回溯法有“通用的解题法”之称，用它可以系统地搜索一个问题的<strong>所有解</strong>或<strong>任一解</strong>。回溯法是一个既带有<strong>系统性</strong>又带有<strong>跳跃性</strong>的<strong>搜索算法</strong>，它在问题的解空间中，按<strong>深度优先策略</strong>，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，先判断该结点是否包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的搜索，转而逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先策略搜索。回溯法求问题的所有解时，要回溯到根，且根结点的所有子树都已被搜索遍历才结束。回溯法求问题的一个解时，只要搜索到问题的一个解就可结束。这种<strong>以深度优先方式系统地搜索问题解的算法称为回溯法</strong>，它适用于解组合数较大的问题。</p>
+<hr>
 <a id="more"></a>
-<p>递归的概念：直接或者间接地调用自身的算法称为递归算法，用函数自身给出定义的函数称为递归函数。如下面的就是递归函数的一个简单例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此递归函数用来求斐波那契数列第n项的值</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getSum</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> getSum(n - <span class="number">1</span>) + getSum(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="博文导航"><a class="header-anchor" href="#博文导航">¶</a>博文导航</h6>
+<h1>算法框架</h1>
+<p>  知道了什么叫回溯法，了解了回溯法的基本思想之后，我们就可以定义一个通用的回溯法算法框架，使我们更加方便透彻的在程序中实现它。它包含以下几个必要的步骤：</p>
 <ul>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E6%8E%92%E5%88%97%E9%97%AE%E9%A2%98">分治法-排列问题</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">分治法-归并排序</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">分治法-快速排序</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E6%A3%8B%E7%9B%98%E8%A6%86%E7%9B%96">分治法-棋盘覆盖</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C">分治法-最大子段和</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E7%BA%BF%E6%80%A7%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9">分治法-线性时间选择</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-%E5%BE%AA%E7%8E%AF%E8%B5%9B%E6%97%A5%E7%A8%8B%E8%A1%A8">分治法-循环赛日程表</a></li>
-<li><a href="/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95-Strassen%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95">分治法-Strassen矩阵乘法</a></li>
+<li>**定义问题的解空间：**用回溯法解决问题时，应该明确定义问题的解空间。问题的解空间中应该至少包含问题一种（最优）解。</li>
+<li>**确定解空间结构：**确定易于搜索的解空间结构，使得能用回溯法方便地搜索整个解空间 。通常将解空间组织成树或者图的形式。</li>
+<li>**搜索解空间：**以深度优先方式搜索解空间，并在搜索过程中使用剪枝函数，避免无效搜索。剪枝函数的作用是终止当前结点搜索其子树，转而回溯到父节点。</li>
+</ul>
+<h1>博文导航</h1>
+<ul>
+<li><a href="/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF%E6%B3%95-N%E7%9A%87%E5%90%8E%E9%97%AE%E9%A2%98">回溯法-N皇后问题</a></li>
 </ul>
 
       
@@ -417,9 +416,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分治法/" rel="tag"># 分治法</a>
-          
             <a href="/tags/总览/" rel="tag"># 总览</a>
+          
+            <a href="/tags/回溯法/" rel="tag"># 回溯法</a>
           
         </div>
       
@@ -432,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/算法/算法总览/" rel="next" title="算法总览">
-                <i class="fa fa-chevron-left"></i> 算法总览
+              <a href="/语法/Markdown语法/" rel="next" title="Markdown语法">
+                <i class="fa fa-chevron-left"></i> Markdown语法
               </a>
             
           </div>
@@ -442,8 +441,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/算法/分治法-最大子段和/" rel="prev" title="分治法-最大子段和">
-                分治法-最大子段和 <i class="fa fa-chevron-right"></i>
+              <a href="/算法/回溯法-N皇后问题/" rel="prev" title="回溯法-N皇后问题">
+                回溯法-N皇后问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -601,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#思想描述"><span class="nav-text">¶思想描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#博文导航"><span class="nav-text">¶博文导航</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">概念思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">算法框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">博文导航</span></a></li></ol></div>
             
 
           </div>
