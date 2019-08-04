@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="动态规划,">
+  <meta name="keywords" content="回溯法,">
 
 
 
@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="算法思想：动态规划 实际问题：最长公共子序列 编写语言：Java">
-<meta name="keywords" content="动态规划">
+<meta name="description" content="算法思想：回溯法 实际问题：符号三角形问题 编写语言：Java">
+<meta name="keywords" content="回溯法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划-最长公共子序列">
-<meta property="og:url" content="http://www.wersong.cn/算法/动态规划-最长公共子序列/index.html">
+<meta property="og:title" content="回溯法-符号三角形问题">
+<meta property="og:url" content="http://www.wersong.cn/算法/回溯法-符号三角形问题/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="算法思想：动态规划 实际问题：最长公共子序列 编写语言：Java">
+<meta property="og:description" content="算法思想：回溯法 实际问题：符号三角形问题 编写语言：Java">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wersong.cn/images/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.jpg">
-<meta property="og:updated_time" content="2019-06-14T13:34:30.661Z">
+<meta property="og:image" content="http://www.wersong.cn/images/%E5%9B%9E%E6%BA%AF%E6%B3%95-%E7%AC%A6%E5%8F%B7%E4%B8%89%E8%A7%92%E5%BD%A2%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0.png">
+<meta property="og:image" content="http://www.wersong.cn/images/%E5%9B%9E%E6%BA%AF%E6%B3%95-%E7%AC%A6%E5%8F%B7%E4%B8%89%E8%A7%92%E5%BD%A2%E9%97%AE%E9%A2%98.png">
+<meta property="og:updated_time" content="2019-08-04T09:32:01.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划-最长公共子序列">
-<meta name="twitter:description" content="算法思想：动态规划 实际问题：最长公共子序列 编写语言：Java">
-<meta name="twitter:image" content="http://www.wersong.cn/images/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.jpg">
+<meta name="twitter:title" content="回溯法-符号三角形问题">
+<meta name="twitter:description" content="算法思想：回溯法 实际问题：符号三角形问题 编写语言：Java">
+<meta name="twitter:image" content="http://www.wersong.cn/images/%E5%9B%9E%E6%BA%AF%E6%B3%95-%E7%AC%A6%E5%8F%B7%E4%B8%89%E8%A7%92%E5%BD%A2%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wersong.cn/算法/动态规划-最长公共子序列/">
+  <link rel="canonical" href="http://www.wersong.cn/算法/回溯法-符号三角形问题/">
 
 
 
 
 
-  <title>动态规划-最长公共子序列 | 个人博客</title>
+  <title>回溯法-符号三角形问题 | 个人博客</title>
   
 
 
@@ -297,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.wersong.cn/算法/动态规划-最长公共子序列/">
+    <link itemprop="mainEntityOfPage" href="http://www.wersong.cn/算法/回溯法-符号三角形问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="WellCherish">
@@ -314,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">动态规划-最长公共子序列</h1>
+          <h1 class="post-title" itemprop="name headline">回溯法-符号三角形问题</h1>
         
 
         <div class="post-meta">
@@ -326,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T20:54:11+08:00">
-                2018-09-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T12:37:05+08:00">
+                2019-08-04
               </time>
             
 
@@ -386,35 +387,70 @@
       
 
       
-        <p><strong>算法思想：动态规划</strong><br>
-<strong>实际问题：最长公共子序列</strong><br>
+        <p><strong>算法思想：回溯法</strong><br>
+<strong>实际问题：符号三角形问题</strong><br>
 <strong>编写语言：Java</strong></p>
 <hr>
 <a id="more"></a>
-<h6 id="问题描述"><a class="header-anchor" href="#问题描述">¶</a>问题描述</h6>
-<p>子序列：是一个给定序列的子序列是在该序列中删去若干元素后得到的序列。如X={A, B, C, D}, {A, C}是X的子序列，{A, B, D}是X的子序列。</p>
-<p>问题描述：给定两个序列X和Y，当另一序列Z既是X的子序列又是Y的子序列时，称Z是序列X和Y的公共子序列，X和Y的所有公共子序列中长度最长的即是X和Y的最长公共子序列。</p>
-<p>值得一提的是，最长公共子序列不只一个，但构造的时候只能构造出一个。</p>
-<h6 id="关键特征"><a class="header-anchor" href="#关键特征">¶</a>关键特征</h6>
-<p>设序列X={x1, x2, x3, …, xm}和Y={y1, y2, y3, …, yn}的最长公共子序列为Z={z1, z2, z3, …, zk}，则：</p>
+<h1>问题描述</h1>
+<p>如下图是由 14 个 + 和 14 个 - 组成的符号三角形,两个同号的下面是 +，两个异号的下面是 -。</p>
+<p><img src="/images/%E5%9B%9E%E6%BA%AF%E6%B3%95-%E7%AC%A6%E5%8F%B7%E4%B8%89%E8%A7%92%E5%BD%A2%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0.png" alt="符号三角形问题描述"></p>
+<p>设符号三角形的第一行有 n 个符号，求对于给定的 n，计算有多少个不同的符号三角形，使其所包含的 + 和 - 的数量相同。</p>
+<h1>解题思路</h1>
 <ol>
-<li>若xm=yn, 则zk=xm=yn, 且Zk-1是Xm-1和Yn-1的最长公共子序列</li>
-<li>若xm!=yn, 且zk!=xm, 则Z是Xm-1和Y的最长公共子序列</li>
-<li>若xm!=yn, 且zk!=yn, 则Z是X和Yn-1的最长公共子序列</li>
+<li>设 + 为1，- 为 0，这样可以使用异或运算（<strong>相同为 0，不同为 1</strong>）表示符号三角形的关系：
+<ul>
+<li>“+ +” 为 +：1 ^ 1 = 0</li>
+<li>“- -” 为 +：0 ^ 0 = 0</li>
+<li>“+ -” 为 -：1 ^ 0 = 1</li>
+<li>“- +” 为 -：0 ^ 1 = 1。</li>
+</ul>
+</li>
+<li>使用 x[n] 表示第一行的总共 n 个符号的取值，并且定义：
+<ul>
+<li>x[i] = 0：第一行第 i 个符号的取值为 -。</li>
+<li>x[i] = 1：第一行第 i 个符号的取值为 +。</li>
+</ul>
+</li>
+<li>使用递归回溯，不断改变第一行的每个符号，搜索符合条件的解。</li>
+<li>剪枝函数（剪枝操作，或者称作递归终止条件）是：当前 + 或者 - 的符号数量大于一半，或者列数达到指定上限（因为解题时是从第一列开始找，一直找到第 n 列截止）</li>
 </ol>
-<p>其中：Xm-1={x1, x2, …, xm-1}，Yn-1={y1, y2, …, yn-1}，Zk-1={z1, z2, …, zk-1}。</p>
-<h6 id="递归结构"><a class="header-anchor" href="#递归结构">¶</a>递归结构</h6>
-<p>用c[i][j]记录序列Xi和Yj的最长公共子序列长度，那么：</p>
+<h1>代码解疑</h1>
+<p>此处可以跳过，直接看代码，如果有不懂的地方，可以返回来看这里。</p>
 <ol>
-<li>当i=0, j=0时，c[i][j]=0</li>
-<li>当i&gt;0, j&gt;0, xi=yj时，c[i][j] = c[i-1][j-1]+1</li>
-<li>当i&gt;0, j&gt;0,xi!=yj时，c[i][j] = max{c[i][j-1], c[i-1][j]}</li>
+<li>
+<p>位操作：从效率上讲，一个<strong>移位指令占2个机器周期</strong>，而<strong>乘除法指令占4个机器周期</strong>。故在做乘除法时，使用位运算有着更高的效率。在本次博文写的代码中，主要用到了两个技巧：<strong>与运算</strong>、<strong>异或运算</strong>与<strong>移位操作</strong>。</p>
+<ul>
+<li>
+<p>与运算：与运算是一种逻辑运算技巧，它的规则是：真与真=真、假与真=假、真与假=假、假与假=假；即满足两个条件都为真时，结果才为真。在 Java 中，与运算符是 &amp;，&amp; 表示按位与，并且 0 表示假，1 表示真，即 1 &amp; 1 = 1、0 &amp; 1 = 0、1 &amp; 0 = 0、0 &amp; 0 = 0。若两个数相与，如 4 和 3与为 0，就可以表示为 100 &amp; 011 = 0，在计算机中，十进制的数是用二进制表示的，如 4 在计算机中的表示是 100。如需要了解更详细的知识，请自行百度。</p>
+<p>扯远了，回归正题。在代码中，我们有判断一个数的奇偶性。使用了这样的技巧：n &amp; 1，在计算机中，奇数的最低位的值必然为 1（其他高位是2的整数倍，相加必然为偶数，最低位如果是0，就无法构成奇数），而 1 是最小的奇数，除了最低位，其他位都为 0。按照与运算的规则，**任何一个数 n 与上 1，除了最低位，其他位都是 0。如果 n 为奇数，与的结果最低位为 1，结果是 1；如果 n 为偶数，与的结果最低位为 0，结果是 0。**我们因而可以形如 n &amp; 1 的式子来判断一个数的奇偶性。</p>
+</li>
+<li>
+<p>异或运算：逻辑运算的一种，前面解释过，此处不讲了。</p>
+</li>
+<li>
+<p>移位操作：在 Java 中，移位运算符使用 &gt;&gt;（右移）和 &lt;&lt;（左移）表示的。如 4 右移一位，可以表示为 4 &gt;&gt; 1，从二进制的角度将，100（4） 变成了 010（2），即缩小了一半。如果左移，则是增大一倍，在有大量乘除操作的场景中，使用移位操作可以极大的提升效率。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>剪枝操作的使用位置有两处，二选一，但应注意两个位置的判断逻辑有差别。具体的代码注释中有详细说明。</p>
+</li>
+<li>
+<p>根据符号三角形的构成规则，如果三角形第一行有 n 列，那么符号三角形就有 n 行，即行数和列数相等。并且相邻两行之间的列数差 1，带入等差数列的公式，可以得出符号三角形的符号总数为  n * (n + 1) / 2。</p>
+</li>
+<li>
+<p>因为 + 和 - 的数量必须相等，所以符号三角形的符号数量是偶数，即 n * (n + 1) / 2 是偶数</p>
+</li>
+<li>
+<p>统计完一种构造方式后，需要还原已统计符号的数量，才能进行下一次的符号三角形构造。</p>
+</li>
 </ol>
-<p>其中，第3点是说当xm!=yn时，求取Xm-1, Y和X, Yn-1两者的最长公共子序列的较长者作为整体的最长公共子序列</p>
-<h6 id="java代码"><a class="header-anchor" href="#java代码">¶</a>Java代码</h6>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongestCommonSubsequence</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//第一个字符留空，可以省去后续很多麻烦</span></span><br><span class="line">        <span class="keyword">char</span>[] x = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">' '</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'D'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>&#125;;</span><br><span class="line">        <span class="keyword">char</span>[] y = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">' '</span>, <span class="string">'B'</span>, <span class="string">'D'</span>, <span class="string">'C'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> m = x.length;</span><br><span class="line">        <span class="keyword">int</span> n = y.length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[][] c = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        <span class="keyword">int</span>[][] b = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line">        lcsLength(m - <span class="number">1</span>, n - <span class="number">1</span>, x, y, c, b);</span><br><span class="line">        lcs(m - <span class="number">1</span>, n - <span class="number">1</span>, x, b); <span class="comment">//从m-1，n-1开始往下面找</span></span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      * 参数含义：</span></span><br><span class="line"><span class="comment">      * m: X序列的长度</span></span><br><span class="line"><span class="comment">      * n: Y序列的长度</span></span><br><span class="line"><span class="comment">      * x, y: 待求最长公共子序列的原始序列</span></span><br><span class="line"><span class="comment">      * c: 记录Xi和Yj的最长公共子序列长度</span></span><br><span class="line"><span class="comment">      * b: 记录得到c[i][j]的是哪个子问题</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lcsLength</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">char</span>[] x, <span class="keyword">char</span>[] y, </span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">int</span>[][] c, <span class="keyword">int</span>[][] b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">            c[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            c[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(x[i] == y[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    c[i][j] = c[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                    b[i][j] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c[i-<span class="number">1</span>][j] &gt; c[i][j - <span class="number">1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    c[i][j] = c[i - <span class="number">1</span>][j];</span><br><span class="line">                    b[i][j] = <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    c[i][j] = c[i][j - <span class="number">1</span>];</span><br><span class="line">                    b[i][j] = <span class="number">3</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">      * 该方法构造一个X，Y的最长公共子序列</span></span><br><span class="line"><span class="comment">      * 参数含义：</span></span><br><span class="line"><span class="comment">      * i, j: 序列X, Y的下标</span></span><br><span class="line"><span class="comment">      * x: 原始序列，因为构造的是X, Y的最长公共子序列。</span></span><br><span class="line"><span class="comment">      *     此处用Y也行，因为x有的y也有。</span></span><br><span class="line"><span class="comment">      *     但是序列应全程保持一致(一开始用X，整个函数都用X)</span></span><br><span class="line"><span class="comment">      * b: 用于构造子序列的二维数组</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lcs</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">char</span>[] x, <span class="keyword">int</span>[][] b)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span> || j == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(b[i][j] == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            lcs(i - <span class="number">1</span>, j - <span class="number">1</span>, x, b);</span><br><span class="line">            System.out.print(x[i] + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(b[i][j] == <span class="number">2</span>)</span><br><span class="line">            lcs(i - <span class="number">1</span>, j, x, b);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            lcs(i, j - <span class="number">1</span>, x, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="运行结果"><a class="header-anchor" href="#运行结果">¶</a>运行结果</h6>
-<p><img src="/images/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.jpg" alt="结果示例"></p>
+<h1>Java 代码</h1>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SymbolicTriangleProblem</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 第一行的符号个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> n;</span><br><span class="line">    <span class="comment">// half 的目标数值为 (n * (n + 1) / 2) / 2，即 n * (n + 1) / 4</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> half;</span><br><span class="line">    <span class="comment">// 当前"-"的个数 c：count</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> c;</span><br><span class="line">    <span class="comment">// 符号三角形矩阵</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] p;</span><br><span class="line">    <span class="comment">// 符号数组 s：sign</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String[] s = &#123;<span class="string">"+"</span>, <span class="string">"-"</span>&#125;;</span><br><span class="line">    <span class="comment">// 已找到的符号三角形的个数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> sum;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        compute(<span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">"符合条件的符号三角形总数： "</span> + sum);</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算指定列数下的符号三角形</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> col 符号三角形第一行的列数，</span></span><br><span class="line"><span class="comment">     *      其必须满足 (col * (col + 1) &gt;&gt; 1) 是偶数，</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compute</span><span class="params">(<span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        n = col;</span><br><span class="line">        c = <span class="number">0</span>;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// &gt;&gt; 右移一位，表示当前数除以 2</span></span><br><span class="line">        <span class="comment">// 当前的符号总个数，为 1 + 2 + ... + n 的数量</span></span><br><span class="line">        half = n * (n + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 符号数量为单数，返回</span></span><br><span class="line">        <span class="keyword">if</span>((half &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        half &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        p = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 从第1行的第1个列开始查找</span></span><br><span class="line">        backtrack(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 回溯函数</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> col 当前正在查找的位置：第 col 列</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 如果将剪枝操作移动到这里，总数就不能算</span></span><br><span class="line"><span class="comment">         * (col * (col + 1) &gt;&gt; 1，而应该算 (col * (col - 1) &gt;&gt; 1，</span></span><br><span class="line"><span class="comment">         * 即算少一列的情况，因为可能会出现 col &gt; n 的情况，导致结果出错</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        if(c &gt; half || ((col * (col - 1) &gt;&gt; 1) - c &gt; half)) &#123;</span></span><br><span class="line"><span class="comment">            return;</span></span><br><span class="line"><span class="comment">        &#125; */</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 当前的列数超过规定的列数</span></span><br><span class="line">        <span class="keyword">if</span>(col &gt; n) &#123;</span><br><span class="line">            sum++;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 打印符号</span></span><br><span class="line">            System.out.println(<span class="string">"第 "</span> + sum + <span class="string">" 个符号三角形："</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                <span class="comment">// 打印符号三角形中每一行开始的空白</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">                    System.out.print(<span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= (n - i + <span class="number">1</span>); j++) &#123;</span><br><span class="line">                    System.out.print(s[p[i][j]] + <span class="string">" "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                System.out.println();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 将"+"设为0，"-"设为1</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">                p[<span class="number">1</span>][col] = i;</span><br><span class="line">                <span class="comment">// 统计"-"的个数</span></span><br><span class="line">                c += i;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 判断接下来的 n - 1 行</span></span><br><span class="line">                <span class="comment">// 符号三角形问题中，行的总数等于列的总数</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= col; j++) &#123;</span><br><span class="line">                    <span class="comment">// 通过异或运算求其余行数的放置方式</span></span><br><span class="line">                    p[j][col - j + <span class="number">1</span>] = </span><br><span class="line">                        p[j - <span class="number">1</span>][col - j + <span class="number">1</span>] ^ p[j - <span class="number">1</span>][col - j + <span class="number">2</span>];</span><br><span class="line">                        </span><br><span class="line">                    c += p[j][col - j + <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// + 或者 - 的数量未超过一半</span></span><br><span class="line">                <span class="comment">// 此处使用 col * (col + 1) &gt;&gt; 1，是因为不会出现 col &gt; n的情况</span></span><br><span class="line">                <span class="keyword">if</span>(c &lt;= half &amp;&amp; ((col * (col + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>) - c &lt;= half)) &#123;</span><br><span class="line">                    backtrack(col + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 还原 - 的数量</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= col; j++) &#123;</span><br><span class="line">                    c -= p[j][col - j + <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                c -= i;               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1>运行结果</h1>
+<p>下图为列数为 4 的结果：<br>
+<img src="/images/%E5%9B%9E%E6%BA%AF%E6%B3%95-%E7%AC%A6%E5%8F%B7%E4%B8%89%E8%A7%92%E5%BD%A2%E9%97%AE%E9%A2%98.png" alt="结果实例"></p>
 
       
     </div>
@@ -432,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
+            <a href="/tags/回溯法/" rel="tag"># 回溯法</a>
           
         </div>
       
@@ -445,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/算法/动态规划-01背包问题/" rel="next" title="动态规划-01背包问题">
-                <i class="fa fa-chevron-left"></i> 动态规划-01背包问题
+              <a href="/算法/回溯法-N皇后问题/" rel="next" title="回溯法-N皇后问题">
+                <i class="fa fa-chevron-left"></i> 回溯法-N皇后问题
               </a>
             
           </div>
@@ -454,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/算法/动态规划-最优二叉搜索树/" rel="prev" title="动态规划-最优二叉搜索树">
-                动态规划-最优二叉搜索树 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -614,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#问题描述"><span class="nav-text">¶问题描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#关键特征"><span class="nav-text">¶关键特征</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#递归结构"><span class="nav-text">¶递归结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#java代码"><span class="nav-text">¶Java代码</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#运行结果"><span class="nav-text">¶运行结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">代码解疑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Java 代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">运行结果</span></a></li></ol></div>
             
 
           </div>
