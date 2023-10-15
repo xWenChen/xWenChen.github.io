@@ -23,7 +23,7 @@ toc: true
 
 <!--More-->
 
-###### 问题描述
+## 问题描述
 
 我们知道，两个大小为 2 * 2 的矩阵相乘，一般需要进行 8 次乘法。而Strassen矩阵乘法可以减少一次乘法，只需要 7 次，看似很少，但当数据量很大时，效率就会有显著提升。不过使用 Strassen矩阵乘法需要满足 矩阵边长为 2 的幂次方。因为该算法会用到分治，如果分治后矩阵两边边长不等，结果会出错。
 
@@ -46,7 +46,7 @@ toc: true
 ```
 
 
-###### Java代码
+## Java代码
 
 ```Java
 public class StrassenMatrixMultiply
@@ -223,7 +223,7 @@ public class StrassenMatrixMultiply
 }
 ```
 
-###### 运行结果
+## 运行结果
 
 ![结果示例](/imgs/分治法-Strassen矩阵乘法.jpg)
 
