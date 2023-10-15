@@ -1,110 +1,49 @@
-[中文](https://github.com/hugo-next/hugo-theme-next-starter/blob/main/README.zh.md) | [English](#)
+# xWenChen.github.io
 
-# Hugo NexT theme starter
+WenChen的个人博客存储地址
 
-It's usefully for people who are first time notice Hugo framework and want to create himself blog site. Following steps as below and good luck for you! :tada::tada::tada:
+Hugo 安装官网为：https://gohugo.io/installation/windows/
 
-> **Note**
-> Before that make sure your PC were installed [Git](https://git-scm.com/downloads) and [Hugo](https://github.com/gohugoio/hugo/releases/) software.
+Hugo 目录含义：
 
-## Deploy on Vercel
+archetypes：存放执行 hugo new content posts/my-first-post.md 命令新建 md 文件时使用的 front matter 文件模版，Front matter 支持 TOML、YAML、JSON 格式
 
-Now you can deployment your site on Vercel paltform by this button: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhugo-next%2Fhugo-theme-next-starter&env=HUGO_VERSION&envDescription=Enter%20latest%20version%20of%20Hugo%20engine.&envLink=https%3A%2F%2Fgithub.com%2Fgohugoio%2Fhugo%2Freleases%2F&project-name=my-blog&repo-name=my-blog&demo-title=Hugo%20NexT%20Theme&demo-description=Easily%20%26%20powerful%20theme%20of%20Hugo%20engine.&demo-url=https%3A%2F%2Fhugo-next.eu.org%2F&demo-image=https%3A%2F%2Fimgs.lisenhui.cn%2Fhugo-next%2Fhugo-next-demo.png&install-command=git%20submodule%20add%20https%3A%2F%2Fgithub.com%2Fhugo-next%2Fhugo-theme-next.git%20themes%2Fhugo-theme-next)
+content：存放内容页面，如 Blog
 
-### ➕ Create Github repository
+layouts：存放定义网站的样式，写在layouts文件下的样式会覆盖安装的主题中的 layouts 文件同名的样式
 
-Please login Vercel with your Github account, then enter your repsitory name and click `Create`, also need enter latest Hugo version at `HUGO_VERSION` parameter, after those action then deploy it.
+static：存放所有静态文件，如图片
 
-![deploy-with-vercel-01.png](https://imgs.lisenhui.cn/hugo-next/deploy-with-vercel-01.png)
+data：存放创建站点时 Hugo 使用的其他数据
 
-### 🏗 Change Framework
+public：存放 Hugo 生成的静态网页
 
-Because Vercel doesn't defined the framework the site not work at first time, you need change it to `Hugo` and save change.
+themes：存放主题文件
 
-![deploy-with-vercel-02.png](https://imgs.lisenhui.cn/hugo-next/deploy-with-vercel-02.png)
+config.toml：网站配置文件
 
-### 🚧 Redeployment
+--------------------------------------------------------------------------------------------------------------
 
-Switch to `Deployment` tag page, refer to the following snapshot for operation, after a while the site will visit success.
+Hugo 使用流程：
 
-![deploy-with-vercel-03.png](https://imgs.lisenhui.cn/hugo-next/deploy-with-vercel-03.png)
+1、先点击网址下载最新的 Hogo 依赖： https://github.com/gohugoio/hugo/releases/latest
 
-## ⏬ Clone Theme
+2、在 Windows 上可以下载 hugo_extended_version_windows-amd64.zip，并解压到电脑上的软件目录
 
-Click the green button which name call `Use this template` and upper right corner on the page. Full information such as below image:
+3、将 Hugo.exe 所在的目录添加到环境变量中
 
-![Use Template](https://imgs.lisenhui.cn/hugo-next/use-hugo-next-starter.png)
+4、基本安装就完成了，如果需要更强大的功能，可以参考官网安装 Go 等软件
 
-After do that click the green button which name call `Create repository from template`, then will create your site code automatic, and clone it on your PC environment.
+5、创建网站： hugo new site hugo-blog
 
-Remember that need use `git submodule` command to pull all things from `hugo-theme-next` at first time.
+6、提交 git 命令进行保存，git add . & git commit -m "创建 Hugo 博客" & git push
 
-```
-# First time
-git submodule update --init --recursive
-# Next time
-git submodule update --remote --merge
-```
+7、进入网址目录：cd hugo-blog
 
-> **Note**
-> When you are in China, recommend to use `Gitee` repository url replace the submodule url in `.gitmodules` file content and then execute the above `Git` command line to improve the speed.
+8、设置主题，并将主题设置为 submodule： git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 
-## 💻 Local Preview
+9、启用 ananke 主题，在 hugo.toml 文件末尾新增一行 "theme = 'ananke''"，或者使用命令： echo "theme = 'ananke'" >> hugo.toml
 
-Execute the `startup.sh` boot start script file which is under site root directory, when see some words like `stop` that mean success, and open browser visit
- [http://localhost:1414/](http://localhost:1414/) will enjoy yourself.
+10、启用 Hugo，查看效果： hugo server ，可以在 http://localhost:1313/ 中预览网站
 
-```shell
-$ sh startup.sh
-========================================
-  ███╗   ██╗███████╗██╗  ██╗████████╗
-  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝
-  ██╔██╗ ██║█████╗   ╚███╔╝    ██║
-  ██║╚██╗██║██╔══╝   ██╔██╗    ██║
-  ██║ ╚████║███████╗██╔╝ ██╗   ██║
-  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝
-========================================
-Hugo NexT version 4.3.1
-Documentation: https://hugo-next.eu.org
-========================================
-Start building sites …
-hugo v0.102.3-b76146b129d7caa52417f8e914fc5b9271bf56fc+extended windows/amd64 BuildDate=2022-09-01T10:16:19Z VendorInfo=gohugoio
-
-                   | ZH-CN
--------------------+--------
-  Pages            |    71
-  Paginator pages  |     0
-  Non-page files   |     0
-  Static files     |    43
-  Processed images |     0
-  Aliases          |    26
-  Sitemaps         |     1
-  Cleaned          |     0
-
-Built in 233 ms
-Watching for changes in C:\xxx\hugo-theme-next-starter\{content,data,themes}
-Watching for config changes in C:\xxx\hugo-theme-next-starter\config\_default
-Environment: "development"
-Serving pages from memory
-Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at //localhost:1414/ (bind address 127.0.0.1)
-Press Ctrl+C to stop
-```
-
-## 🎨 Snapshot
-
-![Hugo NexT Demo](https://imgs.lisenhui.cn/hugo-next/hugo-next-demo.png)
-
-## 🎉 Deployment
-
-Use `hugo` command to build site's static files, and deploy them into Web server just like `Nginx` and so on. Or you can enable `Github Page` function when you commit your local things there will build static files by automatic, more info:[Github Pages](https://pages.github.com/).
-
-
-> **Note**
-> Please relpace actual parameter's value in `config/_default/params.yaml` config file before deploy, such as comment, analytis, share and so on.
-
-## 📜 License
-
-[MIT License](LICENSE)
-
-Copyright (c) 2022, hugo-next teams.
+11、新建博文： hugo new content posts/my-first-post.md
