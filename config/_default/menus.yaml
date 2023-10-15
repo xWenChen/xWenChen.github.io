@@ -38,6 +38,6 @@ main:
     weight: 4
   - identifier: about
     name: 关于
-    pageref: /about.html
+    pageref: /post/about.html
     pre: user
     weight: 5

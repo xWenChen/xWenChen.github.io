@@ -389,7 +389,7 @@ followMe:
 # Easily browse and edit blog source code online.
 postEdit:
   enable: true
-  url: https://github.com/xWenChen/xWenChen.github.io/tree/master/content/posts
+  url: https://github.com/xWenChen/xWenChen.github.io/tree/master/content/
 
 
 # 设置文本的对齐方式

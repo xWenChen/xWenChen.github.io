@@ -9,7 +9,7 @@ share: false
 followme: false
 nav: false
 copyright: false
-url: about.html
+url: /post/about.html
 ---
 
 毕业院校：西南大学 计算机与信息科学学院 软件学院
