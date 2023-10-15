@@ -1,0 +1,136 @@
+#--------------------------------------
+# 中文版本
+#--------------------------------------
+
+archives:
+  other: 文章
+tag:
+  other: 标签
+tags:
+  other: 标签
+TagTitle:
+  other: 标签集锦
+category:
+  other: 分类
+categories:
+  other: 分类
+CateTitle:
+  other: 分类栏目
+AllSome:
+  other: "所有 {{ .Some }}"
+
+Symbol:
+  colon: "："
+  comma: "，"
+  period: "。"
+
+Sidebar:
+  label:
+    posts: 日志
+    categories: 分类
+    tags: 标签
+    rss: RSS 订阅
+    ccommons: 共享知识
+    toc: 文章目录
+    overview: 站点概览
+    navToggle: 切换导航栏
+    search: 搜索
+
+Terms:
+  archives: "目前共计 <strong>{{ .Count }}</strong> 篇日志"
+  categories: "目前共计 <strong>{{ .Count }}</strong> 个分类"
+  tags: "目前共计 <strong>{{ .Count }}</strong> 个标签"
+
+PostArchive:
+  cheers:
+    um: 嗯..
+    ok: 还行
+    nice: 不错
+    good: 很好
+    great: 非常好
+    excellent: 太棒了
+  keepOn: 继续努力哟。╰(*°▽°*)╯
+
+PostMeta:
+  sticky: 置顶
+  publish:
+    date: 发表于
+    time: 创建时间
+  lastmod:
+    date: 更新于
+    time: 修改时间
+  category: 分类于
+  words: 
+    title: 字数
+    count: "{{- .WordCount -}}"
+  reading:
+    title: 阅读
+    time: "{{- .ReadingTime -}}分钟"
+  views: 浏览
+  comments: 评论
+  tags: 标签
+  more: 阅读全文
+  edit: 编辑
+
+Reward:
+  title: 赞赏
+  wechatpay: 微信
+  alipay: 支付宝
+  paypal: Paypal
+  bitcoin: 比特币
+
+PostCopyRight:
+  title: 文章标题
+  author: 本文作者
+  link: 本文链接
+  origin:
+    author: 原文作者
+    link: 原文链接
+  license:
+    title: 版权声明
+    content: "本博客所有文章除特别声明外，均采用 <i class=\"fab fa-fw fa-creative-commons\"></i>%s 许可协议。转载请注明出处！"
+
+PostFollowMe:
+  other: 欢迎关注我的其它发布渠道
+
+PostComments:
+  title: 评论交流
+
+SiteInfoItems:
+  title: "网站资讯"
+  runTimes: "已运行："
+  words: "总字数："
+  readTimes: "阅读约："
+  visitors: "总访客数："
+  pageViews: "页面浏览："
+  todayViews: "今日访问："
+  yesterdayViews: "昨日访问："
+  monthViews: "本月访问："
+  totalViews: "总访问量："
+  lastUpdate: "最后更新于："
+
+Footer:
+  powerby: 由 %s 强力驱动
+
+Search:
+  placeholder: 搜索...
+  empty: "没有找到任何搜索结果：${query}"
+  hits: "找到 ${hits} 个搜索结果"
+  time: "找到 ${hits} 个搜索结果（用时 ${time} 毫秒）"
+
+DateSuffix:
+  years: " 年 "
+  days: " 天 "
+  hours: " 小时 "
+  mins: " 分钟"
+  month: " 个月前"
+  day: " 天前"
+  hour: " 小时前"
+  min: " 分钟前"
+  just: "刚刚"
+
+ToolBtns:
+  comment: "直达评论"
+  theme: "深浅模式切换"
+  lang: "多语言翻译"
+  backTop: "返回顶部"
