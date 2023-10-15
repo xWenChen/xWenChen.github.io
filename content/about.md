@@ -1,9 +1,9 @@
 ---
-title: "关于 Hugo NexT 组织"
-description: "Hugo NexT 组织介绍说明。"
+title: "关于我"
+description: "我的简短介绍。"
 
-date: 2022-06-09T20:12:52+08:00
-lastmod: 2022-06-09T20:12:52+08:00
+date: 2018-08-13 09:20:00 +08:00
+lastmod: 2018-08-13 09:20:00 +08:00
 
 share: false
 followme: false
@@ -12,16 +12,20 @@ copyright: false
 url: about.html
 ---
 
-`Hugo NexT` 组织是由众多喜爱 `NexT` 主题及风格的世界各地友人共同组建而成，为的就是让这个主题继续在 `Hugo` 引擎中也能得到发扬光大，在此也欢迎你的加入！
+毕业院校：西南大学 计算机与信息科学学院 软件学院
 
-# 我们的愿景
+专业：计算机科学与技术
 
-延续 `NexT` 经典的黑白调搭配，保持简单的易用性及强大的功能。
+在读时间：2015.9-2019.7
 
-# 使用反馈
+主修课程：算法、数据结构、操作系统、计算机网络
 
-- 加入 [GitHub Discussions](https://github.com/hugo-next/hugo-theme-next/discussions) 或 [Gitter](https://gitter.im/hugo-next/community) 在线讨论 :beers:
-- [GitHub Issues](https://github.com/hugo-next/hugo-theme-next/issues/new?labels=Bug&template=bug-report.md) 提交错误报告 :bug:
-- [GitHub Feature](https://github.com/hugo-next/hugo-theme-next/issues/new?labels=Feature+Request&template=feature-request.md) 表新功能的想法 :sparkles:
+主攻方向：Android 开发
 
-> 同时国内用户也可加入 QQ 群交流： 604710815
+个人兴趣爱好广泛，随着时间心情会有些变化，但是比较固定的爱好有游戏，动漫，跑步，新知识以及志愿活动
+
+博客园主页：https://www.cnblogs.com/wellcherish/
+
+个人邮箱：zwersong@gmail.com
+
+github 主页：https://github.com/xWenChen/

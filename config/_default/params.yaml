@@ -12,7 +12,7 @@ mainSections: ["post"]
 yearFormat: "2006"
 monthFormat: "01-02"
 dateFormat: "2006-01-02"
-timeFormat: "2006-01-02T15:04:05-07:00"
+timeFormat: "2006-01-02 15:04:05 -07:00"
 
 # 页面模式
 # Schemes
@@ -28,22 +28,22 @@ darkmode: true
 
 # 站点基本信息
 # Site Information Settings
-author: NexT 主题
-subtitle: 为 Hugo 打造的主题
-description: 保持简单的易用性和强大的功能。
-keywords: Hugo,NexT,主题,简单,强大
+author: WellCherish
+subtitle: 好好学习，天天向上。
+description: 做人做事做学问，尽心尽力尽责任。
+keywords: 
 
 # 不同尺寸站点图标
 # Different size of favicon
 favicon:
-  icon: /imgs/icons/favicon.ico
-  small: /imgs/icons/favicon_16x16_next.png
-  medium: /imgs/icons/favicon_32_32_next.png
-  appleTouchIcon: /imgs/icons/apple_touch_icon_next.png
+  icon: /imgs/icons/one_32.ico
+  small: /imgs/icons/one_16.png
+  medium: /imgs/icons/one_32.png
+  appleTouchIcon: /imgs/icons/one_180.png
 
 # 自定义 Logo （目前只支持 Mist 页面模式）
 # Custom Logo (Warning: Only support scheme Mist)
-customLogo: #/imgs/hugo_next_logo.png
+customLogo: #/imgs/icons/one_600.png
 
 # 用户自定义文件配置
 # Define custom file paths.
@@ -134,7 +134,7 @@ sidebar:
 avatar:
   # 设置显示头像的相对路径
   # Replace the default image and set the url here.
-  url: /imgs/hugo_next_avatar.png
+  url: /imgs/icons/onepiece.jpg
   # 开启头像的圆形显示效果
   # If true, the avatar will be displayed in circle.
   rounded: true
@@ -162,9 +162,9 @@ siteState:
 # Key is the link label order.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 socials: 
-  social0: Github || https://github.com/elkan1788 || fab fa-github
-  #social1: E-Mail || mailto:yourname@gmail.com || fa fa-envelope
-  social2: 知乎 || https://www.zhihu.com/people/lisenhui || fa fa-book
+  social0: Github || https://github.com/xWenChen || fab fa-github
+  social1: E-Mail || mailto:zwersong@gmail.com || fa fa-envelope
+  #social2: 知乎 || https://www.zhihu.com/people/lisenhui || fa fa-book
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || fab fa-facebook
@@ -195,7 +195,7 @@ linksSets:
   icon: fa fa-globe
   # 显示标题
   # Show title
-  title: 友情链接
+  title: 技术支持
   # 可选值： block | inline
   # Available values: block | inline
   layout: inline
@@ -205,8 +205,8 @@ linksSets:
 # Links of your friends
 # Usage: `Key: name || permalink`
 links: 
-  link0: Hugo-NexT || https://gitee.com/hugo-next/hugo-theme-next
-  link1: 凡梦星尘空间站 || https://lisenhui.cn
+  link0: Hugo || https://gohugo.io/
+  link1: Hugo-NexT || https://github.com/hugo-next/hugo-theme-next
 
 # 文章目录显示
 # Table of Contents in the Sidebar
@@ -236,11 +236,11 @@ toc:
 footer:
   # 启动谷歌翻译功能
   # Enable google translate in footer
-  translate: true
+  translate: false
   # 站点开始年份，默认为当下时间的年份
   # Specify the year when the site was setup. 
   # If not defined, current year will be used.
-  since: 2010
+  since: 2018
 
   # 年份和版权信息之间的图标
   # Icon between year and copyright info.
@@ -261,7 +261,7 @@ footer:
 
   # 显示 Hugo 和 NexT 支持
   # Powered by Hugo & NexT
-  powered: true
+  powered: false
 
   # 国内 ICP 备案和公安网备信息
   # Beian ICP and gongan information for Chinese users. 
@@ -278,7 +278,7 @@ footer:
   # 站点支持供应商列表
   # Vendors list who support website. 
   vendors:
-    enable: true
+    enable: false
     # 支持说明
     # Some support information description.
     title: 提供CDN/云资源支持
@@ -357,7 +357,7 @@ rewardSets:
   # 是否开启捐赠按钮，开启后将在每个文章页面底部显示
   # If true, a donate button will be displayed 
   # in every article by default.
-  enable: true
+  enable: false
   # 是否开启捐赠方式的动画效果
   # If true, the donate type title will with animation.
   animation: true
@@ -381,15 +381,15 @@ rewardSets:
 followMe:
   #channel0: Twitter || https://twitter.com/username || fab fa-twitter
   #channel1: Telegram || https://t.me/channel_name || fab fa-telegram
-  channel2: WeChat || /images/wechat_channel.jpg || fab fa-weixin
-  channel3: RSS || /atom.xml || fa fa-rss
+  #channel2: WeChat || /images/wechat_channel.jpg || fab fa-weixin
+  #channel3: RSS || /atom.xml || fa fa-rss
 
 # 文章的在线编辑
 # Post edit
 # Easily browse and edit blog source code online.
 postEdit:
   enable: true
-  url: https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/
+  url: https://github.com/xWenChen/xWenChen.github.io/tree/master/content/posts
 
 
 # 设置文本的对齐方式
@@ -487,10 +487,10 @@ githubBanner:
   enable: true
   # 你的 Github 仓库地址
   # Your repository url on Github.
-  permalink: https://github.com/hugo-next
+  permalink: https://github.com/xWenChen
   # 关注说明
   # Show this title when cursor move on.
-  title: Follow me on GitHub
+  title: 在 GitHub 上关注我
 
 
 # ---------------------------------------------------------------
@@ -639,7 +639,7 @@ quicklink:
 comments:
   # 开启评论组件
   # If true, will show comment component in post end.
-  enable: true   
+  enable: false   
   # 设置默认使用的评论插件
   # 可选值：livere | waline | utterances | artalk | giscus
   # Choose a comment system to be displayed by default.
