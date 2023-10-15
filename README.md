@@ -24,7 +24,7 @@ config.toml：网站配置文件
 
 --------------------------------------------------------------------------------------------------------------
 
-Hugo 使用流程：
+# Hugo 使用流程
 
 1、先点击网址下载最新的 Hogo 依赖： https://github.com/gohugoio/hugo/releases/latest
 
@@ -47,3 +47,9 @@ Hugo 使用流程：
 10、启用 Hugo，查看效果： hugo server ，可以在 http://localhost:1313/ 中预览网站
 
 11、新建博文： hugo new content posts/my-first-post.md
+
+# 修改主题
+
+自定义主题时，需要把主题目录下的所有目录复制到根目录，因为 hugo 中的主题是 submodule，其修改是不会推到主工程的。所以需要我们手动拷一次。在 hugo 中，hugo 的配置文件可以覆盖主题的配置。
+
+Github 默认的 Actions 不是针对 hugo 的，需要我们手动更改，使用 static 的方式，引入 hugo 官方定义的 actions 内容。
