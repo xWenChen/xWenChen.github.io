@@ -8,9 +8,10 @@ lastmod: 2020-02-03 18:38:00 +08:00
 
 categories:
   - Android
-tags:
   - Gradle
+tags:
   - Android
+  - Gradle
 
 url: post/CCDB475698774A8BBA674460B4715E9C.html
 toc: true
