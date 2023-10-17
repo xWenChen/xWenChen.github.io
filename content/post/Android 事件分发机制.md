@@ -1,7 +1,7 @@
 ---
 title: "Android 事件分发机制"
 description: "本文略讲了 Android 的事件分发机制"
-keywords: "Android,模版设计模式"
+keywords: "Android,事件分发机制"
 
 date: 2019-12-01 00:12:00 +08:00
 lastmod: 2019-12-01 00:12:00 +08:00
