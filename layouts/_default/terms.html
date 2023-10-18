@@ -75,9 +75,9 @@
           {{ T "Terms.tags" (.Scratch.Get "tagsCount") | safeHTML }}
         </div>
         <div class="tag-cloud-tags">
-          {{ $randNums := (seq 10) }}
           {{- range $name, $items := $tags }}
-          <a class="tag-cloud-{{ index (shuffle $randNums) 0 }}" href="{{ "/tags/" | relLangURL }}{{ $name | urlize  }}">{{ .Page.Title }}
+          {{ $fontSize := add 0.85 (mul (float (len $items)) 0.07) }}
+          <a class="tag-cloud-text" href="{{ "/tags/" | relLangURL }}{{ $name | urlize  }}" style="font-size: {{ $fontSize }}em; border-bottom-color: #aaa;color: #aaa;">{{ .Page.Title }}
             <span class="tag-list-count">
               <sup>({{ len $items }})</sup>
             </span>
