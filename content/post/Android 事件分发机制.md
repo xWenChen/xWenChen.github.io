@@ -9,8 +9,8 @@ lastmod: 2019-12-01 00:12:00 +08:00
 categories:
   - Android
 tags:
-  - 事件分发
   - Android
+  - 事件分发
 
 url: post/A32C6B8D505F409F96955A7A9A88A649.html
 toc: true
