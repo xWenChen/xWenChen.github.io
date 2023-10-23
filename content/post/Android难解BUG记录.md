@@ -16,7 +16,7 @@ url: post/10427F5683084886867B43F21F6C1736.html
 toc: true
 ---
 
-本文记录了作者在Android日常开发中碰到的已解的或未解的BUG
+本文记录了作者在Android日常开发中碰到的已解的或未解的BUG。
 
 <!--More-->
 
