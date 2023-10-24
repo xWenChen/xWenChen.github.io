@@ -173,9 +173,9 @@ class LocalSearch {
         // Get the contents from search data
         this.isfetched = true;
         this.datas = isXml ? [...new DOMParser().parseFromString(res, 'text/xml').querySelectorAll('entry')].map(element => ({
-          title  : element.querySelector('title').textContent,
-          content: element.querySelector('content').textContent,
-          url    : element.querySelector('url').textContent
+          title  : element.querySelector('title')?.textContent,
+          content: element.querySelector('content')?.textContent,
+          url    : element.querySelector('url')?.textContent
         })) : JSON.parse(res);
         // Only match articles with non-empty titles
         this.datas = this.datas.filter(data => data.title).map(data => {
