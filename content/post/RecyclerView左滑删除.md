@@ -9,7 +9,6 @@ lastmod: 2021-05-12 16:13:00 +08:00
 categories:
   - Android
   - 自定义 View
-  - RecyclerView
 tags:
   - Android
   - 自定义 View

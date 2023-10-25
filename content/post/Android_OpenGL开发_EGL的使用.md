@@ -9,7 +9,6 @@ lastmod: 2020-07-24 23:16:00 +08:00
 categories:
   - Android
   - OpenGL
-  - EGL
 tags:
   - Android
   - OpenGL
