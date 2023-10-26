@@ -24,7 +24,7 @@ echo "执行 git commit -m %msg%"
 echo.
 git commit -m "%msg%"
 
-if "%not_push%" != "true" (
+if not "%not_push%" == "true" (
     echo.
     echo "执行 git push"
     echo.
