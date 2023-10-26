@@ -3,6 +3,7 @@
 REM windows git 刷新脚本
 
 set msg=%1
+set need_push=%2
 
 REM 检查分支名是否为空，为空则提示用户，并提前返回
 if "%msg%" == "" (
@@ -13,16 +14,22 @@ if "%msg%" == "" (
     exit /b 1 REM 0 表示成功，非 0 表示失败
 )
 
+echo.
 echo "执行 git add ."
+echo.
 git add .
 
 echo.
 echo "执行 git commit -m %msg%"
+echo.
 git commit -m "%msg%"
 
-echo.
-echo "执行 git push"
-git push
+if %need_push% (
+    echo.
+    echo "执行 git push"
+    echo.
+    git push
+)
 
 echo.
 echo "数据更新操作完毕..."
