@@ -1034,3 +1034,5 @@ fun main() {
     随着 Android 系统的发展，垃圾回收算法也在不断优化，以提高垃圾回收的效率和减少对应用性能的影响。
 
 96. Java 中，String 底部使用 Array 存储，Array 的最大长度为 Integer.MAX_VALUE。为 65535。
+
+97. View.dispatchKeyEvent 事件会在有焦点的 View 路径上分发。如果目标 View 无焦点，则分发不成功。解决方案是在调用 View.dispatchKeyEvent 之前，先申请下焦点 View.requestFocus()
