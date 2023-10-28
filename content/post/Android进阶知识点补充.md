@@ -46,7 +46,7 @@ toc: true
 
 ## View 的部分继承关系
 
-![View的部分继承关系](View的部分继承关系.png)
+![View的部分继承关系](/imgs/View的部分继承关系.png)
 
 ## 事件分发机制总结
 
