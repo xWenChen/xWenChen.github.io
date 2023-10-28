@@ -23,7 +23,7 @@ toc: true
 
 注：官方文档地址：[javax.lang.model](https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/module-summary.html)
 
-下篇文档：[注解处理器 2：java 注解处理器](https://www.cnblogs.com/wellcherish/p/17087711.html)
+下篇文档：[注解处理器 2：java 注解处理器](04B5C92A04564560A1143F299EA9A57A.html)
 
 下篇文档：[注解处理器 3：实战 Android Router 插件实现](https://www.cnblogs.com/wellcherish/p/17208491.html)
 
