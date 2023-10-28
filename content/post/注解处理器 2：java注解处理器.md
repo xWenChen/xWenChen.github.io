@@ -22,7 +22,7 @@ toc: true
 
 上篇文档：[注解处理器 1：javax.lang.model 包讲解](A90F3472990141F8B69A6EC73420C0D2.html)
 
-下篇文档：[注解处理器 3：实战 Android Router 插件实现](https://www.cnblogs.com/wellcherish/p/17208491.html)
+下篇文档：[注解处理器 3：实战 Android Router 插件实现](A85ED138561142DBBFA335CE35A4289B.html)
 
 ## 概览
 

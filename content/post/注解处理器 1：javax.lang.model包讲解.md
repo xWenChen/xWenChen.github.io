@@ -25,7 +25,7 @@ toc: true
 
 下篇文档：[注解处理器 2：java 注解处理器](04B5C92A04564560A1143F299EA9A57A.html)
 
-下篇文档：[注解处理器 3：实战 Android Router 插件实现](https://www.cnblogs.com/wellcherish/p/17208491.html)
+下篇文档：[注解处理器 3：实战 Android Router 插件实现](A85ED138561142DBBFA335CE35A4289B.html)
 
 ## 概览
 
