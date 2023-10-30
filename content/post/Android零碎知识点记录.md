@@ -1036,3 +1036,6 @@ fun main() {
 96. Java 中，String 底部使用 Array 存储，Array 的最大长度为 Integer.MAX_VALUE。为 65535。
 
 97. View.dispatchKeyEvent 事件会在有焦点的 View 路径上分发。如果目标 View 无焦点，则分发不成功。解决方案是在调用 View.dispatchKeyEvent 之前，先申请下焦点 View.requestFocus()
+
+98. 调用 InputMethodManager.toggleSoftInput 显示键盘时，不能重复调用，否则已显示的键盘会被隐藏。
+    ![InputMethodManager_toggleSoftInput方法说明](/imgs/InputMethodManager_toggleSoftInput方法说明.png)
