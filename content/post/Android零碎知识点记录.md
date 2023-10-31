@@ -1058,3 +1058,6 @@ fun main() {
     - 使用 AlarmManager：使用 AlarmManager 定时唤醒应用，保持进程的活跃。
 
     - 利用系统漏洞：在某些 Android 系统版本中，可能存在一些漏洞可以用于保活。但这种方法并不稳定，且可能在新版本系统中失效。
+
+100. TextView 中，MovementMethod 和 OnClickListener 同时设置时，会冲突。MovementMethod.onTouchEvent 方法即使返回 true，也无法阻止 TextView 的 OnClickListener 执行，因为 View.onTouchEvent 方法会先于 MovementMethod 执行。需要解决二者的冲突，MovementMethod 可以继承自 MovementMethod。注意系统提供的LinkMovementMethod在选中时，会选中点击区域，想要干掉，就需要自定义。TextView 设置了 MovementMethod 后，会更改 focusable 等属性的值。
+    ![TextView的OnTouchEvent和Movement冲突](/imgs/TextView的OnTouchEvent和Movement冲突.png)
