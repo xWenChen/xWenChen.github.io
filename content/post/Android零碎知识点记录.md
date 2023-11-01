@@ -1061,3 +1061,18 @@ fun main() {
 
 100. TextView 中，MovementMethod 和 OnClickListener 同时设置时，会冲突。MovementMethod.onTouchEvent 方法即使返回 true，也无法阻止 TextView 的 OnClickListener 执行，因为 View.onTouchEvent 方法会先于 MovementMethod 执行。需要解决二者的冲突，MovementMethod 可以继承自 MovementMethod。注意系统提供的LinkMovementMethod在选中时，会选中点击区域，想要干掉，就需要自定义。TextView 设置了 MovementMethod 后，会更改 focusable 等属性的值。
     ![TextView的OnTouchEvent和Movement冲突](/imgs/TextView的OnTouchEvent和Movement冲突.png)
+
+101. Android 5.0(API级别21)以上，可以使用以下代码设置底部导航栏颜色：
+
+   ```java
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+
+       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+           Window window = getWindow();
+           window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+           window.setNavigationBarColor(ContextCompat.getColor(this, R.color.your_color));
+       }
+   }
+   ```
