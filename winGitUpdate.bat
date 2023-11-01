@@ -15,22 +15,22 @@ if "%msg%" == "" (
 )
 
 echo.
-echo "执行 git add . 命令 ↓↓↓"
+echo ">>>>>>>>>>>>>> 执行 git add . 命令"
 echo.
 git add .
 
 echo.
-echo "执行 git commit -m %msg% 命令 ↓↓↓"
+echo ">>>>>>>>>>>>>> 执行 git commit -m %msg% 命令 ↓↓↓"
 echo.
 git commit -m "%msg%"
 
 if not "%not_push%" == "true" (
     echo.
-    echo "执行 git push 命令 ↓↓↓"
+    echo ">>>>>>>>>>>>>> 执行 git push 命令 ↓↓↓"
     echo.
     git push
 )
 
 echo.
-echo "数据更新操作完毕..."
+echo ">>>>>>>>>>>>>> 数据更新操作完毕..."
 echo.
