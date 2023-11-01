@@ -11,11 +11,11 @@ if [ -z "$msg" ]; then
     exit 1 # 0 表示成功，非 0 值表示错误
 fi
 
-echo -e "\n>>>>>>>>>>>>>> 执行 git add . 命令\n"
+echo -e "\n>>>>>>>>>>>>>> 执行 git add . 命令 <<<<<<<<<<<<<<\n"
 git add .
-echo -e "\n>>>>>>>>>>>>>> 执行 git commit -m $msg 命令\n"
+echo -e "\n>>>>>>>>>>>>>> 执行 git commit -m $msg 命令 <<<<<<<<<<<<<<\n"
 git commit -m "$msg"
-echo -e "\n>>>>>>>>>>>>>> 执行 git push 命令\n"
+echo -e "\n>>>>>>>>>>>>>> 执行 git push 命令 <<<<<<<<<<<<<<\n"
 git push
 
-echo -e "\n>>>>>>>>>>>>>> 数据更新操作完毕... 命令\n"
+echo -e "\n>>>>>>>>>>>>>> 数据更新操作完毕... <<<<<<<<<<<<<<\n"
