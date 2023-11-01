@@ -1076,3 +1076,51 @@ fun main() {
        }
    }
    ```
+
+102. 在 Android 中，当两个视图或者一个视图的两个背景色叠加在一起时，它们的颜色会根据各自的透明度（alpha 值）进行混合。这个过程称为 alpha 合成（alpha compositing）。
+
+    假设有两个颜色，分别是前景色（RGBA1）和背景色（RGBA2），它们的颜色值可以表示为：
+
+        RGBA1 = (R1, G1, B1, A1)
+
+        RGBA2 = (R2, G2, B2, A2)
+
+        其中 R、G、B 分别表示红、绿、蓝三原色的值，A 表示透明度。这些值的范围通常在 0 到 1 之间。
+
+    当这两个颜色叠加时，可以使用以下公式计算它们的混合颜色（RGBA）：
+    
+        计算 alpha 值：A = A1 + A2 * (1 - A1)
+        
+        计算红、绿、蓝三原色的值：R = (R1 * A1 + R2 * A2 * (1 - A1)) / A G = (G1 * A1 + G2 * A2 * (1 - A1)) / A B = (B1 * A1 + B2 * A2 * (1 - A1)) / A
+
+        最后，混合后的颜色值为：RGBA = (R, G, B, A)
+
+    这个过程会逐层进行，直到所有叠加的颜色都被合成为一个最终的颜色值。在 Android 中，这个过程由系统的绘图框架（如 OpenGL ES 或者 Vulkan）自动处理。
+
+103. Android中的startService和bindService是两种启动Service的方式，它们之间有一些区别：
+
+    启动方式不同：
+    
+        startService：通过调用Context的startService()方法启动Service。这种方式启动的Service，会在后台长期运行，即使启动它的组件已经被销毁，Service仍然会继续运行。
+        
+        bindService：通过调用Context的bindService()方法启动Service。这种方式启动的Service，与启动它的组件绑定在一起，当启动它的组件被销毁时，Service也会被销毁。
+
+    生命周期不同：
+
+        startService：Service的生命周期与启动它的组件无关，只要没有调用stopService()或stopSelf()，Service就会一直运行。
+
+        bindService：Service的生命周期与启动它的组件绑定在一起，当所有与之绑定的组件都被销毁时，Service也会被销毁。
+
+    通信方式不同：
+
+        startService：启动Service后，组件与Service之间通常通过Intent传递数据，但是Service无法直接返回结果给组件。
+        
+        bindService：启动Service后，组件与Service之间可以通过IBinder接口进行双向通信，Service可以直接返回结果给组件。
+
+    使用场景不同：
+
+        startService：适用于需要在后台长期运行的任务，例如下载、播放音乐等。
+
+        bindService：适用于需要与组件进行交互的任务，例如获取数据、执行操作等。
+    
+    总之，startService和bindService在启动方式、生命周期、通信方式和使用场景上都有所不同，根据实际需求选择合适的方式启动Service。
