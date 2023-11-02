@@ -1,3 +1,25 @@
+---
+title: "Gradle如何定义一个变量并通过命令行修改"
+description: "本文讲解了如何在 Gradle 中定义一个变量，并通过命令行修改该变量"
+keywords: "Android,Gradle,命令行,参数设置,manifest占位符"
+
+date: 2023-11-02 10:37:00 +08:00
+
+categories:
+  - Android
+  - Gradle
+tags:
+  - Android
+  - Gradle
+
+url: post/E814BE5B4C7E4A32862410AF160BAC95.html
+toc: true
+---
+
+本文讲解了如何在 Gradle 中定义一个变量，并通过命令行修改该变量。
+
+<!--More-->
+
 问：在 Gradle 中如何定义一个变量，并通过命令行修改？
 
 答：在Gradle中，可以在build.gradle文件中定义一个变量，并在命令行中使用-P选项修改它的值。以下是一个简单的示例，演示如何定义一个名为myVariable的变量，并在命令行中修改它。
@@ -45,7 +67,7 @@
    }
    ```
 
-6. 在 manifest 文件中使用 manifestPlaceholders。
+6. 在 manifest 文件中使用 manifestPlaceholders。比如在 <application> 节点中添加如下内容：
 
    ```xml
    <meta-data
