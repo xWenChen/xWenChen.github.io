@@ -1124,3 +1124,5 @@ fun main() {
         bindService：适用于需要与组件进行交互的任务，例如获取数据、执行操作等。
     
     总之，startService和bindService在启动方式、生命周期、通信方式和使用场景上都有所不同，根据实际需求选择合适的方式启动Service。
+
+104. View 的 padding 不会影响 background 的填充，margin 会影响 background 的填充。
