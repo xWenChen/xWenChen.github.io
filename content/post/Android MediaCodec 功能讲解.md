@@ -4,6 +4,7 @@ description: "本文讲解了 Android MediaCodec 的功能"
 keywords: "Android,音视频开发,MediaCodec"
 
 date: 2023-04-15 13:43:00 +08:00
+lastmod: 2023-04-15 13:43:00 +08:00
 
 categories:
   - Android

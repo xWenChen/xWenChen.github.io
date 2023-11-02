@@ -4,6 +4,7 @@ description: "本文讲解了 Android MediaPlayer 的功能"
 keywords: "Android,音视频开发,MediaPlayer"
 
 date: 2023-03-31 22:55:00 +08:00
+lastmod: 2023-03-31 22:55:00 +08:00
 
 categories:
   - Android

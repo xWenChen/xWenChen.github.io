@@ -4,6 +4,7 @@ description: "本文略讲了 EGL 的知识"
 keywords: "Android,OpenGL,EGL"
 
 date: 2023-07-01 16:19:00 +08:00
+lastmod: 2023-07-01 16:19:00 +08:00
 
 categories:
   - Android

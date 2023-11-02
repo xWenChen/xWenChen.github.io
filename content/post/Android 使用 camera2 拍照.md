@@ -4,6 +4,7 @@ description: "本文讲解了在 Android 中如何使用 camera2 拍照"
 keywords: "Android,音视频开发,camera2,拍照"
 
 date: 2023-05-14 18:18:00 +08:00
+lastmod: 2023-05-14 18:18:00 +08:00
 
 categories:
   - Android
