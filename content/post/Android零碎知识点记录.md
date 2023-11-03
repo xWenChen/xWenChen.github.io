@@ -1126,3 +1126,51 @@ fun main() {
     总之，startService和bindService在启动方式、生命周期、通信方式和使用场景上都有所不同，根据实际需求选择合适的方式启动Service。
 
 104. View 的 padding 不会影响 background 的填充，margin 会影响 background 的填充。
+
+105. Android SurfaceView、TextureView、GLSurfaceView、GLTextureView 的区别：
+
+    SurfaceView：
+
+        SurfaceView 是一个提供绘制图形的视图，它拥有一个独立的绘图表面，不与主线程共享。
+
+        SurfaceView 的绘制操作在一个单独的线程中进行，因此不会阻塞主线程，适用于需要高性能绘制的场景，如视频播放、游戏等。
+
+        SurfaceView 不支持 View 层级中的动画和透明度变化。
+
+        SurfaceView 的刷新频率不受系统限制，可以实现高帧率的绘制。
+
+    TextureView：
+
+        TextureView 是一个支持硬件加速的视图，它可以将内容绘制到一个硬件纹理中。
+
+        TextureView 可以在主线程中进行绘制，也可以在单独的线程中进行。
+
+        TextureView 支持 View 层级中的动画和透明度变化。
+
+        TextureView 适用于需要与其他 View 共享层级关系的场景，如视频播放、动画等。
+
+    GLSurfaceView：
+
+        GLSurfaceView 是一个基于 OpenGL ES 的 SurfaceView，它提供了一个 OpenGL ES 的渲染环境。
+
+        GLSurfaceView 的绘制操作在一个单独的线程中进行，因此不会阻塞主线程。
+
+        GLSurfaceView 支持 OpenGL ES 的各种特性，如 3D 图形、纹理映射等。
+
+        GLSurfaceView 适用于需要使用 OpenGL ES 进行高性能绘制的场景，如 3D 游戏、图形处理等。
+
+    GLTextureView：
+
+        GLTextureView 是一个结合了 TextureView 和 GLSurfaceView 特点的视图，它提供了一个 OpenGL ES 的渲染环境，并将内容绘制到一个硬件纹理中。
+
+        GLTextureView 可以在主线程中进行绘制，也可以在单独的线程中进行。
+
+        GLTextureView 支持 View 层级中的动画和透明度变化。
+
+        GLTextureView 适用于需要使用 OpenGL ES 进行绘制，并与其他 View 共享层级关系的场景，如 3D 动画、图形处理等。
+
+    总结：
+
+        SurfaceView 和 TextureView 主要用于 2D 图形绘制，其中 SurfaceView 更适用于高性能绘制，而 TextureView 更适用于与其他 View 共享层级关系的场景。
+        
+        GLSurfaceView 和 GLTextureView 主要用于 3D 图形绘制，其中 GLSurfaceView 更适用于高性能绘制，而 GLTextureView 更适用于与其他 View 共享层级关系的场景。
