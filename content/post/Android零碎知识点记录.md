@@ -1077,6 +1077,30 @@ fun main() {
    }
    ```
 
+   Android setnavigationBarColor 没生效的原因可能有：
+
+   1. 低版本 Android 系统不支持：setNavigationBarColor 方法是在 Android 5.0（API 级别 21）引入的。如果你的设备运行的是低于 5.0 的 Android 版本，该方法将不起作用。你可以通过检查当前设备的 API 级别来处理这种情况：
+
+        ```java
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(Color.RED);
+        }
+        ```
+
+   2. 应用主题设置了 android:windowTranslucentNavigation：如果你的应用主题设置了 android:windowTranslucentNavigation 为 true，则 setNavigationBarColor 可能不起作用。你需要将其设置为 false：
+
+       ```xml
+       <item name="android:windowTranslucentNavigation">false</item>
+       ```
+
+   3. 应用主题设置了 android:navigationBarColor：如果你的应用主题已经设置了 android:navigationBarColor，则在运行时调用 setNavigationBarColor 可能不会覆盖主题中的设置。你可以尝试在主题中删除 android:navigationBarColor 设置，或者更改其值。
+   
+   4. 系统 UI 可见性设置：如果你的应用更改了系统 UI 可见性设置，例如设置了沉浸式状态栏或全屏模式，这可能会影响导航栏颜色。你需要确保在设置导航栏颜色时不使用这些模式。
+
+   5. 设备制造商定制的 Android 系统：某些设备制造商可能会对 Android 系统进行定制，导致 setNavigationBarColor 方法不起作用。在这种情况下，你可能无法解决这个问题。
+
+   如果以上方法都无法解决问题，请检查你的代码是否正确调用了 setNavigationBarColor 方法，并确保在设置导航栏颜色之前已经正确初始化了窗口。
+
 102. 在 Android 中，当两个视图或者一个视图的两个背景色叠加在一起时，它们的颜色会根据各自的透明度（alpha 值）进行混合。这个过程称为 alpha 合成（alpha compositing）。
 
     假设有两个颜色，分别是前景色（RGBA1）和背景色（RGBA2），它们的颜色值可以表示为：
