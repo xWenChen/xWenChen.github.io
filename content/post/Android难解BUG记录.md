@@ -341,3 +341,5 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
    ![jvm中方法参数值传递3](/imgs/jvm中方法参数值传递3.png)
 
 62. AppBarLayout 实现吸顶效果时，设置了 app:layout_scrollFlags 的 view 还需要设置 minHeight，否则吸顶效果会不生效
+
+63. 在 Kotlin 中，== 运算符用于比较两个变量的内容是否相等。然而，当比较不同类型的对象时，== 运算符会首先检查它们是否具有相同的类型。如果有个变量 a 的类型是 SpannableStringBuilder，内容是 fc；另外有个变量 b 是 String，内容也是 fc；但是使用 a == b 时，结果为 false。因为变量 a 的类型是 SpannableStringBuilder，而变量 b 的类型是 String。尽管它们的内容相同（都是 "fc"），但由于它们的类型不同，所以 a == b 的结果为 false。
