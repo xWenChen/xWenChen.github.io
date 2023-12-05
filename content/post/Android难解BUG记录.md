@@ -345,3 +345,5 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
 63. 在 Kotlin 中，== 运算符用于比较两个变量的内容是否相等。然而，当比较不同类型的对象时，== 运算符会首先检查它们是否具有相同的类型。如果有个变量 a 的类型是 SpannableStringBuilder，内容是 fc；另外有个变量 b 是 String，内容也是 fc；但是使用 a == b 时，结果为 false。因为变量 a 的类型是 SpannableStringBuilder，而变量 b 的类型是 String。尽管它们的内容相同（都是 "fc"），但由于它们的类型不同，所以 a == b 的结果为 false。
 
 64. 在 AndroidManifest.xml 文件中为 Activity 设置 `android:windowSoftInputMode="adjustResize"`，以及为 Activity 的根布局设置 `android:fitsSystemWindows="true"` 可以使 Activity 在键盘弹出时自动调整布局。但是如果根布局里顶部多出了一片空白，则可能是自定义的顶部标题栏等，占据了状态栏的位置，而内容布局未上移，导致多出来一片空白。即 Activity 的布局包括 title 和 content，title 在 Activity 设置了全屏时，可以占据状态栏的位置，而 content 布局未自动上移。此时可以给 content 布局设置一个负的 top margin，填补空白，如 `android:layout_marginTop="@{-(StatusBarUtil.statusBarHeight)}"`。 
+
+65. emoji 表情的尺寸可以使用以下代码设置大小：`emojiStr.setSpan(AbsoluteSizeSpan(11, true), startPos, emoji.length, SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)`。
