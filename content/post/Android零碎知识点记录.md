@@ -1200,3 +1200,5 @@ fun main() {
         GLSurfaceView 和 GLTextureView 主要用于 3D 图形绘制，其中 GLSurfaceView 更适用于高性能绘制，而 GLTextureView 更适用于与其他 View 共享层级关系的场景。
 
 106. EditText设置弹出键盘时，Activity 根布局需要设置 "android:fitsSystemWindows="true" 属性，并且在 AndroidManifest.xml 中给 Activity 设置 "android:windowSoftInputMode="adjustResize"。
+
+107. java.net.URL 类构造时会进行 dns 解析，如果 url 无效，则会抛异常。可以通过构造 java.net.URL 类的方式判断 url 是否有效。此方案仅对网络链接有效。
