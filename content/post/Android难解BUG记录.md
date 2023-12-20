@@ -347,3 +347,5 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
 64. 在 AndroidManifest.xml 文件中为 Activity 设置 `android:windowSoftInputMode="adjustResize"`，以及为 Activity 的根布局设置 `android:fitsSystemWindows="true"` 可以使 Activity 在键盘弹出时自动调整布局。但是如果根布局里顶部多出了一片空白，则可能是自定义的顶部标题栏等，占据了状态栏的位置，而内容布局未上移，导致多出来一片空白。即 Activity 的布局包括 title 和 content，title 在 Activity 设置了全屏时，可以占据状态栏的位置，而 content 布局未自动上移。此时可以给 content 布局设置一个负的 top margin，填补空白，如 `android:layout_marginTop="@{-(StatusBarUtil.statusBarHeight)}"`。 
 
 65. emoji 表情的尺寸可以使用以下代码设置大小：`emojiStr.setSpan(AbsoluteSizeSpan(11, true), startPos, emoji.length, SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)`。
+
+66. 富文本 span 在最后时，不点击 span，也会触发 span 的点击事件。原因暂未查，源码可以看 MovementMethod 和 SpannableStringInternal.getSpans 相关的代码。
