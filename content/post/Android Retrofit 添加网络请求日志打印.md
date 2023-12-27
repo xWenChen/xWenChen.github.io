@@ -45,9 +45,9 @@ import java.util.concurrent.TimeUnit
 /**
  * 主要打印 url method code body headers 信息
  */
-class HttpLogInterceptorKt : Interceptor {
+class HttpLogInterceptor : Interceptor {
     companion object {
-        const val TAG = "HttpLogInterceptorKt"
+        const val TAG = "HttpLogInterceptor"
     }
     val UTF8 = StandardCharsets.UTF_8
 
