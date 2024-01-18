@@ -176,3 +176,10 @@ file exist = true
 file is an absolute path = true
 file  path = D:\Code\flutter\.android\include_flutter.groovy
 ```
+
+### 获取项目的当前目录
+
+我们可以使用以下代码获取工程代码所在的目录：
+
+```java
+String curDir = System.getProperty("user.dir");
