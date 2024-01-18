@@ -182,4 +182,5 @@ file  path = D:\Code\flutter\.android\include_flutter.groovy
 我们可以使用以下代码获取工程代码所在的目录：
 
 ```java
-String curDir = System.getProperty("user.dir");
+String curDir = System.getProperty("user.dir")
+```
