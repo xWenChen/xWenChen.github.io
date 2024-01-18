@@ -146,3 +146,33 @@ file  path = D:\Code\flutter\.android\include_flutter.groovy
 ```
 
 最终我们就得到了`D:\Code\flutter\.android\include_flutter.groovy`这个正确的路径。
+
+### 使用 Path 类处理相对路径
+
+除了使用 File 处理相对路径和绝对路径的转换，我们还可以使用 Path 的相关类来处理，代码如下：
+
+```Kotlin
+package test
+
+import java.nio.file.Files
+import java.nio.file.Paths
+
+fun main() {
+    val prefix = "..\\flutter"
+    val mPath = "${prefix}/.android/include_flutter.groovy"
+
+    val path = Paths.get(mPath).toAbsolutePath().normalize()
+
+    println("file exist = ${Files.exists(path)}") // 使用 Files.exists(Path) 方法判断 path 是否存在
+    println("file is an absolute path = ${path.isAbsolute}")
+    println("file  path = $path")
+}
+```
+
+打印结果如下：
+
+```
+file exist = true
+file is an absolute path = true
+file  path = D:\Code\flutter\.android\include_flutter.groovy
+```
