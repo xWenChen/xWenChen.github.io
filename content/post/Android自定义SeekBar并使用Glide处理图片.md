@@ -125,7 +125,7 @@ class InnerStrokeTransformation(
 
 可以看出，添加描边主要是两个步骤：绘制原图像、绘制描边。
 
-我们可以使用以下代码为 paint 添加 BitmapShader。Paint 着色器的讲解，可以参考这片文章：[HenCoder Android 开发进阶: 自定义 View 1-2 Paint 详解](https://rengwuxian.com/ui-1-2/)
+要绘制特定形状的原图像(比如带圆角的图像)，我们可以为 paint 添加 BitmapShader。Paint 着色器的讲解，可以参考这片文章：[HenCoder Android 开发进阶: 自定义 View 1-2 Paint 详解](https://rengwuxian.com/ui-1-2/)
 
 ```kotlin
 val paint = Paint().apply {
@@ -389,7 +389,7 @@ private suspend fun loadDrawable(
 
 ![progressDrawable的层级](/imgs/progressDrawable的层级.png)
 
-至于为什么 LayerDrawable 包含的必须是 ClipDrawable。这是因为 SeekBar 在改变进度时，会为其对应的 mProgressDrawable 设置 level。这个 level 是在 Drawable 中定义的。虽然 Drawable 的子类都可以使用，但是在官方提供的实现中，只有 ClipDrawable 会根据 level 取计算一个比例，并按照该比例裁剪 Drawable。比如的计算方式为：(level / 10000)，即 ClipDrawable 的最大 level 为 10000(一万)。只有按比例裁剪 Drawable，SeekBar 才能呈现出进度不断的样式。
+至于为什么 LayerDrawable 包含的必须是 ClipDrawable。这是因为 SeekBar 在改变进度时，会为其对应的 mProgressDrawable 设置 level。这个 level 是在 Drawable 中定义的。虽然 Drawable 的子类都可以使用，但是在官方提供的实现中，只有 ClipDrawable 会根据 level 取计算一个比例，并按照该比例裁剪 Drawable。比例的计算方式为：(level / 10000)，即 ClipDrawable 的最大 level 为 10000(一万)。只有按比例裁剪 Drawable，SeekBar 才能呈现出进度不断的样式。
 
 ```kotlin
 val height = R.dimen.dp_18.dimenRes
