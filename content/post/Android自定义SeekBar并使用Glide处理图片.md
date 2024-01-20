@@ -389,7 +389,7 @@ private suspend fun loadDrawable(
 
 ![progressDrawable的层级](/imgs/progressDrawable的层级.png)
 
-至于为什么 LayerDrawable 包含的必须是 ClipDrawable。这是因为 SeekBar 在改变进度时，会为其对应的 mProgressDrawable 设置 level。这个 level 是在 Drawable 中定义的。虽然 Drawable 的子类都可以使用，但是在官方提供的实现中，只有 ClipDrawable 会根据 level 取计算一个比例，并按照该比例裁剪 Drawable。比例的计算方式为：(level / 10000)，即 ClipDrawable 的最大 level 为 10000(一万)。只有按比例裁剪 Drawable，SeekBar 才能呈现出进度不断的样式。
+至于为什么 LayerDrawable 包含的必须是 ClipDrawable。这是因为 SeekBar 在改变进度时，会为其对应的 mProgressDrawable 设置 level。这个 level 是在 Drawable 中定义的。虽然 Drawable 的子类都可以使用，但是在官方提供的实现中，只有 ClipDrawable 会根据 level 取计算一个比例，并按照该比例裁剪 Drawable。比例的计算方式为：(level / 10000)，即 ClipDrawable 的最大 level 为 10000(一万)。只有按比例裁剪 Drawable，SeekBar 才能呈现出进度不断变化的样式。
 
 ```kotlin
 val height = R.dimen.dp_18.dimenRes
@@ -421,7 +421,7 @@ activity.lifecycleScope.launch(Dispatchers.Main) {
 }
 ```
 
-得到结果后，我们就可以为 SeekBar 设置 progressDrawable 了。下面的代码使用到了 DataBinding。我们将 ViewModel 中定义的 progressDrawable LiveData 传递给 xml。如果为 Binding 设置了 LifecyclerOwner，则当 LiveData 的值改变时，Binding 会自动刷新。下面的代码中 progressWidth、progressDrawable、position 都是 LiveData，一个代表 SeekBar 的宽度，一个代表  SeekBar 的 progressDrawable，一个代表 SeekBar 的当前进度。播放时，我们只要间隔一定时间(比如 20 ms)改变 position，则 SeekBar 的进度就会不断刷新。
+得到结果后，我们就可以为 SeekBar 设置 progressDrawable 了。下面的代码使用到了 DataBinding。我们将 ViewModel 中定义的 progressDrawable LiveData 传递给 xml。如果为 Binding 设置了 LifecyclerOwner，则当 LiveData 的值改变时，Binding 会自动刷新。下面的代码中 progressWidth、progressDrawable、position 都是 LiveData，一个代表 SeekBar 的宽度，一个代表  SeekBar 的 progressDrawable，一个代表 SeekBar 的当前进度。播放时，我们只要间隔一定时间(比如 20 ms)改变 position，SeekBar 的进度就会不断刷新。
 
 ```xml
 <SeekBar
