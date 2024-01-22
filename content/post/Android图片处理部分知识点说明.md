@@ -512,3 +512,13 @@ Android 中，要获取 Bitmap 的大小，可以通过两个方法："byteCount
 - allocationByteCount 是实际分配给 Bitmap 的内存大小。由于存在复用问题，比如一个 5 M 的 Bitmap 复用了 50 M 的 Bitmap，则它的 allocationByteCount 为 50 M。
 
 综上，allocationByteCount 通常大于等于 byteCount。在某些情况下，它们可能相等，但 allocationByteCount 不会小于 byteCount。
+
+## 判断字符串是否是颜色字符串
+
+可以用以下方式判断 Char 是否在 0 - 9、a - f、A - F 的范围内。
+
+```kotlin
+private fun Char.isColorChar(): Boolean {
+    return this in '0'..'9' || this in 'a'..'f' || this in 'A'..'F'
+}
+```
