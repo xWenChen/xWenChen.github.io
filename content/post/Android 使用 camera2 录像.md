@@ -310,5 +310,24 @@ if (eglRenderSurface == EGL14.EGL_NO_SURFACE) {
 }
 ```
 
+10.3 - 检查着色器和着色器程序是否初始化 OK
+
+```kotlin
+if (passthroughShaderProgram == null) {
+    createShaderResources()
+}
+
+private fun createShaderResources() {
+    vertexShader = createShader(GLES20.GL_VERTEX_SHADER, TRANSFORM_VSHADER)
+    passthroughFragmentShader = createShader(GLES20.GL_FRAGMENT_SHADER, PASSTHROUGH_FSHADER)
+    portraitFragmentShader = createShader(GLES20.GL_FRAGMENT_SHADER, PORTRAIT_FSHADER)
+    passthroughShaderProgram = createShaderProgram(passthroughFragmentShader)
+    portraitShaderProgram = createShaderProgram(portraitFragmentShader)
+}
+
+
+
+```
+
 11 - 初始化相机
 
