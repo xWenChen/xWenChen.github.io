@@ -22,6 +22,12 @@ toc: true
 
 <!--More-->
 
+官方文档链接：
+
+- 控制系统界面可见性：https://developer.android.com/training/system-ui?hl=zh-cn
+- 隐藏状态栏：https://developer.android.com/training/system-ui/status?hl=zh-cn
+- 隐藏导航栏：https://developer.android.com/training/system-ui/navigation?hl=zh-cn
+
 ## 概念定义
 
 在 Android 中，ActionBar、StatusBar 和 NavigationBar 是用户界面的三个重要组件，它们的区别如下：
