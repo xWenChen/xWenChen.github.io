@@ -62,36 +62,7 @@ Android 状态栏和导航栏的样式主要可以分为以下几种：
 
 以上就是Android状态栏和导航栏的主要样式，不同的样式可以根据应用的需求和设计来选择。
 
-## 透明样式设置
+根据不用的效果划分，Android 中的状态栏设置可以分为以下几部分，总的文章指引为：https://developer.android.com/develop/ui/views/layout/insets?hl=zh-cn
 
-虽然透明状态栏和导航栏的概念最早出现在 ios，但不否认效果还是很赞的。Android 从 4.4 开始引进透明状态栏和导航栏，并且在 5.0 进行了改进，将透明变成了半透明的效果。所以我们通常只考虑兼容 5.0 及以上版本的手机。至于 5.0 以下的手机，就不要考虑此特性了，好在 5.0 以下的手机份额已经非常小了。
-
-设置透明状态栏的核心代码如下：
-
-```kotlin
-fun transparentStatusBar(activity: Activity?) {
-    activity ?: return
-    transparentStatusBar(activity.getWindow())
-}
-
-fun transparentStatusBar(window: Window?) {
-    window ?: return
-    // Android 4.4
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) return
-    // 小于 Android 5.0
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        return
-    }
-    // 清除半透明的状态栏标识
-    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-    // 添加绘制状态栏背景色的标识
-    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-    
-    int option = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-
-    int vis = window.getDecorView().getSystemUiVisibility()
-    window.getDecorView().setSystemUiVisibility(option | vis)
-    window.setStatusBarColor(Color.TRANSPARENT)
-}
-```
+1. 内容显示在系统栏的下方，系统栏不隐藏：该设置的官方参考文档为：手动设置无边框显示 >>> https://developer.android.com/develop/ui/views/layout/edge-to-edge-manually?hl=zh-cn
+2. 隐藏系统栏：该设置的官方参考文档为：在应用中全屏显示内容 >>> https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=zh-cn
