@@ -65,4 +65,6 @@ Android 状态栏和导航栏的样式主要可以分为以下几种：
 根据不用的效果划分，Android 中的状态栏设置可以分为以下几部分，总的文章指引为：https://developer.android.com/develop/ui/views/layout/insets?hl=zh-cn
 
 1. 内容显示在系统栏的下方，系统栏不隐藏：该设置的官方参考文档为：手动设置无边框显示 >>> https://developer.android.com/develop/ui/views/layout/edge-to-edge-manually?hl=zh-cn
+
 2. 隐藏系统栏：该设置的官方参考文档为：在应用中全屏显示内容 >>> https://developer.android.com/develop/ui/views/layout/edge-to-edge?hl=zh-cn
+
