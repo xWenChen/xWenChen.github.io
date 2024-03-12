@@ -448,3 +448,81 @@ activity.lifecycleScope.launch(Dispatchers.Main) {
 - android:thumbTint 用于设置进度指针的颜色
 - android:splitTrack="false" 用于处理自定义进度样式时可能出现的背景进度显示不全(被裁剪)的问题
 - android:background="@null" 当自定义进度样式时，background 需要被清空
+
+## 图片复用导致加载出错问题处理
+
+上面生成 progressDrawable 的代码会有问题，最终的修复版还是得自己手绘，代码如下：
+
+```
+private fun generateFinalDrawable(backgroundRes: Int,mProgressRes: Int) {
+    if (backgroundRes == 0 || mProgressRes == 0) {
+        return
+    }
+    val height = R.dimen.dp_18.dp2px
+
+    val ratioLevel = 0.273 // 裁剪原图的比例
+
+    val bg = getClipDrawable(backgroundRes, ratioLevel)?.apply {
+        level = 10000
+    } ?: return
+    val pg = getClipDrawable(mProgressRes, ratioLevel) ?: return
+
+    LayerDrawable(arrayOf(bg, pg)).apply {
+        setId(0, android.R.id.background)
+        setId(1, android.R.id.progress)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setLayerHeight(0, height)
+            setLayerHeight(1, height)
+        }
+
+        progressDrawable = this
+    }
+
+    private fun getClipDrawable(srcDrawable: Int, ratioLevel: Float): ClipDrawable? {
+        val res = GlobalApplicationAgent.getApplication().resources
+        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        val srcBmp = BitmapFactory.decodeResource(res, srcDrawable) ?: return null
+
+        val target = Bitmap.createBitmap(
+            (srcBmp.width * ratioLevel).toInt(),
+            srcBmp.height,
+            Bitmap.Config.ARGB_8888
+        )
+
+        val canvas = Canvas(target)
+
+        canvas.drawBitmap(srcBmp, 0f, 0f, paint)
+
+        if (!srcBmp.isRecycled) {
+            srcBmp.recycle()
+        }
+
+        return ClipDrawable(BitmapDrawable(res, target), Gravity.START, ClipDrawable.HORIZONTAL)
+    }
+}
+```
+
+## kotlin 代码实现多状态 Drawable
+
+xml 中的多状态 Drawable 可以这么编写：
+
+```xml
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/img_liked" android:state_selected="true" />
+    <item android:drawable="@drawable/img_unlike" />
+</selector>
+```
+
+其等价的 kotlin 代码实现为：
+
+```kotlin
+private fun realGenerateLikeIcon(unlikeIcon: Drawable, likedIcon: Drawable): Drawable {
+    return StateListDrawable().apply {
+        
+        addState(intArrayOf(android.R.attr.state_selected), likedIcon)
+
+        addState(intArrayOf(), unlikeIcon)
+    }
+}
+```
