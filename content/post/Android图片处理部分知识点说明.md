@@ -502,3 +502,23 @@ ImageView 的 scaleType 可能导致图像圆角消失，包括 centerCrop，fit
 - 一种是将 Bitmap 的剪裁宽高比与 ImageView 的尺寸保持一致，ImageView 的尺寸可以先跑一次功能进行获取。再将 Glide 加载图片的尺寸缩放设置为对应的尺寸比例。
 
 图片 png 转 webp 后，也得看看效果是否正常，尤其是带阴影的 ui 效果(视觉那边叫投影)。我就碰到了 png 转了 75% 的 webp 后，阴影效果丢失的问题。修复办法可尝试转 100% 的 webp，或者保留 png 原图。
+
+## Bitmap 的尺寸计算问题
+
+Android 中，要获取 Bitmap 的大小，可以通过两个方法："byteCount" 和 "allocationByteCount"。前者是得到 Bitmap  的实际占用空间；后者是当 Bitmap 存在复用时，复用的 Bitmap 的占用空间。allocationByteCount 通常是大于等于 byteCount 的。
+
+- byteCount 是 Bitmap 所需的内存大小，它是根据 Bitmap 的宽度、高度和每个像素所需的字节数计算得出的。例如，一个 Bitmap 的宽度为 100 像素、高度为 100 像素、格式为 ARGB_8888，则每个像素需要 4 个字节，所以 byteCount 为 100 * 100 * 4 = 40000 字节。
+
+- allocationByteCount 是实际分配给 Bitmap 的内存大小。由于存在复用问题，比如一个 5 M 的 Bitmap 复用了 50 M 的 Bitmap，则它的 allocationByteCount 为 50 M。
+
+综上，allocationByteCount 通常大于等于 byteCount。在某些情况下，它们可能相等，但 allocationByteCount 不会小于 byteCount。
+
+## 判断字符串是否是颜色字符串
+
+可以用以下方式判断 Char 是否在 0 - 9、a - f、A - F 的范围内。
+
+```kotlin
+private fun Char.isColorChar(): Boolean {
+    return this in '0'..'9' || this in 'a'..'f' || this in 'A'..'F'
+}
+```

@@ -346,4 +346,6 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
 
 64. 在 AndroidManifest.xml 文件中为 Activity 设置 `android:windowSoftInputMode="adjustResize"`，以及为 Activity 的根布局设置 `android:fitsSystemWindows="true"` 可以使 Activity 在键盘弹出时自动调整布局。但是如果根布局里顶部多出了一片空白，则可能是自定义的顶部标题栏等，占据了状态栏的位置，而内容布局未上移，导致多出来一片空白。即 Activity 的布局包括 title 和 content，title 在 Activity 设置了全屏时，可以占据状态栏的位置，而 content 布局未自动上移。此时可以给 content 布局设置一个负的 top margin，填补空白，如 `android:layout_marginTop="@{-(StatusBarUtil.statusBarHeight)}"`。 
 
-65. emoji 表情的尺寸可以使用以下代码设置大小：`emojiStr.setSpan(AbsoluteSizeSpan(11, true), startPos, emoji.length, SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE)`。
+65. 如果相同的 Flutter 代码，在其他人的电脑上可以运行，在自己的电脑上没法运行。则可以清除下 flutter 的缓存： flutter clean 和 flutter pub cache clean
+
+66. 小米小组件里的字体都是 misans 字体(默认字体)，https://hyperos.mi.com/font/zh/download/ 这个网站可以下载。我们没法更改这里的字体。

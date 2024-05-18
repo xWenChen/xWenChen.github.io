@@ -1202,3 +1202,13 @@ fun main() {
 106. EditText设置弹出键盘时，Activity 根布局需要设置 "android:fitsSystemWindows="true" 属性，并且在 AndroidManifest.xml 中给 Activity 设置 "android:windowSoftInputMode="adjustResize"。
 
 107. java.net.URL 类构造时会进行 dns 解析，如果 url 无效，则会抛异常。可以通过构造 java.net.URL 类的方式判断 url 是否有效。此方案仅对网络链接有效。
+
+108. Android 中要设置竖向渐变的，可以使用以下代码。
+
+```kotlin
+// 设置竖向渐变色
+GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(startColor, endColor)).apply {
+    gradientType = GradientDrawable.LINEAR_GRADIENT
+    view.background = this
+}
+```
