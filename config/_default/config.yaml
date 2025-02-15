@@ -18,7 +18,7 @@ baseURL: https://xWenChen.github.io
 title: 个人博客
 # 主题名称
 # Theme name
-theme: hugo-theme-next
+# theme: hugo-theme-next
 # 站点默认的语言和代码
 # Default laguage & code for website
 defaultContentLanguage: zh-cn
