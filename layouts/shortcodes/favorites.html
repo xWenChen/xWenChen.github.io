@@ -1,0 +1,10 @@
+{{ $favorites := where .Site.Pages "Params.favorite" true }}
+{{ $sortedFavorites := sort $favorites "Date" "desc" }}
+
+<ul>
+  {{ range $sortedFavorites }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a> - {{ .Date.Format "2006-01-02" }}
+    </li>
+  {{ end }}
+</ul>
