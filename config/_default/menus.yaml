@@ -21,28 +21,23 @@ main:
     pageref: /
     pre: home
     weight: 1
-  - identifier: favorites
-    name: 收藏
-    pageref: /
-    pre: favorites
-    weight: 2
   - identifier: categories
     name: 分类
     pageref: /categories
     pre: list-ul
-    weight: 3
+    weight: 2
   - identifier: tags
     name: 标签
     pageref: /tags
     pre: tag
-    weight: 4
+    weight: 3
   - identifier: archives
     name: 归档
     pageref: /archives
     pre: archive
-    weight: 5
+    weight: 4
   - identifier: about
     name: 关于
     pageref: /post/about.html
     pre: user
-    weight: 6
+    weight: 5
