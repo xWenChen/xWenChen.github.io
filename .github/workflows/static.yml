@@ -40,7 +40,7 @@ jobs:
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
       - name: 安装 Dart Sass
         run: sudo snap install dart-sass
-      - name: 检查代码
+      - name: 切换代码分支
         uses: actions/checkout@v4
         with:
           submodules: recursive
