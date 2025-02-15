@@ -3,8 +3,7 @@ title: "Android OpenGL 开发---概念与入门"
 description: "本文略讲了 Android OpenGL 开发的概念与入门"
 keywords: "Android,OpenGL"
 
-date: 2020-04-18 17:32:00 +08:00
-lastmod: 2020-04-18 17:32:00 +08:00
+date: 2020-04-18T17:32:00+08:00
 
 categories:
   - Android

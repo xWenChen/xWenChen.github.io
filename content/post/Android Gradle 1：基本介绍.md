@@ -3,8 +3,7 @@ title: "Android Gradle 基本介绍"
 description: "本文主要讲解 Android Gradle 的基本内容"
 keywords: "Android,Gradle"
 
-date: 2020-01-31 14:56:00 +08:00
-lastmod: 2020-01-31 14:56:00 +08:00
+date: 2020-01-31T14:56:00+08:00
 
 categories:
   - Android

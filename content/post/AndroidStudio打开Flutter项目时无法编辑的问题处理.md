@@ -3,8 +3,7 @@ title: "AndroidStudio打开Flutter项目时无法编辑的问题处理"
 description: "本文处理了用 Android Studio 打开 Flutter 项目时, Flutter 的源码无法编辑的问题"
 keywords: "Android,Android Studio,Flutter"
 
-date: 2024-01-08 11:02:00 +08:00
-lastmod: 2024-01-08 11:02:00 +08:00
+date: 2024-01-08T11:02:00+08:00
 
 categories:
   - Flutter

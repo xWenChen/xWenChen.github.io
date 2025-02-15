@@ -3,8 +3,7 @@ title: "使用 Windows 编译 ffmpeg Android so"
 description: "本文讲述了如何使用 Windows 编译 ffmpeg Android so"
 keywords: "Android,ffmpeg,音视频开发"
 
-date: 2021-02-27 16:21:00 +08:00
-lastmod: 2021-02-27 16:21:00 +08:00
+date: 2021-02-27T16:21:00+08:00
 
 categories:
   - Android

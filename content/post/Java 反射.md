@@ -3,8 +3,7 @@ title: "Java 反射"
 description: "本文讲解了 Java 反射的知识"
 keywords: "Java,反射"
 
-date: 2020-02-11 14:07:00 +08:00
-lastmod: 2020-02-11 14:07:00 +08:00
+date: 2020-02-11T14:07:00+08:00
 
 categories:
   - Java

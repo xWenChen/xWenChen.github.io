@@ -3,8 +3,7 @@ title: "Android View 的绘制流程解析"
 description: "本文略讲了 Android View 的绘制流程"
 keywords: "Android,Android View,绘制流程"
 
-date: 2020-09-19 00:17:00 +08:00
-lastmod: 2020-09-19 00:17:00 +08:00
+date: 2020-09-19T00:17:00+08:00
 
 categories:
   - Android

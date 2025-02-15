@@ -3,8 +3,7 @@ title: "Java 枚举"
 description: "本文讲解了 Java 枚举的知识"
 keywords: "Java,枚举"
 
-date: 2020-02-07 15:49:00 +08:00
-lastmod: 2020-02-07 15:49:00 +08:00
+date: 2020-02-07T15:49:00+08:00
 
 categories:
   - Java

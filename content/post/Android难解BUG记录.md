@@ -4,8 +4,7 @@ description: "本文记录了作者在Android日常开发中碰到的已解的�
 keywords: "Android,BUG记录"
 weight: 2
 
-date: 2021-02-21 18:08:00 +08:00
-lastmod: 2021-02-21 18:08:00 +08:00
+date: 2021-02-21T18:08:00+08:00
 
 categories:
   - Android

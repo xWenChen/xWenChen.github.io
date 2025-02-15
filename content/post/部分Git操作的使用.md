@@ -3,8 +3,7 @@ title: "部分 Git 操作的使用"
 description: "本文介绍 Git 的部分使用"
 keywords: "Git,Git Worktree"
 
-date: 2024-04-07 09:30:00 +08:00
-lastmod: 2024-04-07 09:30:00 +08:00
+date: 2024-04-07T09:30:00+08:00
 
 categories:
   - Git

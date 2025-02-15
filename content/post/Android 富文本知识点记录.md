@@ -3,8 +3,7 @@ title: "Android 富文本知识点记录"
 description: "本文主要讲解 Android 系统富文本相关的知识点"
 keywords: "Android,富文本"
 
-date: 2024-01-04 09:35:00 +08:00
-lastmod: 2024-01-04 09:35:00 +08:00
+date: 2024-01-04T09:35:00+08:00
 
 categories:
   - Android

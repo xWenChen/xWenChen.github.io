@@ -3,8 +3,7 @@ title: "Android 组件化"
 description: "本文讲解了如何在 Android 项目中实现组件化"
 keywords: "Android,组件化"
 
-date: 2021-05-17 16:57:00 +08:00
-lastmod: 2021-05-17 16:57:00 +08:00
+date: 2021-05-17T16:57:00+08:00
 
 categories:
   - Android

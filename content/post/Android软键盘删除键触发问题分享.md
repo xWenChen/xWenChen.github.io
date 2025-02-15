@@ -3,8 +3,7 @@ title: "Android 软键盘删除键触发问题分享"
 description: "本文分享了 Android 软键盘删除键触发 BuG 的处理过程"
 keywords: "Android,软键盘,搜狗输入法,百度输入法"
 
-date: 2022-10-21 19:01:00 +08:00
-lastmod: 2022-10-21 19:01:00 +08:00
+date: 2022-10-21T19:01:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "解决Fresco加载GIF时GIF播放闪烁的问题"
 description: "本文讲述了Fresco加载GIF时GIF播放闪烁的问题的处理流程"
 keywords: "Android,Fresco,GIF"
 
-date: 2021-03-22 19:40:00 +08:00
-lastmod: 2021-03-22 19:40:00 +08:00
+date: 2021-03-22T19:40:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "Android Retrofit 添加网络请求日志打印"
 description: "本文讲解了 Android 中如何打印 okhttp 网络请求的信息。"
 keywords: "Android,Retrofit,OkHttp"
 
-date: 2023-12-26 19:53:00 +08:00
-lastmod: 2023-12-26 19:53:00 +08:00
+date: 2023-12-26T19:53:00+08:00
 
 categories:
   - Android

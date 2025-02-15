@@ -3,8 +3,7 @@ title: "Java 多线程编程"
 description: "本文略讲了 Java 的多线程编程"
 keywords: "Java,多线程编程"
 
-date: 2020-04-01 21:17:00 +08:00
-lastmod: 2020-04-01 21:17:00 +08:00
+date: 2020-04-01T21:17:00+08:00
 
 categories:
   - Java

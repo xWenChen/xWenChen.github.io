@@ -3,8 +3,7 @@ title: "注解处理器 1：javax.lang.model 包讲解"
 description: "本文讲解了 java 中的语言模型"
 keywords: "Java,注解处理器,语言模型,javax.lang.model包"
 
-date: 2023-03-05 18:31:00 +08:00
-lastmod: 2023-03-05 18:31:00 +08:00
+date: 2023-03-05T18:31:00+08:00
 
 categories:
   - Java

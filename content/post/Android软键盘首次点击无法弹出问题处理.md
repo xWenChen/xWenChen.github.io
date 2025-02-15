@@ -3,8 +3,7 @@ title: "Android 软键盘首次点击无法弹出问题处理"
 description: "本文介绍 Android 软键盘首次点击无法弹出的问题的处理"
 keywords: "Android,软键盘,搜狗输入法,百度输入法"
 
-date: 2024-01-29 18:33:00 +08:00
-lastmod: 2024-01-29 18:33:00 +08:00
+date: 2024-01-29T18:33:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "生成 git worktree 的 linxu 脚本"
 description: "本文是用于生成 git worktree 的 linxu 脚本"
 keywords: "linux 脚本,git worktree"
 
-date: 2023-10-17 14:20:00 +08:00
-lastmod: 2023-10-17 14:20:00 +08:00
+date: 2023-10-17T14:20:00+08:00
 
 categories:
   - 脚本

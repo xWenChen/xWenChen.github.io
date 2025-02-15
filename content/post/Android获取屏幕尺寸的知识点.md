@@ -3,8 +3,7 @@ title: "Android获取屏幕尺寸的知识点"
 description: "本文讲解了 Android 获取屏幕尺寸的知识点"
 keywords: "Android,屏幕尺寸"
 
-date: 2024-02-05 15:37:00 +08:00
-lastmod: 2024-02-05 15:37:00 +08:00
+date: 2024-02-05T15:37:00+08:00
 
 categories:
   - Android

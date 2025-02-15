@@ -3,8 +3,7 @@ title: "Android自定义View的知识点讲解"
 description: "本文主要讲解在 Android 中碰到的各种效果的实现"
 keywords: "Android,自定义View"
 
-date: 2023-11-22 12:53:00 +08:00
-lastmod: 2023-11-22 12:53:00 +08:00
+date: 2023-11-22T12:53:00+08:00
 
 categories:
   - Android

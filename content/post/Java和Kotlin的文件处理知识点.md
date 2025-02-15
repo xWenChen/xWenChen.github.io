@@ -3,8 +3,7 @@ title: "Java和Kotlin的文件处理知识点"
 description: "本文讲解了 Java 和 Kotlin 文件处理的相关知识点"
 keywords: "Android,Java,Kotlin,文件处理"
 
-date: 2024-01-18 18:45:00 +08:00
-lastmod: 2024-01-18 18:45:00 +08:00
+date: 2024-01-18T18:45:00+08:00
 
 categories:
   - Java

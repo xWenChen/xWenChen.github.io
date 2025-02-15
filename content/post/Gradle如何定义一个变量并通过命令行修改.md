@@ -3,8 +3,7 @@ title: "Gradle如何定义一个变量并通过命令行修改"
 description: "本文讲解了如何在 Gradle 中定义一个变量，并通过命令行修改该变量"
 keywords: "Android,Gradle,命令行,参数设置,manifest占位符"
 
-date: 2023-11-02 10:37:00 +08:00
-lastmod: 2023-11-02 10:37:00 +08:00
+date: 2023-11-02T10:37:00+08:00
 
 categories:
   - Android

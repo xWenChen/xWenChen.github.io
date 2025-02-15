@@ -3,8 +3,7 @@ title: "Android 特定页面实现进入退出动画"
 description: "本文讲解了如何在 Android 的特定页面中实现特定的页面进入和退出转场动画"
 keywords: "Android,动画,转场动画"
 
-date: 2023-12-04 00:10:31 +08:00
-lastmod: 2023-12-04 00:10:31 +08:00
+date: 2023-12-04T00:10:31+08:00
 
 categories:
   - Android

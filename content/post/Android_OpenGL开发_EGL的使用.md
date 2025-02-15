@@ -3,8 +3,7 @@ title: "Android OpenGL 开发---EGL 的使用"
 description: "本文略讲了 Android OpenGL 开发中 EGL 的使用"
 keywords: "Android,OpenGL,EGL"
 
-date: 2020-07-24 23:16:00 +08:00
-lastmod: 2020-07-24 23:16:00 +08:00
+date: 2020-07-24T23:16:00+08:00
 
 categories:
   - Android

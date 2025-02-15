@@ -3,8 +3,7 @@ title: "Android 生产者-消费者模型实现数据同步"
 description: "本文讲解了如何在 Android 中实现生产者-消费者之间的数据同步"
 keywords: "Android,多线程编程,多线程同步,ByteBuffer,生产者-消费者模型"
 
-date: 2021-05-18 17:58:00 +08:00
-lastmod: 2021-05-18 17:58:00 +08:00
+date: 2021-05-18T17:58:00+08:00
 
 categories:
   - Android

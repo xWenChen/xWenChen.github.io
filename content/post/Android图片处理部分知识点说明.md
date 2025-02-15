@@ -3,8 +3,7 @@ title: "Android 图片处理部分知识点说明"
 description: "本文讲解了在 Android 开发中遇到的一些加载图片的注意点"
 keywords: "Android,图片加载"
 
-date: 2023-03-15 17:51:00 +08:00
-lastmod: 2023-03-15 17:51:00 +08:00
+date: 2023-03-15T17:51:00+08:00
 
 categories:
   - Android

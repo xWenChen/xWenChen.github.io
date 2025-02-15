@@ -3,8 +3,7 @@ title: "Kotlin 协程异常处理"
 description: "本文讲解了 Kotlin 中协程的异常处理的知识点"
 keywords: "Kotlin,协程,异常处理"
 
-date: 2023-12-07 09:42:00 +08:00
-lastmod: 2023-12-07 09:42:00 +08:00
+date: 2023-12-07T09:42:00+08:00
 
 categories:
   - Kotlin

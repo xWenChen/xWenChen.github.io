@@ -3,8 +3,7 @@ title: "Android状态栏和导航栏设置"
 description: "本文主要讲解在 Android 中如何更改状态栏和导航栏的样式"
 keywords: "Android,状态栏,导航栏"
 
-date: 2023-12-28 11:25:00 +08:00
-lastmod: 2023-12-28 11:25:00 +08:00
+date: 2023-12-28T11:25:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "protobuf 通过 Android Bundle 传输"
 description: "本文讲解了如何在 Android 中使用 Bundle 传输 protobuf 数据"
 keywords: "Android,protobuf,Bundle"
 
-date: 2023-11-07 16:23:00 +08:00
-lastmod: 2023-11-07 16:23:00 +08:00
+date: 2023-11-07T16:23:00+08:00
 
 categories:
   - Android

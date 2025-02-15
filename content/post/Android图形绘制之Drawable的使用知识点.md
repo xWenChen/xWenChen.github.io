@@ -3,8 +3,7 @@ title: "Android图形绘制之Drawable的使用知识点"
 description: "本文讲解了在 Android 中使用 Drawable 时，需要注意的一些知识点"
 keywords: "Android,图片加载,SeekBar,Glide"
 
-date: 2024-03-19 09:34:00 +08:00
-lastmod: 2024-03-19 09:34:00 +08:00
+date: 2024-03-19T09:34:00+08:00
 
 categories:
   - Android

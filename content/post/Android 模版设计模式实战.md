@@ -3,8 +3,7 @@ title: "Android 模版设计模式实战"
 description: "本文讲解了在 Android 使用模版设计模式优化代码逻辑"
 keywords: "Android,模版设计模式"
 
-date: 2020-03-28 18:57:00 +08:00
-lastmod: 2020-03-28 18:57:00 +08:00
+date: 2020-03-28T18:57:00+08:00
 
 categories:
   - Android

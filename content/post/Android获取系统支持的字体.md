@@ -3,8 +3,7 @@ title: "Android获取系统支持的字体"
 description: "本文记录了在 Android 中如何获取系统支持的字体"
 keywords: "Android,字体获取"
 
-date: 2023-11-15 17:40:00 +08:00
-lastmod: 2023-11-15 17:40:00 +08:00
+date: 2023-11-15T17:40:00+08:00
 
 categories:
   - Android

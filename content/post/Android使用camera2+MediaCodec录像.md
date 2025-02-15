@@ -3,8 +3,7 @@ title: "Android使用camera2+MediaCodec录像"
 description: "本文讲解了在 Android 中如何使用 camera2 和 MediaCodec 录像，并保存为 mp4 文件。"
 keywords: "Android,音视频开发,camera2,MediaCodec,录像"
 
-date: 2024-12-28 13:17:00 +08:00
-lastmod: 2024-12-28 13:17:00 +08:00
+date: 2024-12-28T13:17:00+08:00
 
 categories:
   - Android

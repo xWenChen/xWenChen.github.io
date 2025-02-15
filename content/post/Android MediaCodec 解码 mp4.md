@@ -3,8 +3,7 @@ title: "Android MediaCodec 解码 mp4"
 description: "本文讲解了使用 Android MediaCodec 解码 mp4"
 keywords: "Android,音视频开发,MediaCodec,mp4"
 
-date: 2023-04-15 18:57:00 +08:00
-lastmod: 2023-04-15 18:57:00 +08:00
+date: 2023-04-15T18:57:00+08:00
 
 categories:
   - Android

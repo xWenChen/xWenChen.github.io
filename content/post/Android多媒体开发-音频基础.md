@@ -3,8 +3,7 @@ title: "Android多媒体开发-音频基础"
 description: "本文略讲了Android多媒体开发中音频的基础知识"
 keywords: "Android,音视频开发,音频"
 
-date: 2020-10-25 20:43:00 +08:00
-lastmod: 2020-10-25 20:43:00 +08:00
+date: 2020-10-25T20:43:00+08:00
 
 categories:
   - Android

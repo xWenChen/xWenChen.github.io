@@ -3,8 +3,7 @@ title: "Activity生命周期"
 description: "本文略讲了 Android Activity 的生命周期"
 keywords: "Android,生命周期"
 
-date: 2020-01-08 21:08:00 +08:00
-lastmod: 2020-01-08 21:08:00 +08:00
+date: 2020-01-08T21:08:00+08:00
 
 categories:
   - Android

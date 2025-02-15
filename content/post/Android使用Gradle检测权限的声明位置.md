@@ -3,8 +3,7 @@ title: "Android使用Gradle检测权限的声明位置"
 description: "本文主要讲解在 Android 中如何使用 Gradle 检测出某个权限是在哪个清单文件中声明的"
 keywords: "Android,Gradle,应用合规"
 
-date: 2023-12-28 15:51:00 +08:00
-lastmod: 2023-12-28 15:51:00 +08:00
+date: 2023-12-28T15:51:00+08:00
 
 categories:
   - Android

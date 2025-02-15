@@ -3,8 +3,7 @@ title: "Android自定义SeekBar并使用Glide处理图片"
 description: "本文讲解了在 Android 中如何使用 Glide 处理图片，并将结果作为 SeekBar 的样式"
 keywords: "Android,图片加载,SeekBar,Glide"
 
-date: 2024-01-20 14:25:00 +08:00
-lastmod: 2024-01-20 14:25:00 +08:00
+date: 2024-01-20T14:25:00+08:00
 
 categories:
   - Android

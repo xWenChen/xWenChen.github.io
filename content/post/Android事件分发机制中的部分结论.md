@@ -3,8 +3,7 @@ title: "Android事件分发机制中的部分结论"
 description: "本文略讲了Android事件分发机制中的部分结论"
 keywords: "Android,事件分发机制"
 
-date: 2021-05-12 16:39:00 +08:00
-lastmod: 2021-05-12 16:39:00 +08:00
+date: 2021-05-12T16:39:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "Android Gradle 2：配置构建变体"
 description: "本文主要讲解 Android Gradle 的进阶内容"
 keywords: "Android,Gradle"
 
-date: 2020-02-03 18:38:00 +08:00
-lastmod: 2020-02-03 18:38:00 +08:00
+date: 2020-02-03T18:38:00+08:00
 
 categories:
   - Android

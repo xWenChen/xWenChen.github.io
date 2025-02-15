@@ -3,8 +3,7 @@ title: "Markdown 语法"
 description: "本文讲解了 Markdown 语法的知识"
 keywords: "Markdown,语法"
 
-date: 2019-06-23 17:24:14 +08:00
-lastmod: 2019-06-23 17:24:14 +08:00
+date: 2019-06-23T17:24:14+08:00
 
 categories:
   - 语法

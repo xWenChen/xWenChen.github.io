@@ -3,8 +3,7 @@ title: "注解处理器 3：实战 Android Router 插件实现"
 description: "本文讲解了如何使用 java 注解处理器在 Android 中实现 Router 路由插件"
 keywords: "Android,Java,注解处理器,Gradle Plugin,路由框架"
 
-date: 2023-03-13 18:23:00 +08:00
-lastmod: 2023-03-13 18:23:00 +08:00
+date: 2023-03-13T18:23:00+08:00
 
 categories:
   - Android

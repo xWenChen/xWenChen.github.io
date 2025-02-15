@@ -3,8 +3,7 @@ title: "Android双进程保活的具体实现"
 description: "本文讲解 Android 中双进程保活的具体实现"
 keywords: "Android,进程保活,双进程保活"
 
-date: 2021-11-03 10:00:00 +08:00
-lastmod: 2021-11-03 10:00:00 +08:00
+date: 2021-11-03T10:00:00+08:00
 
 categories:
   - Android

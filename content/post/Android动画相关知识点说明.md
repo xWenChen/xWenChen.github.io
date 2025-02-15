@@ -3,8 +3,7 @@ title: "Android动画相关知识点说明"
 description: "本文主要说明在Android中与动画相关的一些知识点"
 keywords: "Android,动画"
 
-date: 2024-04-03 14:56:00 +08:00
-lastmod: 2024-04-03 14:56:00 +08:00
+date: 2024-04-03T14:56:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "TextView 显示富文本&部分点击生效"
 description: "本文主要 TextView 显示富文本&部分点击生效"
 keywords: "Android,富文本"
 
-date: 2021-03-22 19:47:00 +08:00
-lastmod: 2021-03-22 19:47:00 +08:00
+date: 2021-03-22T19:47:00+08:00
 
 categories:
   - Android

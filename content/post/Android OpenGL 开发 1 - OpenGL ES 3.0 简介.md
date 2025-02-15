@@ -3,8 +3,7 @@ title: "Android OpenGL 开发 1 - OpenGL ES 3.0 简介"
 description: "本文略讲了 Android OpenGL ES 3.0 的知识"
 keywords: "Android,OpenGL ES"
 
-date: 2023-06-09 00:15:00 +08:00
-lastmod: 2023-06-09 00:15:00 +08:00
+date: 2023-06-09T00:15:00+08:00
 
 categories:
   - Android

@@ -3,8 +3,7 @@ title: "分治法-Strassen矩阵乘法"
 description: "本文讲解分治法算法中的Strassen矩阵乘法算法"
 keywords: "算法,动态规划算法,Strassen矩阵乘法"
 
-date: 2018-08-15 11:57:29 +08:00
-lastmod: 2018-08-15 11:57:29 +08:00
+date: 2018-08-15T11:57:29+08:00
 
 categories:
   - 算法

@@ -4,8 +4,7 @@ description: "本文记录了Android的进阶知识点补充"
 keywords: "Android,知识点"
 weight: 3
 
-date: 2021-06-21 21:25:00 +08:00
-lastmod: 2021-06-21 21:25:00 +08:00
+date: 2021-06-21T21:25:00+08:00
 
 categories:
   - Android

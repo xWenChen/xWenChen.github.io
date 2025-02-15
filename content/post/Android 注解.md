@@ -3,8 +3,7 @@ title: "Android 注解"
 description: "本文讲解了 Android 中的注解知识"
 keywords: "Android,注解"
 
-date: 2020-01-27 21:18:00 +08:00
-lastmod: 2020-01-27 21:18:00 +08:00
+date: 2020-01-27T21:18:00+08:00
 
 categories:
   - Android

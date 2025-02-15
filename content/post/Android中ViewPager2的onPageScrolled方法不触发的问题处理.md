@@ -3,8 +3,7 @@ title: "Android中ViewPager2的onPageScrolled方法不触发的问题处理"
 description: "本文记录了处理 Android 中 ViewPager2 的 onPageScrolled 方法不触发的问题"
 keywords: "Android,ViewPager2"
 
-date: 2024-01-17 16:09:00 +08:00
-lastmod: 2024-01-17 16:09:00 +08:00
+date: 2024-01-17T16:09:00+08:00
 
 categories:
   - Android

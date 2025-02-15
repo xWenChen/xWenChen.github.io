@@ -3,8 +3,7 @@ title: "Android 使用 camera2 录像"
 description: "本文讲解了在 Android 中如何使用 camera2 录像"
 keywords: "Android,音视频开发,camera2,录像"
 
-date: 2024-01-06 17:11:00 +08:00
-lastmod: 2024-01-06 17:11:00 +08:00
+date: 2024-01-06T17:11:00+08:00
 
 categories:
   - Android

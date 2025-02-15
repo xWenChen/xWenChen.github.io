@@ -2,8 +2,7 @@
 title: "关于我"
 description: "我的简短介绍。"
 
-date: 2018-08-13 09:20:00 +08:00
-lastmod: 2018-08-13 09:20:00 +08:00
+date: 2018-08-13T09:20:00+08:00
 
 share: false
 followme: false

@@ -3,8 +3,7 @@ title: "Android ViewGroup 与 EditText 点击事件冲突解决"
 description: "本文主要讲解了 ViewGroup 中包含 EditText 时，碰到的两个点击事件的问题"
 keywords: "Android,事件分发机制,事件冲突处理"
 
-date: 2023-11-21 19:06:00 +08:00
-lastmod: 2023-11-21 19:06:00 +08:00
+date: 2023-11-21T19:06:00+08:00
 
 categories:
   - Android

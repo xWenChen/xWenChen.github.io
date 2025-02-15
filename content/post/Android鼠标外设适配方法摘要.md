@@ -3,8 +3,7 @@ title: "Android 鼠标外设适配方法摘要"
 description: "本文讲解了如何为 Android 适配鼠标外设"
 keywords: "Android,硬件适配,鼠标适配"
 
-date: 2021-05-18 11:54:00 +08:00
-lastmod: 2021-05-18 11:54:00 +08:00
+date: 2021-05-18T11:54:00+08:00
 
 categories:
   - Android

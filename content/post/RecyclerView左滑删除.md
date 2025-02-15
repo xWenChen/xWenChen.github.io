@@ -3,8 +3,7 @@ title: "RecyclerView左滑删除"
 description: "本文略讲了RecyclerView如何实现左滑删除"
 keywords: "Android,富文本"
 
-date: 2021-05-12 16:13:00 +08:00
-lastmod: 2021-05-12 16:13:00 +08:00
+date: 2021-05-12T16:13:00+08:00
 
 categories:
   - Android

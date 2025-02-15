@@ -3,8 +3,7 @@ title: "注解处理器 2：java 注解处理器"
 description: "本文讲解了 java 注解处理器的知识"
 keywords: "Java,注解处理器"
 
-date: 2023-03-12 15:35:00 +08:00
-lastmod: 2023-03-12 15:35:00 +08:00
+date: 2023-03-12T15:35:00+08:00
 
 categories:
   - Java

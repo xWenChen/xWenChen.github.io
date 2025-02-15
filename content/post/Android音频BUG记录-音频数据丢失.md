@@ -3,8 +3,7 @@ title: "Android音频BUG记录-音频数据丢失"
 description: "本文略讲了Android多媒体开发中音频数据丢失的BUG处理"
 keywords: "Android,音视频开发,音频"
 
-date: 2021-01-11 21:17:00 +08:00
-lastmod: 2021-01-11 21:17:00 +08:00
+date: 2021-01-11T21:17:00+08:00
 
 categories:
   - Android

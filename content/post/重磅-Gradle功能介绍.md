@@ -3,8 +3,7 @@ title: "重磅 - Gradle 功能介绍"
 description: "本文介绍了 Android Gradle 的进阶知识"
 keywords: "Android,Gradle"
 
-date: 2023-01-28 22:51:00 +08:00
-lastmod: 2023-01-28 22:51:00 +08:00
+date: 2023-01-28T22:51:00+08:00
 
 categories:
   - Android

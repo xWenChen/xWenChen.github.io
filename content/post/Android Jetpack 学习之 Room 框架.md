@@ -3,8 +3,7 @@ title: "Android Jetpack 学习之 Room 框架"
 description: "本文略讲了 Android Jetpack 的 Room 框架"
 keywords: "Android,Jetpack,Room"
 
-date: 2020-04-04 15:33:00 +08:00
-lastmod: 2020-04-04 15:33:00 +08:00
+date: 2020-04-04T15:33:00+08:00
 
 categories:
   - Android
