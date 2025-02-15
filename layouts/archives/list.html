@@ -1,5 +1,4 @@
-{{ $paginator := (.Paginate (where .Page.Site.RegularPages "Section" "in" .Site.Params.mainSections)).Pages.GroupByDate "2006" }}
+{{ $filteredPages := where .Page.Site.RegularPages "Section" "in" .Site.Params.mainSections }}
+{{ $sortedPages := sort $filteredPages "Date" "desc" }}
+{{ $paginator := (.Paginate $sortedPages).Pages.GroupByDate "2006" }}
 {{ partial "list.html" $paginator }}
-{{ range .Pages.ByDate.Reverse }}
-
-{{ end }}
