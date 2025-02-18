@@ -521,3 +521,21 @@ private fun Char.isColorChar(): Boolean {
     return this in '0'..'9' || this in 'a'..'f' || this in 'A'..'F'
 }
 ```
+
+## uri参数添加
+
+如果图片的链接中存在着只有key，没有value的参数，形如"https://www.aaa.com?thiskey/bbb/ccc"，其中thiskey/bbb/ccc参数需要我们自己拼到"https://www.aaa.com"中，则可以在uri.appendQueryParameter时，value给到null，形如以下代码实现。此时就可以生成形如"https://www.aaa.com?thiskey/bbb/ccc"格式的链接。
+
+```kotlin
+// 对图片拼接参数
+private fun scaledHeroImg(url: String?): String {
+    if (url.isNullOrBlank()) {
+        return ""
+    }
+
+    return Uri.parse(url).buildUpon()
+        .appendQueryParameter("thiskey/bbb/ccc", null)
+        .build().toString()
+}
+```
+
