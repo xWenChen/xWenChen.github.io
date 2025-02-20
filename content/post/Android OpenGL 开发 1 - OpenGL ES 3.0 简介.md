@@ -65,7 +65,7 @@ OpenGL ES(OpenGL for Embedded Systems)是以手持和嵌入式设备为目标的
 
 OpenGL ES 是 khronos 组织创立的 API 套装之一。khronos 组织创立于 2000 年 1 月，是由成员提供资金的行业联盟。khronos 组织的部分成员如下：
 
-![khronos组织部分成员](/imgs/khronos组织部分成员.png)
+![khronos组织部分成员](/imgs/khronos组织部分成员.webp)
 
 khronos 组织专注于创建开放和无税版 API。khronos 组织还管理着 OpenGL，这是一个使用在 Linux、UNIX 家族、Mac OS X 和 Microsoft Windows 等桌面系统上的跨平台标准 3D API，是一个在现实中大量使用和广为接受的标准 3D API。
 
@@ -99,7 +99,7 @@ OpenGL ES 1.x、OpenGL ES 2.x、OpenGL ES 3.x 的规范都可以在 khronos.org/
 
 OpenGL ES 3.0 实现了具备可编程着色功能的图形管线，由两个规范组成：OpenGL ES 3.0 API 和 OpenGL ES 着色器语言 3.0 规范(OpenGL ES SL)。下图展示了 OpenGL ES 3.0 图形管线。
 
-![OpenGL_ES_3_0图形管线](/imgs/OpenGL_ES_3_0图形管线.png)
+![OpenGL_ES_3_0图形管线](/imgs/OpenGL_ES_3_0图形管线.webp)
 
 上图描述了 OpenGL ES 3.0 的整体架构、提供的 API 及其定义的图像处理流程。
 
@@ -109,7 +109,7 @@ OpenGL ES 3.0 实现了具备可编程着色功能的图形管线，由两个规
 
 OpenGL ES 3.0 定义的图像处理流程为：
 
-![OpenGL_ES_3_0图像处理流程](/imgs/OpenGL_ES_3_0图像处理流程.png)
+![OpenGL_ES_3_0图像处理流程](/imgs/OpenGL_ES_3_0图像处理流程.webp)
 
 图中带有绿色的部分为 OpenGL ES 3.0 中管线的可编程阶段。
 
@@ -131,7 +131,7 @@ OpenGL ES 3.0 定义的图像处理流程为：
 
 光栅化的英文名是 Rasterization。在光栅化阶段中，OpenGL ES 会绘制对应的图元(点、直线或者三角形)。光栅化是将图元转换为一组二维片段的过程，每个片段由屏幕空间中的整数位置(x,y)标识。然后，这些片段由片段着色器处理。这些二维片段代表着可在屏幕上绘制的像素。
 
-![光栅化](/imgs/光栅化.png)
+![光栅化](/imgs/光栅化.webp)
 
 #### 片段着色器
 
@@ -141,7 +141,7 @@ OpenGL ES 3.0 定义的图像处理流程为：
 
 简单的讲，片段着色器为片段上的操作实现了通用的可编程方法，对光栅化阶段生成的每个片段执行这个着色器，如图所示，它使用一组输入，并产生一组输出。
 
-![片段着色器](/imgs/片段着色器.png)
+![片段着色器](/imgs/片段着色器.webp)
 
 片段着色器采用如下输入：
 
@@ -156,7 +156,7 @@ OpenGL ES 3.0 定义的图像处理流程为：
 
 在片段着色器之后，管线的下一个阶段是逐片段操作。光栅化阶段生成的屏幕坐标为(x,y)的片段只能修改帧缓冲区中位置为(x,y)的像素。逐片段操作的英文名是 Per-Fragment Operations。在逐片段操作阶段，管线会在每个片段上执行如下功能和测试：
 
-![逐片段操作](/imgs/逐片段操作.png)
+![逐片段操作](/imgs/逐片段操作.webp)
 
 - 像素归属测试：像素归属测试英文名为：Pixel ownership test，这个测试用于确定帧缓冲区位置为(x,y)的像素当前是不是归 OpenGL ES 所有。这个测试使窗口系统能够确定和控制帧缓冲区中的哪些像素属于当前 OpenGL ES 上下文。例如，如果一个用于展示 OpenGL ES 帧缓冲区窗口的窗口被另一个窗口遮蔽，则窗口系统可以确定被遮蔽的像素不属于 OpenGL ES 上下文，从而完全不展示这些像素。注意虽然像素归属测试是 OpenGL ES 的一部分，但是它不由开发人员控制，而是在 OpenGL ES 内部进行。
 - 裁剪测试：裁剪测试英文名为：Scissor test。裁剪测试用于确定(x,y)是否位于裁剪矩形范围内，裁剪矩形范围是 OpenGL ES 状态的一部分。如果片段在裁剪区域之外，则片段被丢弃。
@@ -184,7 +184,7 @@ OpenGL ES 是图形 API，OpenGL ES 的函数不管在哪个语言中，都是�
 
 图像处理过程 API 主要是上述总体图中的红色部分。
 
-![图像处理过程API](/imgs/图像处理过程API.png)
+![图像处理过程API](/imgs/图像处理过程API.webp)
 
 在 OpenGL ES 3.0 的可编程管线中，我们能感知和更改的只有三个阶段：顶点着色器、变换反馈和片段着色器阶段。变换反馈(Transform Feedback)是 OpenGL ES 3.0 中一个非常实用的功能，它是顶点着色器阶段之后，图元装配和光栅化之前的一个阶段，我们可以在变换反馈阶段拿到顶点着色器阶段生成的顶点信息，并做一些我们想要实现的操作。
 
@@ -204,7 +204,7 @@ OpenGL ES 3.0 提供了三种方式以方便我们向 GPU 传递数据：
 
 ESSL 定义的内容规范大致如下：
 
-![ESSL定义的内容](/imgs/ESSL定义的内容.png)
+![ESSL定义的内容](/imgs/ESSL定义的内容.webp)
 
 在编写任何 OpenGL ES 3.0 的代码前，我们必须知道所要包含的头文件以及应用程序需要链接的库文件。理解 EGL 使用的语法以及 GL 命令名、命令参数也很有帮助。EGL 命令上面讲解过了，此处就不再赘述了。
 
@@ -256,11 +256,11 @@ khronos.org/registry/gles/ 网站获得。
 
 在讲解了 EGL 和 OpenGL ES 的知识后，我们来汇总下整体结构。
 
-![OpenGL_ES_整体结构](/imgs/OpenGL_ES_整体结构.png)
+![OpenGL_ES_整体结构](/imgs/OpenGL_ES_整体结构.webp)
 
 以下面的图片为例，我们讲解下标准示例的整体流程。
 
-![标准示例的整体流程](/imgs/标准示例的整体流程.png)
+![标准示例的整体流程](/imgs/标准示例的整体流程.webp)
 
 首先，我们通过 EGL 获取手机屏幕，进而获取到手机屏幕对应的这个画布，同时根据手机的配置信息，在手机的 GPU 中生成另外一个画布和一个本子，本子用于记录这个画布初始颜色等信息。
 
@@ -369,7 +369,7 @@ OpenGL ES 3.0 向后兼容 OpenGL ES 2.0。这意味着，任何使用 OpenGL ES
 
 虽然 OpenGL ES 3.0 向后兼容 OpenGL ES 2.0，但是 OpenGL ES 2.0 向后兼容 OpenGL ES 1.x。OpenGL ES 2.0/3.0 不支持 OpenGL ES 1.x 的固定功能管线。OpenGL ES 2.0/3.0 中可编程顶点着色器替代了 OpenGL ES 1.x 中实现的固定功能顶点单元。固定功能顶点单元实现了一个特殊的顶点转换和照明方程式，可以用它们变换顶点位置、变换或者生成纹理坐标、计算顶点颜色。类似地，OpenGL ES 2.0/3.0 中可编程片段着色器替代了 OpenGL ES 1.x 中实现的固定功能纹理组合单元。固定功能纹理组合单元实现了每个纹理单元的纹理组合阶段。纹理颜色使用一组输出组合，该输出组合是扩散颜色与前一个纹理组合阶段的输出组合，前一个纹理组合阶段是一组固定操作(如加、减、求模和点乘)。
 
-![OpenGL_ES向后兼容性](/imgs/OpenGL_ES向后兼容性.png)
+![OpenGL_ES向后兼容性](/imgs/OpenGL_ES向后兼容性.webp)
 
 基于如下理由，OpenGL ES 工作组决定不提供 OpenGL ES 2.0/3.0 和 OpenGL ES 1.x 之间的向后兼容性：
 
