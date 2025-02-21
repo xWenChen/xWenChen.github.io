@@ -33,23 +33,23 @@ toc: true
 
 java 的语言模型，在 jdk 中主要定义在 javax.lang.model 包及其子包中。如图：
 
-![javax_lang_model包及其子包](/imgs/javax_lang_model包及其子包.png)
+![javax_lang_model包及其子包](/imgs/javax_lang_model包及其子包.webp)
 
 - SourceVersion 是一个枚举类，用于表示当前 JDK 的版本
 
 - AnnotatedConstruct 表示可以被注解的结构，这个结构可以是 element 或者 type。其相关类图如下：
 
-   ![AnnotatedConstruct表示可以被注解的结构](/imgs/AnnotatedConstruct表示可以被注解的结构.png)
+   ![AnnotatedConstruct表示可以被注解的结构](/imgs/AnnotatedConstruct表示可以被注解的结构.webp)
    
 - UnknownEntityException 是一个异常类，建模时如果读取到未知的实体，则会抛出该异常，其相关类图如下：
 
-   ![UnknownEntityException是一个异常类](/imgs/UnknownEntityException是一个异常类.png)
+   ![UnknownEntityException是一个异常类](/imgs/UnknownEntityException是一个异常类.webp)
 
 ## SourceVersion
 
 SourceVersion 是一个枚举类，用于表示当前 JDK 的版本。其定义十分简单，如图：
 
-![SourceVersion是一个枚举类](/imgs/SourceVersion是一个枚举类.png)
+![SourceVersion是一个枚举类](/imgs/SourceVersion是一个枚举类.webp)
 
 除了版本枚举值外，我们常用到的是 `latest()` 和 `latestSupported()` 两个方法。
 
@@ -102,13 +102,13 @@ public interface AnnotatedConstruct {
 
 Element 中的类和接口主要包含异常(Exception)、枚举(Enum)、接口(Interface)三大部分。
 
-![Element包中的类和接口](/imgs/Element包中的类和接口.png)
+![Element包中的类和接口](/imgs/Element包中的类和接口.webp)
 
 ### 枚举
 
 Element 定义的枚举包含 Modifier、NestingKind、ElementKind、ModuleElement.DirectiveKind。
 
-![Element包中的枚举](/imgs/Element包中的枚举.png)
+![Element包中的枚举](/imgs/Element包中的枚举.webp)
 
 本节暂时只讲 Modifier、NestingKind；ElementKind、ModuleElement.DirectiveKind 后面跟随其他内容讲解。
 
@@ -116,13 +116,13 @@ Element 定义的枚举包含 Modifier、NestingKind、ElementKind、ModuleEleme
 
 Modifier 类中定义的枚举值每个都对应了一个修饰符关键字：
 
-![Modifier类中定义的枚举值](/imgs/Modifier类中定义的枚举值.png)
+![Modifier类中定义的枚举值](/imgs/Modifier类中定义的枚举值.webp)
 
 #### NestingKind
 
 NestingKind 类中定义的枚举值表示类的类型：
 
-![NestingKind类中定义的枚举值](/imgs/NestingKind类中定义的枚举值.png)
+![NestingKind类中定义的枚举值](/imgs/NestingKind类中定义的枚举值.webp)
 
 下面的代码标注了各个注解值表示的类：
 
@@ -236,25 +236,25 @@ public class NestingExamples {
 
 元素注解相关的类主要包含以下三部分，后续有机会讲解实际代码时，再做详细阐述：
 
-![元素注解相关的类](/imgs/元素注解相关的类.png)
+![元素注解相关的类](/imgs/元素注解相关的类.webp)
 
 #### 模块指令
 
 模块是 java 9 新增的特性。模块指令相关类主要用来表示这一特性。这部分就不细讲了，略过。
 
-![模块相关类](/imgs/模块相关类.png)
+![模块相关类](/imgs/模块相关类.webp)
 
 #### 元素
 
 javax.lang.model.element 包中，与元素相关的类如下：
 
-![element包中元素相关类](/imgs/element包中元素相关类.png)
+![element包中元素相关类](/imgs/element包中元素相关类.webp)
 
 ##### ElementKind
 
 ElementKind 枚举表示 java 元素的种类。这些枚举值是我们熟悉 Element 体系的基础。
 
-![ElementKind枚举](/imgs/ElementKind枚举.png)
+![ElementKind枚举](/imgs/ElementKind枚举.webp)
 
 可以看出，java 划分出的元素类型，基本包含了代码的方方面面：
 
@@ -272,7 +272,7 @@ ElementKind 枚举表示 java 元素的种类。这些枚举值是我们熟悉 E
 
 在了解了元素的类型之后，我们就可以看元素接口及其子类了。
 
-![元素接口及其子类](/imgs/元素接口及其子类.png)
+![元素接口及其子类](/imgs/元素接口及其子类.webp)
 
 下面是每个子类的讲解：
 
@@ -632,7 +632,7 @@ type 的相关类主要定义在 javax.lang.model.type 包中，在 java.lang.re
 
 java.lang.reflect.Type 有 5 个子类，如下图：
 
-![Type子类](/imgs/Type子类.png)
+![Type子类](/imgs/Type子类.webp)
 
 #### ParameterizedType
 
@@ -921,7 +921,7 @@ java.util.List<java.lang.String>
 
 与 element 包类似，javax.lang.model.type 包的类主要也分为异常(Exception)、枚举(Enum)、接口(Interface)三大部分。
 
-![type包概览](/imgs/type包概览.png)
+![type包概览](/imgs/type包概览.webp)
 
 此处只讲下枚举和接口部分，异常部分就不讲了。
 
@@ -929,7 +929,7 @@ java.util.List<java.lang.String>
 
 type 包中只有 TypeKind 一个枚举，其说明如下：
 
-![TypeKind枚举](/imgs/TypeKind枚举.png)
+![TypeKind枚举](/imgs/TypeKind枚举.webp)
 
 大多数枚举值都见名知意，此处只解释几个：
 
@@ -1118,7 +1118,7 @@ public interface WildcardType extends TypeMirror {
 
 javax.lang.model.util 包提供了一些方便我们使用的方法和类。其主要有以下类：
 
-![util包概览](/imgs/util包概览.png)
+![util包概览](/imgs/util包概览.webp)
 
 本文重点讲解下 Elements 和 Types 类。
 
@@ -1128,7 +1128,7 @@ javax.lang.model.util.Elements 是针对 model 下 element 体系的工具类，
 
 Elements 主要方法如下：
 
-![Elements定义](/imgs/Elements定义.png)
+![Elements定义](/imgs/Elements定义.webp)
 
 Elements 类的定义如下：
 
@@ -1360,7 +1360,7 @@ public interface Elements {
 
 javax.lang.model.util.ElementFilter 是一个只包含静态字段和静态方法的工具类，表示元素过滤器，主要用于让我们从 Element 从筛选出自己感兴趣的内容，包括字段、方法、构造函数、类型、包、模块、模块指令，返回的内容可以是列表(List)或者集合(Set)。注意此类方法返回的内容是不可修改的，并且是线程不安全的。简洁表示如下图所示：
 
-![ElementFilter定义](/imgs/ElementFilter定义.png)
+![ElementFilter定义](/imgs/ElementFilter定义.webp)
 
 ElementFilter 类的定义如下：
 
@@ -1634,7 +1634,7 @@ javax.lang.model.util.Types 是针对 model 下 type 体系的工具类，我们
 
 其主要方法如下：
 
-![Types定义](/imgs/Types定义.png)
+![Types定义](/imgs/Types定义.webp)
 
 Types 类的定义如下：
 
@@ -1718,7 +1718,7 @@ public interface Types {
 
    通配符的官方文档见：https://docs.oracle.com/javase/tutorial/extra/generics/wildcards.html。 官方的解释是 ? 表示不确定的类型，由于不确定 List<?> 中的 ? 代表了什么类型，所以不能向 list 中添加数据。
 
-   ![问号的说明](/imgs/问号的说明.png)
+   ![问号的说明](/imgs/问号的说明.webp)
 
    另外由于注解只是与类型 type 关联的元数据，因此在判断两个 TypeMirror 对象是否为同一类型时，不会考虑任一参数上的注解集。所以即使两个 TypeMirror 对象有不同的注解，但他们仍然可以被认为是相同的。
 

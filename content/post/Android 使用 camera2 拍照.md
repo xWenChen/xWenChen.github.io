@@ -30,15 +30,15 @@ toc: true
 
 camera2 将相机设备建模为管道(pipeline)，该管道接受用于拍摄(capture)图像的 input request，并根据每个请求拍摄单个图像，然后输出一个捕获结果数据包(capture result metadata packet)，以及一组输出图像(output image buffers)。输入请求将按顺序处理，多个请求可以并行处理。在大多数 Android 设备上，通常有多个请求时，相机才能以完整的帧速率运行。Camera2 中的几个核心类如下：
 
-![Camera2核心类](/imgs/Camera2核心类.png)
+![Camera2核心类](/imgs/Camera2核心类.webp)
 
 Camera2 的整体架构如图所示：
 
-![Camera2整体架构图](/imgs/Camera2整体架构图.png)
+![Camera2整体架构图](/imgs/Camera2整体架构图.webp)
 
 上图已标记出出了使用 Camera2 拍照的整体流程：
 
-![Camera2拍照整体流程](/imgs/Camera2拍照整体流程.png)
+![Camera2拍照整体流程](/imgs/Camera2拍照整体流程.webp)
 
 总得来讲，就是 Camera APP 通过 CameraManager 获取 CameraDevice，使用 CameraDevice 创建 CameraCaptureSession，CameraCaptureSession 发送 CaptureRequest, CameraDevices 收到请求后返回对应数据到对应的 Surface 中，Camera2 中预览/拍照/录像数据统一由 Surface 来接收，预览数据一般都是 SurfaceView, 拍照数据则在 ImageReader，录像则在 MediaCodec 中。整体来说就是一个请求--响应过程；请求完成后, 可以在回调中查询到相应的请求参数和 CameraDevice 的当前状态。CaptureRequest 代表请求控制的 Camera 参数, CameraMetadata(CaptureResult) 则表示当前返回帧中 Camera 使用的参数以及当前状态。
 

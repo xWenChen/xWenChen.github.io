@@ -45,7 +45,7 @@ EGL 是 Khronos 组织定义的用于管理绘图表面(窗口只是绘图表面
 - EGLImage Source：最初在 CLient API 中创建的对象或子对象(例如 OpenGL 或 OpenGL ES 中的 texture mipmap，或 OpenVG 中的 VGImage)，在调用 eglCreateImage 时作为参数。
 - EGLImage Target：CLient API 根据 EGLIImage 创建的对象(例如 OpenGL 或 OpenGL ES 中的 texture mipmap，或 OpenVG 中的 VGImage)，一个 EGLImage 可以创建多个 EGLImage Target。
 - EGLImage Sibling：与同一 EGLImage 关联的 EGLImage Source 和 EGLImage Targe 统称为 EGLImage Sibling。
-    ![EGLImage_Sibling](/imgs/EGLImage_Sibling.png)
+    ![EGLImage_Sibling](/imgs/EGLImage_Sibling.webp)
 - Orphaning：Orphaning 指的是重新指定或删除 EGLImage sibling 的过程，该过程不会导致与 EGLImage 关联的内存被重新分配，也不会影响使用 EGLImage siblings 的其他渲染结果。
 - Referencing：Referencing 指的是从 EGLImage 创建 EGLImage target 的过程。
 - Respecification：Respecification 指的是 EGLImage sibling 的尺寸、格式或其他属性因为 Client API 的命令调用(例如 gl*TexImage*)而改变。Respecification 通常会触发 EGLImage sibling 的 Orphaning 动作。注意更改 EGLImage sibling 的像素数据(例如通过渲染或调用 gl*TexSubImage* 命令)并不会触发 Respecification。
@@ -58,7 +58,7 @@ EGL 是 Khronos 组织定义的用于管理绘图表面(窗口只是绘图表面
 
 EGL 的整体定义如图：
 
-![EGL的整体定义](/imgs/EGL的整体定义.png)
+![EGL的整体定义](/imgs/EGL的整体定义.webp)
 
 - Display 是对实际显示设备的抽象。在 Android 中的实现类是 EGLDisplay
 - Surface 是对用来存储图像的内存区域 FrameBuffer 的抽象，包括颜色缓冲区(Color Buffer)、深度缓冲区(Depth Buffer)、模版缓冲区(Stencil Buffer)。在 Android 上的实现类是 EGLSurface
@@ -86,11 +86,11 @@ EGL 生成 FrameBuffer 给 OpenGL ES 使用，有时候也会设计到多线程�
 
 EGL 的总体使用流程如下：
 
-![EGL的总体使用流程](/imgs/EGL的总体使用流程.png)
+![EGL的总体使用流程](/imgs/EGL的总体使用流程.webp)
 
 而 EGL 的初始化流程如下：
 
-![EGL的初始化流程](/imgs/EGL的初始化流程.png)
+![EGL的初始化流程](/imgs/EGL的初始化流程.webp)
 
 ## 1. EGL 与操作系统窗口系统通信
 
@@ -98,7 +98,7 @@ EGL 的总体使用流程如下：
 
 EGL 提供了 3 个 API 用于获取 EGLDisplay：
 
-![获取EGLDisplay](/imgs/获取EGLDisplay.png)
+![获取EGLDisplay](/imgs/获取EGLDisplay.webp)
 
 - eglGetDisplay
 - eglGetPlatformDisplay
@@ -210,7 +210,7 @@ void 参数表示不需要入参。
 
 以下是错误代码的说明：
 
-![eglGetError说明](/imgs/eglGetError说明.jpg)
+![eglGetError说明](/imgs/eglGetError说明.webp)
 
 以下是 Android 中获取 EGL 的示例代码：
 
@@ -277,7 +277,7 @@ private void println(String s) {
 
 EGL 提供了两个函数，用于 EGL 的初始化以及资源销毁。
 
-![初始化EGL](/imgs/初始化EGL.png)
+![初始化EGL](/imgs/初始化EGL.webp)
 
 ### eglInitialize 函数
 
@@ -372,7 +372,7 @@ if(!isSuccess) {
 
 在任何一种情况下，EGL 都将返回一个 EGLConfig，这是包含有关特定 surface 及其特征(如每个颜色分量的位数、与 EGLConfig 相关的深度缓冲区(如果有的话))的 EGL 内部数据结构的标识符。可以用 eglGetConfigAttrib 函数查询 EGLConfig 的任何属性，EGL 定义的与 Config 有关的函数有三个：eglGetConfigs、eglGetConfigAttrib、eglChooseConfig。
 
-![确定可用表面配置](/imgs/确定可用表面配置.png)
+![确定可用表面配置](/imgs/确定可用表面配置.webp)
 
 ### eglGetConfigs 函数
 
@@ -414,7 +414,7 @@ EGLBoolean eglGetConfigAttrib(
 
 eglGetConfigAttrib 函数会查询指定 display 的指定 config 的指定 attribute 的值，查询结果使用 value 字段承载。attribute 的可选项如表格：
 
-![eglGetConfigAttrib函数](/imgs/eglGetConfigAttrib函数.jpg)
+![eglGetConfigAttrib函数](/imgs/eglGetConfigAttrib函数.webp)
 
 eglGetConfigAttrib 函数执行失败时会返回 EGL_FALSE，否则返回 EGL_TRUE。当返回 EGL_FALSE 时，value 字段不会被修改。
 
@@ -606,7 +606,7 @@ EGL 提供了众多函数以创建 Surface：
 - eglQuerySurface
 - eglSurfaceAttrib。
 
-![EGL_Surface](/imgs/EGL_Surface.png)
+![EGL_Surface](/imgs/EGL_Surface.webp)
 
 与 Platform 相关的方法仅 EGL 1.5 及更高版本支持，本文就暂时不讲了。我们讲讲剩下的方法。
 
@@ -917,7 +917,7 @@ EGL_GL_COLORSPACE、EGL_VG_COLORSPACE 和 EGL_VG_ALPHA_FORMAT 的含义和默认
 - eglGetCurrentContext
 - eglQueryContext
 
-![创建一个渲染上下文](/imgs/创建一个渲染上下文.png)
+![创建一个渲染上下文](/imgs/创建一个渲染上下文.webp)
 
 ### eglCreateContext 函数
 
@@ -1087,7 +1087,7 @@ EGL 的实现可能会延迟 surface 的辅助缓冲区的分配，直到 contex
 
 从 1 到 8 步为 EGL 的初始化流程。下面是一段 EGL 初始化示范代码。可能无法运行，但是说明了 EGL 执行与初始化的流程。总体流程如下：
 
-![步骤整合与代码示范](/imgs/步骤整合与代码示范.png)
+![步骤整合与代码示范](/imgs/步骤整合与代码示范.webp)
 
 ```java
 /**
@@ -1178,7 +1178,7 @@ eglBindTexImage 函数定义了二维纹理图像(two-dimensional texture image)
 
 pbuffer 的 EGL_TEXTURE_FORMAT 属性用于确定纹理的基本内部格式。下列 pbuffer 的属性也用于决定纹理组件的尺寸：
 
-![pbuffer](/imgs/pbuffer.png)
+![pbuffer](/imgs/pbuffer.webp)
 
 纹理目标源自 surface 的 EGL_TEXTURE_TARGET 属性。如果属性值为 EGL_TEXTURE_2D，则 buffer 为绑定到 current context 的二维纹理对象(two-dimensional texture，以下简称当前纹理对象(current texture object))定义一个纹理。
 
@@ -1241,7 +1241,7 @@ EGLBoolean eglReleaseTexImage(
 
 有时我们会碰到，协调多个图形 API 在单个窗口中渲染的情况。在这种情况下，需要让 app 允许多个库渲染到共享窗口。EGL 提供了几个函数来处理这种同步任务。
 
-![同步渲染函数](/imgs/同步渲染函数.png)
+![同步渲染函数](/imgs/同步渲染函数.webp)
 
 EGL 不保证上下文之间的渲染顺序，即使在同一线程内也是如此。例如，同一个线程的当前上下文 A 的渲染操作的执行，不一定在后面指定的当前上下文 B 的渲染操作完成之前完成。当一个上下文的绘制结果被另一个上下文依赖时，app 有责任确保正确的同步，否则结果是不确定的。
 
@@ -1327,7 +1327,7 @@ eglCreateSync 函数用于创建与指定 display 关联的特定 type 的同步
 
 当创建栅栏同步对象时，eglCreateSync 函数还会插一条栅栏命令到 client API 的当前上下文的命令流中(由 eglGetCurrentContext 返回的上下文)，并将该栅栏命令与新创建的同步对象关联。
 
-![栅栏对象属性](/imgs/栅栏对象属性.png)
+![栅栏对象属性](/imgs/栅栏对象属性.webp)
 
 栅栏同步对象支持的唯一条件是 EGL_SYNC_PRIOR_COMMANDS_COMPLETE，要满足该条件，需要完成与同步对象关联的栅栏命令，以及与之关联的 client API 的当前上下文的命令流中的所有栅栏命令之前的命令。在这些命令对 client API 的内部和帧缓冲区(framebuffer)状态的所有更新完成之前，同步对象不会发出信号。执行栅栏命令不会影响其他状态。
 
@@ -1431,7 +1431,7 @@ EGLBoolean eglGetSyncAttrib(
 
 eglGetSyncAttrib 函数用于查询与 display 关联的 sync 对象的 attribute 属性的值，结果由 value 承载。attribute 的可取值取决于 sync 对象的类型，如下表。
 
-![eglGetSyncAttrib函数](/imgs/eglGetSyncAttrib函数.jpg)
+![eglGetSyncAttrib函数](/imgs/eglGetSyncAttrib函数.webp)
 
 ##### 函数错误
 
@@ -1474,7 +1474,7 @@ CLient API 根据 EGLIImage 创建的对象，例如 OpenGL 或 OpenGL ES 中的
 
 与同一 EGLImage 关联的 EGLImage Source 和 EGLImage Targe 统称为 EGLImage Sibling。
 
-![EGLImage_Sibling](/imgs/EGLImage_Sibling.png)
+![EGLImage_Sibling](/imgs/EGLImage_Sibling.webp)
 
 EGL 主要提供了 eglCreateImage 和 eglDestroyImage 两个函数来管理 EGLImage。eglCreateImage 函数仅在 EGL 1.5 及更高版本可用。
 
@@ -1506,7 +1506,7 @@ attrib_list 是属性键值对的列表，用于选择 buffer 的子数据以作
 
 target 的可取值如下表：
 
-![eglCreateImage函数](/imgs/eglCreateImage函数.jpg)
+![eglCreateImage函数](/imgs/eglCreateImage函数.webp)
 
 - 如果 target 是 EGL_GL_TEXTURE_2D，则 buffer 必须是非 0 GL_TEXTURE_2D 类型的纹理对象的名称，并转换为 EGLClientBuffer 类型。
 - 如果 target 是 EGL_GL_TEXTURE_CUBE_MAP_* 类型的枚举之一，则 buffer 必须是非 0  GL_TEXTURE_CUBE_MAP 或 GL 扩展中的等效项类型的纹理对象的名称，并转换为 EGLClientBuffer 类型。
@@ -1515,7 +1515,7 @@ target 的可取值如下表：
 
 attrib_list 中接受的属性名称、描述、有效值、默认值说明如下表，如果 attrib_list 中不包含相关 attribute，则会使用默认值：
 
-![eglCreateImage函数attrib_list](/imgs/eglCreateImage函数attrib_list.jpg)
+![eglCreateImage函数attrib_list](/imgs/eglCreateImage函数attrib_list.webp)
 
 - attrib_list 应指定 EGL_GL_TEXTURE_LEVEL(mipmap 级别)；如果适用的话，还需要设置 EGL_GL_TEXTURE_ZOFFSET(z-offset)；如果未指定，则将使用默认值。必须存在一些 x 和 y levels，使得请求的 mipmap 级别位于 x 和 y 之间。如果 x 是 base level，y  是 max level，则 mipmap level 的完整有效范围是 x 和 y 之前。对于立方体贴图，一对 x 和 y 必须应用于所有面。对于三维纹理，指定的  z-offset 必须小于指定的 mipmap 级别的深度。
 - 如果 EGL_IMAGE_PRESERVED 属性的值为 EGL_FALSE，则在 eglCreateImage 函数返回后，与 buffer  入参关联的所有像素数据都将失效。如果 EGL_IMAGE_PRESERVED 属性的值为 EGL_TRUE，则会保留与 buffer 入参关联的所有像素数据。

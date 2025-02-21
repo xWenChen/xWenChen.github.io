@@ -224,5 +224,5 @@ public class StrassenMatrixMultiply
 
 ## 运行结果
 
-![结果示例](/imgs/分治法-Strassen矩阵乘法.jpg)
+![结果示例](/imgs/分治法-Strassen矩阵乘法.webp)
 

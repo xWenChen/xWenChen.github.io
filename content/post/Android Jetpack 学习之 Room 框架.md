@@ -476,7 +476,7 @@ public class Record {
 
 也许代码看不出什么效果，可以看看 Android Studio 做的处理，建表时的注解高亮：
 
-![建表时的注解高亮](/imgs/建表时的注解高亮.jpg)
+![建表时的注解高亮](/imgs/建表时的注解高亮.webp)
 
 第二步，定义 Dao 数据库操作类，我们定义最常用的增删改查操作：
 
@@ -589,7 +589,7 @@ public interface RecordDao {
 
 我们仍然可以看看 Android Studio 做的注解高亮：
 
-![Dao的注解高亮](/imgs/Dao的注解高亮.jpg)
+![Dao的注解高亮](/imgs/Dao的注解高亮.webp)
 
 可以看出，Android Studio 在如何提升我们的开发效率上面，是下足了功夫的。其对SQL语句的高亮可大大提升可读性，方便我们的开发
 
@@ -906,13 +906,13 @@ long insert(Record record);
 
 如下图，编译过后，点击左侧的按钮，便可以看到 AS 生成的对应代码：
 
-![insert方法对应的按钮](/imgs/insert方法对应的按钮.jpg)
+![insert方法对应的按钮](/imgs/insert方法对应的按钮.webp)
 
 生成的代码如下：
 
 可以看到，插入操作操作是在事务中进行的：
 
-![插入操作在事务中进行](/imgs/插入操作在事务中进行.jpg)
+![插入操作在事务中进行](/imgs/插入操作在事务中进行.webp)
 
 我们想要自写事务操作的话，就可以仿照官方的代码模式，这么做：
 

@@ -35,7 +35,7 @@ toc: true
 
 如图，在手机中，删除键的位置一般在输入法的右下角：
 
-<img src=/imgs/删除键的位置一般在输入法的右下角.png width=40% height=40% />
+<img src=/imgs/删除键的位置一般在输入法的右下角.webp width=40% height=40% />
 
 有用户反馈问题，就得进行排查。
 
@@ -65,7 +65,7 @@ toc: true
 
 - 软键盘触发不一定会走 KeyEvent 的流程，而是走 InputConnection 的流程。因为在 Android 系统中，输入法一般是一个单独的应用程序(App)，和硬件外设有所区别。在 android中，输入法与接收输入的应用程序，一般是两个单独的app。而 InputConnection 就是连接两个 app 的桥梁——输入法提供用户选择的字符，然后通过 InputConnection 交由接收 app 显示。InputConnection 接口是从 InputMethod 返回到当前应用程序的通信通道。它用于执行诸如读取光标周围的文本，将文本提交到文本框以及将原始键事件发送到应用程序之类的事情。如下图所示：
 
-   ![InputConnection接口是从InputMethod返回到当前应用程序的通信通道](/imgs/InputConnection接口是从InputMethod返回到当前应用程序的通信通道.png)
+   ![InputConnection接口是从InputMethod返回到当前应用程序的通信通道](/imgs/InputConnection接口是从InputMethod返回到当前应用程序的通信通道.webp)
 
    **文重点分析 InputConnection 的这个流程**
 
@@ -109,7 +109,7 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
 在 AndroidX 和 TextView 中，都有 InputConnection 的实现类，通常我们不会使用它们。我们一般继承 InputConnectionWrapper，InputConnectionWrapper 提供了 InputConnection 中方法定义的默认实现，我们可以按需重写对应方法，而不必实现 InputConnection 中定义的所有方法。
 
-<img src=/imgs/InputConnection类图.png width=60% height=60% />
+<img src=/imgs/InputConnection类图.webp width=60% height=60% />
 
 ## 实现说明
 
@@ -248,7 +248,7 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
 我们执行不同的操作，以进行对比实验。操作流程如下图，我们先输入确定的文本(a、b)，再选择预测的文本(about)、然后点击删除键和长按删除键。
 
-![对比实验操作流程](/imgs/对比实验操作流程.png)
+![对比实验操作流程](/imgs/对比实验操作流程.webp)
 
 清楚了如何操作后，我们就可以调试得到对应的方法调用链路了。结果如下。
 
@@ -258,11 +258,11 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
    - debug日志：
 
-      ![百度输入法流程1日志](/imgs/百度输入法流程1日志.png)
+      ![百度输入法流程1日志](/imgs/百度输入法流程1日志.webp)
 
    - 触发方法流程：commitText >>> sendKeyEvent
 
-      ![百度输入法流程1图](/imgs/百度输入法流程1图.png)
+      ![百度输入法流程1图](/imgs/百度输入法流程1图.webp)
 
 - 流程2
    流程 2 的表现和流程 1 一致
@@ -271,11 +271,11 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
    - debug日志：
 
-      ![百度输入法流程3日志](/imgs/百度输入法流程3日志.png)
+      ![百度输入法流程3日志](/imgs/百度输入法流程3日志.webp)
 
    - 触发方法流程：commitText >>> deleteSurroundingText
 
-      ![百度输入法流程3图](/imgs/百度输入法流程3图.png)
+      ![百度输入法流程3图](/imgs/百度输入法流程3图.webp)
 
 - 流程4
 
@@ -283,11 +283,11 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
    - debug日志：
 
-      ![百度输入法流程4日志](/imgs/百度输入法流程4日志.png)
+      ![百度输入法流程4日志](/imgs/百度输入法流程4日志.webp)
 
    - 触发方法流程：commitText >>> deleteSurroundingText
 
-      ![百度输入法流程4图](/imgs/百度输入法流程4图.png)
+      ![百度输入法流程4图](/imgs/百度输入法流程4图.webp)
 
 综上，百度输入法的删除键，主要是由两个方法触发：sendKeyEvent、deleteSurroundingText。这也符合网上一般文章的讲解。所以百度输入法的操作结果是正常的
 
@@ -299,7 +299,7 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
 - debug日志：
 
-   ![搜狗输入法开启一般模式日志](/imgs/搜狗输入法开启一般模式日志.png)
+   ![搜狗输入法开启一般模式日志](/imgs/搜狗输入法开启一般模式日志.webp)
 
 - 触发方法流程：commitText >>> deleteSurroundingText >>> sendKeyEvent(空文本时触发)
 
@@ -311,32 +311,32 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
    
    - debug日志：
 
-      ![搜狗输入法预测模式流程1日志](/imgs/搜狗输入法预测模式流程1日志.png)
+      ![搜狗输入法预测模式流程1日志](/imgs/搜狗输入法预测模式流程1日志.webp)
 
    - 触发方法流程：setComposingText >>> finishComposingText >>> deleteSurroundingText >>> setComposingRegion >>> setComposingText >>> commitText >>> sendKeyEvent
 
-      ![搜狗输入法预测模式流程1图](/imgs/搜狗输入法预测模式流程1图.png)
+      ![搜狗输入法预测模式流程1图](/imgs/搜狗输入法预测模式流程1图.webp)
 
 - 流程2：
    
    - debug日志：
 
-      ![搜狗输入法预测模式流程2日志](/imgs/搜狗输入法预测模式流程2日志.png)
+      ![搜狗输入法预测模式流程2日志](/imgs/搜狗输入法预测模式流程2日志.webp)
 
    - 触发方法流程：setComposingText >>> finishComposingText >>> deleteSurroundingText >>> sendKeyEvent
 
-      ![搜狗输入法预测模式流程2图](/imgs/搜狗输入法预测模式流程2图.png)
+      ![搜狗输入法预测模式流程2图](/imgs/搜狗输入法预测模式流程2图.webp)
 
 
 - 流程3：
    
    - debug日志：
 
-      ![搜狗输入法预测模式流程3日志](/imgs/搜狗输入法预测模式流程3日志.png)
+      ![搜狗输入法预测模式流程3日志](/imgs/搜狗输入法预测模式流程3日志.webp)
 
    - 触发方法流程：setComposingText >>> commitText >>> sendKeyEvent
 
-      ![搜狗输入法预测模式流程3图](/imgs/搜狗输入法预测模式流程3图.png)
+      ![搜狗输入法预测模式流程3图](/imgs/搜狗输入法预测模式流程3图.webp)
 
 - 流程4：
 
@@ -437,7 +437,7 @@ View 中定义了 onCreateInputConnection() 方法和 onCheckIsTextEditor() 方�
 
 最终，我们就得到检测回调删除事件触发的全场景：
 
-![回调删除事件触发的全场景](/imgs/回调删除事件触发的全场景.png)
+![回调删除事件触发的全场景](/imgs/回调删除事件触发的全场景.webp)
 
 场景中涉及到的函数，其说明如下：
 

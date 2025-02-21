@@ -170,7 +170,7 @@ case MotionEvent.ACTION_POINTER_UP:
 19. canvas 画圆时，需要注意圆的实际半径是 radius + strokeWidth，即需要额外加上画笔的宽度。画任何图形，计算尺寸时，都需要考虑 画笔的宽度 是否有影响。
 20. Android 系统中，屏幕触摸事件和键盘按键事件是两个不同的事件流。前者是 MotionEvent，后者是 KeyEvent。如果前者的事件流还没有结束，就来了后者的事件，则中间会被插入一个 cancel 事件。即 MotionEvent ---> CancelEvent ---> KeyEvent。如果要交叉两个事件流，需要忽略掉 Cancel 事件(Cancel 事件无法判断事件源，只能忽略)，这可能会导致其他很多的异常场景无法处理(比如三指按下后，系统下发了 Cancel 事件啥的，当然也与系统魔改有关)。需要注意。
 21. Android 文件系统的目录结构大致如下：
-   ![Android文件系统的目录结构](/imgs/Android文件系统的目录结构.png)
+   ![Android文件系统的目录结构](/imgs/Android文件系统的目录结构.webp)
 22. Home 键虽然无法被`onKeyDown`、`onKeyUp`监听到，但是可以通过广播知道 Home 键被按下了，代码如下：
    ```java
    private void initHomeKeyReceiver() {
@@ -307,7 +307,7 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
 48. 目前没有百分百靠谱的方式，用于检测手机是否被 root 过。并且执行 su 命令可能导致 应用变卡。详见问题下 Devrim 的回答(第三个回答)：https://stackoverflow.com/questions/1101380/determine-if-running-on-a-rooted-device。
 49. ffmpeg cut 视频，可能会出现音视频不同步的问题(被重编码了，音频或者视频有 delay)，在裁剪时不能重编码(re-encode)。
 50. Android 系统 MediaStore 识别 mimeType 是根据文件后缀名来的，zip 的文件改为 jpg 后缀，也会被识别为 jpg 图片。
-51. Android 项目同一个分支，一台电脑编的过，一台编不过。如果是 kapt 相关的问题![kapt编译相关问题](/imgs/kapt编译相关问题.png)
+51. Android 项目同一个分支，一台电脑编的过，一台编不过。如果是 kapt 相关的问题![kapt编译相关问题](/imgs/kapt编译相关问题.webp)
 可以试试注掉 gradle.properties 中的代码：`kapt.use.worker.api=false`
 52. fragment 可能不会走到 onResume 方法，具体原因待排查
 53. 使用 DataBinding 时，@BindingAdapter 注解中属性声明的顺序，必须和方法里入参的声明顺序一样，否则会报错
@@ -327,17 +327,17 @@ fragment.view?.post { // post 保证 FragmentTransaction 执行完成
 
 60. BitmapFactory.Options.inJustDecodeBounds设置为 true 时，BitmapFactory.decodeStream 方法会返回 null。
 
-   ![BitmapFactoryCpp内容](/imgs/BitmapFactoryCpp内容.png)
+   ![BitmapFactoryCpp内容](/imgs/BitmapFactoryCpp内容.webp)
 
-   ![BitmapFactoryCpp内容2](/imgs/BitmapFactoryCpp内容2.png)
+   ![BitmapFactoryCpp内容2](/imgs/BitmapFactoryCpp内容2.webp)
 
 61. jvm 中方法参数是值传递。在方法内创建对象时，对象使用的是方法参数的值，不是引用。如第三张图，使用的是 data.switch 的值，不是 data.switch 变量引用。
 
-   ![jvm中方法参数值传递1](/imgs/jvm中方法参数值传递1.png)
+   ![jvm中方法参数值传递1](/imgs/jvm中方法参数值传递1.webp)
    
-   ![jvm中方法参数值传递2](/imgs/jvm中方法参数值传递2.png)
+   ![jvm中方法参数值传递2](/imgs/jvm中方法参数值传递2.webp)
 
-   ![jvm中方法参数值传递3](/imgs/jvm中方法参数值传递3.png)
+   ![jvm中方法参数值传递3](/imgs/jvm中方法参数值传递3.webp)
 
 62. AppBarLayout 实现吸顶效果时，设置了 app:layout_scrollFlags 的 view 还需要设置 minHeight，否则吸顶效果会不生效
 

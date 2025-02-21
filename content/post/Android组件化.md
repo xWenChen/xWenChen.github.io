@@ -56,9 +56,9 @@ toc: true
 - Application 插件：id: com.android.application。作用是配置一个 Android App 工程，项目构建后输出一个 APK 安装包
 - Library 插件：id: com.android.library。作用是配置一个 Android Library 工程，构建后输出 ARR 包
 
-![Library插件1](/imgs/Library插件1.png)
+![Library插件1](/imgs/Library插件1.webp)
 
-![Library插件2](/imgs/Library插件2.png)
+![Library插件2](/imgs/Library插件2.webp)
 
 显然，App 壳工程就是配置 Application 插件，业务组件就是配置 Library 插件。
 
@@ -66,29 +66,29 @@ toc: true
 
 1. 值得一提的是，新建 module 时，Android Studio 会根据选择的不同，自动分配不同的插件：
 
-   ![新建项目时的不同插件](/imgs/新建项目时的不同插件.png)
+   ![新建项目时的不同插件](/imgs/新建项目时的不同插件.webp)
 
    - 如果选择的是 1，则 Android Studio 会自动使用 Application 插件，并生成对应的包结构
    - 如果选择的是 2，则 Android Studio 会自动使用 Library 插件，并生成对应的包结构
 2. Android Studio 新建 Module 时，会自动向 settings.gradle 文件中添加 Module。如果我们不使用 Android Studio 提供的 New Module 选项，而是手动创建 Module，那么我们需要向 settings.gradle 中手动添加创建好的 module，以便 gradle 能正确识别生效的 module。
 
-   ![include模块](/imgs/include模块.png)
+   ![include模块](/imgs/include模块.webp)
 
 壳工程与业务组件创建好后，工程包结构如下：
 
-![壳工程结构](/imgs/壳工程结构.png)
+![壳工程结构](/imgs/壳工程结构.webp)
 
 3. 如果有多个业务模块，那么可以收敛到一个业务包 lib 下，创建时可以使用下图的 module 名：
 
-   ![一包多module的命名](/imgs/一包多module的命名.png)
+   ![一包多module的命名](/imgs/一包多module的命名.webp)
 
 创建好后，项目结构长这样：
 
-   ![一包多module的结构](/imgs/一包多module的结构.png)
+   ![一包多module的结构](/imgs/一包多module的结构.webp)
 
 settings.gradle 里的结构是这样，包名为 ":lib:module_chat"/":lib:module_mine"：
 
-   ![settings文件示例](/imgs/settings文件示例.png)
+   ![settings文件示例](/imgs/settings文件示例.webp)
 
 ### 2. 单独编译与变量定义
 
@@ -130,7 +130,7 @@ isAPK = false
 
 首先定义 isAPK 属性，不定义则为 false
 
-![定义isAPK属性](/imgs/定义isAPK属性.png)
+![定义isAPK属性](/imgs/定义isAPK属性.webp)
 
 在 Root Project 的 build.gradle >>> buildscript 闭包中，我们可以读取属性，必将其赋值给 Root Project 的 ext。
 
@@ -222,7 +222,7 @@ android {
 
 这样配置以后，我们就可以在 Android Studio 中选择需要运行的 APK 了。
 
-![选择需要运行的APK](/imgs/选择需要运行的APK.png)
+![选择需要运行的APK](/imgs/选择需要运行的APK.webp)
 
 注意：Android Gradle 中，可以为每个 module 设置不同的 applicationIdSuffix(在 ProductFlavor 中设置)。该字段表示：在不改变默认的包名的情况下，为其添加后缀。比如应用包名是com.example.demo，但你想为 chat 模块设置不同的包名，这个时候将applicationIdSuffix设置为.chat，那么你的应用程序对应的包名就变成了com.example.demo.chat。设置 applicationIdSuffix 可以实现不为各模块手动设置 applicationId，但各 demo 工程包名不同的效果。applicationIdSuffix 具体说明见：https://developer.android.com/studio/build/application-id?hl=zh-cn
 
@@ -344,7 +344,7 @@ apply from: "${rootDir}/maven_upload.gradle"
 
 点击 gradle 任务中的 task 即可上传到指定的 maven 仓库。
 
-![上传到指定的maven仓库](/imgs/上传到指定的maven仓库.png)
+![上传到指定的maven仓库](/imgs/上传到指定的maven仓库.webp)
 
 #### 第 2 种属性定义方式
 
@@ -714,7 +714,7 @@ Android Studio 中，提供了将非 Java 文件当做 Java 文件处理的能�
 
 在 Android Studio 中选择 File ---> Settings ---> Editor ---> File Types ---> Java，然后在 Registered Patterns 中添加 *.api，Android Studio 就会将后缀名为 .api 的文件当做 java 文件处理了。
 
-![配置识别api后缀文件](/imgs/配置识别api后缀文件.png)
+![配置识别api后缀文件](/imgs/配置识别api后缀文件.webp)
 
 然后我们定义一个接口文件：
 
@@ -825,7 +825,7 @@ preBuild.dependsOn copyApiToJava
 - 通知方通过通信管理器发起通知，而通信管理器通过通信总线将通知发送被通知方
 - 被通知方通过通信管理器发起通知响应，而通信管理器通过通信总线将通知响应发送通知方
 
-![通信总线架构](/imgs/通信总线架构.png)
+![通信总线架构](/imgs/通信总线架构.webp)
 
 上面的架构图，一定程度上借鉴了电脑架构里的总线设计。总线代表了具体的实现(如第三方 SDK 实现和自定义实现)，而图中的通知方和被通知方，都是逻辑结构。这样一来，就可以实现代码的解耦。后续也可以方便的切换总线。
 
@@ -926,7 +926,7 @@ public class NotifyBus {
 7. 通知总线(NotifyBus) 发送通知响应到 通知方(NotifyParty)，通知方(NotifyParty) 收到通知响应(调用 onReceivedResponse 方法)
 8. 通知方(NotifyParty) 处理通知响应
 
-![通信总线使用流程](/imgs/通信总线使用流程.png)
+![通信总线使用流程](/imgs/通信总线使用流程.webp)
 
 #### 2. 具体实现
 

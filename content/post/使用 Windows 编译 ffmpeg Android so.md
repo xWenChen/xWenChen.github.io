@@ -67,29 +67,29 @@ make: *** [ffbuild/library.mak:103: libavformat/libavformat.so.58] Error 1
 
 鼠标右键 ---> 个性化 ---> 主题 ---> 桌面图标设置 ---> 勾中控制面板
 
-![开启WSL步骤1](/imgs/开启WSL步骤1.jpg)
+![开启WSL步骤1](/imgs/开启WSL步骤1.webp)
 
-![开启WSL步骤2](/imgs/开启WSL步骤2.jpg)
+![开启WSL步骤2](/imgs/开启WSL步骤2.webp)
 
-![开启WSL步骤3](/imgs/开启WSL步骤3.jpg)
+![开启WSL步骤3](/imgs/开启WSL步骤3.webp)
 
-![开启WSL步骤4](/imgs/开启WSL步骤4.jpg)
+![开启WSL步骤4](/imgs/开启WSL步骤4.webp)
 
 至此，控制面板图标便出现在了桌面上：
 
-![控制面板出现在桌面](/imgs/控制面板出现在桌面.jpg)
+![控制面板出现在桌面](/imgs/控制面板出现在桌面.webp)
 
 接着就可以打开 WSL 功能了：控制面板 ---> 点击程序和功能 ---> 启用或关闭 Windows 功能 ---> 适用于 Linux 的 Windows 子系统：
 
-![打开WSL功能步骤1](/imgs/打开WSL功能步骤1.jpg)
+![打开WSL功能步骤1](/imgs/打开WSL功能步骤1.webp)
 
-![打开WSL功能步骤2](/imgs/打开WSL功能步骤2.jpg)
+![打开WSL功能步骤2](/imgs/打开WSL功能步骤2.webp)
 
-![打开WSL功能步骤3](/imgs/打开WSL功能步骤3.jpg)
+![打开WSL功能步骤3](/imgs/打开WSL功能步骤3.webp)
 
 然后，就可以去 Microsoft Store 搜索 Ubuntu 了。可以下载 Ubuntu 20.04 LTS 版本：
 
-![下载Ubuntu](/imgs/下载Ubuntu.png)
+![下载Ubuntu](/imgs/下载Ubuntu.webp)
 
 安装之后，在开始菜单中点击打开，初始化 OK 之后，就可以做下面的操作了。
 
@@ -200,11 +200,11 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDT+zQtc3Hh/zGKtC7Onx1f256g6JMhdXRBTC4uF7ME
 
 打开 Gitee 后，选择设置项：
 
-![将公钥信息添加到Gitee1](/imgs/将公钥信息添加到Gitee1.png)
+![将公钥信息添加到Gitee1](/imgs/将公钥信息添加到Gitee1.webp)
 
 选择 SSH公钥 设置项，粘贴刚才打印的公钥信息，并点击确定，公钥就保存成功了。
 
-![将公钥信息添加到Gitee2](/imgs/将公钥信息添加到Gitee2.png)
+![将公钥信息添加到Gitee2](/imgs/将公钥信息添加到Gitee2.webp)
 
 ### 下载 ffmpeg 源码
 
@@ -253,7 +253,7 @@ chmod 777 configure
 
 在 configure 文件中修改编译脚本设置，新增编译工具拼接选项(ndk 中交叉编译工具名称不同，默认规则拼接后，会出现找不到的情况，解释如图)：
 
-![修改编译脚本设置_新增编译工具拼接选项](/imgs/修改编译脚本设置_新增编译工具拼接选项.png)
+![修改编译脚本设置_新增编译工具拼接选项](/imgs/修改编译脚本设置_新增编译工具拼接选项.webp)
 
 打开 Vim：
 

@@ -101,7 +101,7 @@ binding.config.text = configurationInfo
 
 以小米 9 手机为例，全屏模式下，得到的数据如下：
 
-![全屏模式下的相关尺寸数据](/imgs/全屏模式下的相关尺寸数据.jpg)
+![全屏模式下的相关尺寸数据](/imgs/全屏模式下的相关尺寸数据.webp)
 
 其中 392 = 1080 / 2.75，即 screenWidthDp = widthPixels / density； 807 = 2221 / 2.75，即 screenHeightDp = heightPixels / density。
 

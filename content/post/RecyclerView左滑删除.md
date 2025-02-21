@@ -27,11 +27,11 @@ QQ 和 IOS 的应用都有一种功能，那就是左滑弹出删除选项。如
 
 未左滑时 QQ 会员的显示样式：
 
-![未左滑时QQ会员的显示样式](/imgs/未左滑时QQ会员的显示样式.jpg)
+![未左滑时QQ会员的显示样式](/imgs/未左滑时QQ会员的显示样式.webp)
 
 左滑后 QQ 会员的显示样式：
 
-![左滑后QQ会员的显示样式](/imgs/左滑后QQ会员的显示样式.jpg)
+![左滑后QQ会员的显示样式](/imgs/左滑后QQ会员的显示样式.webp)
 
 IOS 系统存在这种效果。这个功能在 Android 系统中默认是没有的，需要我们自定义 View 才能实现。本篇博文讲讲如何使用 RecyclerView 实现 QQ 的侧滑效果。
 
@@ -40,7 +40,7 @@ IOS 系统存在这种效果。这个功能在 Android 系统中默认是没有�
 - 默认情况下，RecyclerView 显示的内容，称为内容布局(content)
 - 侧滑后出现的布局，称为菜单布局(menu)，菜单布局中的每个功能项，称为菜单项(menu item)
 
-![RecyclerView左滑删除菜单项布局示例](/imgs/RecyclerView左滑删除菜单项布局示例.png)
+![RecyclerView左滑删除菜单项布局示例](/imgs/RecyclerView左滑删除菜单项布局示例.webp)
 
 **QQ 的效果**
 
@@ -80,11 +80,11 @@ Android 的事件分发主要有三个方法：dispatchTouchEvent/onInterceptTou
 
 在 ScrollView 源码中搜索 Scroll，发现下面两个变量。见名知意，就是用于 Scroll 和 Fling 的。
 
-![Scroll和Fling的变量示意](/imgs/Scroll和Fling的变量示意.png)
+![Scroll和Fling的变量示意](/imgs/Scroll和Fling的变量示意.webp)
 
 搜索两个变量的使用位置，很轻松的定位到了 onTouchEvent 方法。分析  onTouchEvent 方法，找到了很多有用的知识：
 
-![ScrollView的onTouchEvent方法](/imgs/ScrollView的onTouchEvent方法.png)
+![ScrollView的onTouchEvent方法](/imgs/ScrollView的onTouchEvent方法.webp)
 
 从上面的代码中，我们得到了最重要的知识点便是：
 

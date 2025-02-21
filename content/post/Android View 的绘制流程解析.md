@@ -26,7 +26,7 @@ measure是确定view的大小，layout是计算在界面中显示的位置，dra
 
 大致流程如下：
 
-![View的绘制流程概览](/imgs/View的绘制流程概览.png)
+![View的绘制流程概览](/imgs/View的绘制流程概览.webp)
 
 自定义 View 的第一步，肯定是明确的宽高，位置坐标，宽高是在测量阶段得出。然后在布局阶段，确定好位置信息，对矩形布局，之后的视觉效果就交给绘制流程了。
 
@@ -40,7 +40,7 @@ measure是确定view的大小，layout是计算在界面中显示的位置，dra
 
 测量的尺寸好理解。说明下测量模式，测量模式可以取三个值，其含义如下：
 
-View测量模式说明](/imgs/View测量模式说明.png)
+View测量模式说明](/imgs/View测量模式说明.webp)
 
 子 View 在 xml 中的布局参数，对应的测量模式如下：
 
@@ -190,7 +190,7 @@ public static int getChildMeasureSpec(int spec, int padding, int childDimension)
 
 上述流程很简单，可以用下面的流程图概括：
 
-![FrameLayout的测量流程](/imgs/FrameLayout的测量流程.png)
+![FrameLayout的测量流程](/imgs/FrameLayout的测量流程.webp)
 
 得到了 MeasureSpec，我们就可以讲讲绘制流程了。不过不同的组件绘制方式不同，View 和 ViewGroup 的绘制流程又不同，下面我们会挑几个特例，讲讲 View 的 measure 和 ViewGroup 的 layout 过程。
 
@@ -326,7 +326,7 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 上面 ImageView 的测量流程其实很简单，可以用下面的流程图描述：
 
-![ImageView的测量流程](/imgs/ImageView的测量流程.png)
+![ImageView的测量流程](/imgs/ImageView的测量流程.webp)
 
 其实，上面的测量逻辑，还是很简单的。并不复杂，主要是赋值过程的计算，是在当前的测量结果和限定值之间的取舍(自身设置的最大/最小值，父类给予的限定值)。而赋值过程的重点其实在 `resolveAdjustedSize` 这个方法。从代码中的使用可以看出来，ImageView的宽高是在 测量值/自身最大值/父类限定值 三者间得出的。
 
@@ -468,7 +468,7 @@ void layoutChildren(int left, int top, int right, int bottom, boolean forceLeftG
 }
 ```
 
-![Android坐标获取](/imgs/Android坐标获取.png)
+![Android坐标获取](/imgs/Android坐标获取.webp)
 
 上面的代码，结合图片便能很轻松的理解。就不详讲了。此处聊点其他的---子 View 的对齐方式哪里来的？从上面的代码中，可以看出，是从 View 的布局参数中取的，而 View 的布局参数是怎么来的呢？
 
@@ -518,11 +518,11 @@ protected LayoutParams generateDefaultLayoutParams() {
 
 上面代码中的 LayoutParams 是何方神圣？其实 LayoutParams 是 ViewGroup 的一个公共内部类，它描述了 ViewGroup　的子 View 的尺寸(宽/高)。而它还有个子类：MarginLayoutParams。顾名思义，其是在 LayoutParams 加入了子 View 的 margin 描述。ViewGroup 中的子类就这两个了。也没有看到对齐方式的相关描述呀？不急，LayoutParams 旁边是有箭头的
 
-![LayoutParams旁边的箭头](/imgs/LayoutParams旁边的箭头.jpg)
+![LayoutParams旁边的箭头](/imgs/LayoutParams旁边的箭头.webp)
 
 点击箭头，我们找到了熟悉的身影---FrameLayout。让我们点击进去看看。
 
-![FrameLayout的位置](/imgs/FrameLayout的位置.jpg)
+![FrameLayout的位置](/imgs/FrameLayout的位置.webp)
 
 ```java
 public static class LayoutParams extends MarginLayoutParams {

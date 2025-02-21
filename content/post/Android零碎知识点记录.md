@@ -165,7 +165,7 @@ toc: true
 
    值得注意的是，SetAction 为 SEND 后的查询，得到的是一个列表，如果我们不用查询Activity，而是直接用 chooseDialog 打开，就会出现下面这种选择框，表示系统要我们选择哪个应用。这些应用其实也就是系统查询出来，然后展示的。
 
-   <img src="/imgs/系统展示可用应用.jpg" style="zoom:50%;" />
+   <img src="/imgs/系统展示可用应用.webp" style="zoom:50%;" />
 
    上面要我们选择，是因为我们并没有指定具体的应用，具体的类。用的也是通用的动作(Action)，而不是私有的动作(Action)。
 5. 下面的代码也有可能报空指针：
@@ -615,7 +615,7 @@ class MyInputConnection(target: InputConnection?, mutable: Boolean) : InputConne
 47. Android 中 Dialog 的显示隐藏，必须在主线程操作
 
 48. Fragment 的生命周期可以用状态控制，比如设置了 STARTED 后，生命周期方法最多执行到 onStart(执行了 onStart 后，状态变成了 ON_STARTED，并不接着向下执行方法)。
-![Fragment生命周期状态](/imgs/Fragment生命周期状态.png)
+![Fragment生命周期状态](/imgs/Fragment生命周期状态.webp)
 Lifecycle框架定义状态流程如下：
 ![Fragment生命周期状态2](/imgs/Fragment生命周期状态2.svg)
 
@@ -685,9 +685,9 @@ Lifecycle框架定义状态流程如下：
 
 58. Android 启动程序，卡在启动页，系统提示 waiting for debugger。则可能是打开了开发者选项的等待调试。关闭就好了。
 
-<img src="/imgs/开发者选项的等待调试1.png" style="zoom:80%" />
+<img src="/imgs/开发者选项的等待调试1.webp" style="zoom:80%" />
 
-<img src="/imgs/开发者选项的等待调试2.png" style="zoom:60%" />
+<img src="/imgs/开发者选项的等待调试2.webp" style="zoom:60%" />
 
 59. CheckBox 和 RadioButton 有个自动刷新 check 状态的逻辑(toggle 方法)，这可能会导致一些交互方面的 bug。
 
@@ -1037,7 +1037,7 @@ fun main() {
 97. View.dispatchKeyEvent 事件会在有焦点的 View 路径上分发。如果目标 View 无焦点，则分发不成功。解决方案是在调用 View.dispatchKeyEvent 之前，先申请下焦点 View.requestFocus()
 
 98. 调用 InputMethodManager.toggleSoftInput 显示键盘时，不能重复调用，否则已显示的键盘会被隐藏。
-    ![InputMethodManager_toggleSoftInput方法说明](/imgs/InputMethodManager_toggleSoftInput方法说明.png)
+    ![InputMethodManager_toggleSoftInput方法说明](/imgs/InputMethodManager_toggleSoftInput方法说明.webp)
 
 99. Android 的进程保活方案有：
     - 前台服务（Foreground Service）：通过将应用设置为前台服务，可以提高其优先级，使其不容易被系统杀死。前台服务会在通知栏显示一个通知，告知用户应用正在运行。
@@ -1059,7 +1059,7 @@ fun main() {
     - 利用系统漏洞：在某些 Android 系统版本中，可能存在一些漏洞可以用于保活。但这种方法并不稳定，且可能在新版本系统中失效。
 
 100. TextView 中，MovementMethod 和 OnClickListener 同时设置时，会冲突。MovementMethod.onTouchEvent 方法即使返回 true，也无法阻止 TextView 的 OnClickListener 执行，因为 View.onTouchEvent 方法会先于 MovementMethod 执行。需要解决二者的冲突，MovementMethod 可以继承自 MovementMethod。注意系统提供的LinkMovementMethod在选中时，会选中点击区域，想要干掉，就需要自定义。TextView 设置了 MovementMethod 后，会更改 focusable 等属性的值。
-    ![TextView的OnTouchEvent和Movement冲突](/imgs/TextView的OnTouchEvent和Movement冲突.png)
+    ![TextView的OnTouchEvent和Movement冲突](/imgs/TextView的OnTouchEvent和Movement冲突.webp)
 
 101. Android 5.0(API级别21)以上，可以使用以下代码设置底部导航栏颜色：
 

@@ -54,7 +54,7 @@ Gradle 的两个特点其实并不冲突。相反，是有紧密联系的。首�
 
 Gradle 的常见的项目结构如下：
 
-![Gradle项目结构](/imgs/Gradle项目结构.png)
+![Gradle项目结构](/imgs/Gradle项目结构.webp)
 
 针对图片中的内容，做以下几点说明：
 
@@ -74,11 +74,11 @@ Gradle 的常见的项目结构如下：
 
    2. 文件中可以设置的属性中，有一个 GRADLE_USER_HOME 的变量，代表 gradle 所在的目录。该目录可以在 iead 中设置：
 
-      ![Gradle_Home_设置位置](/imgs/Gradle_Home_设置位置.png)
+      ![Gradle_Home_设置位置](/imgs/Gradle_Home_设置位置.webp)
     
 - 每一个 Gradle 项目，都会有一个 settings.gradle 文件，该文件全局唯一，对应一个 Settings 对象，用于指定相关信息，包括根项目、参与编译的项目(include build)等。该文件里的内容是 Gradle 项目编译时，最先执行的内容
 
-   ![Settings文件内容](/imgs/Settings文件内容.png)
+   ![Settings文件内容](/imgs/Settings文件内容.webp)
 
 - 在 Gradle 的根项目下，有 gradlew 和 gradlew.bat 两个文件，这是系统脚本文本，用于启动 Gradle 编译，分别对应 Linux 和 Windows 系统的脚本
 
@@ -90,7 +90,7 @@ Gradle 的常见的项目结构如下：
 
 我们在使用 gradle 的过程中，最核心的一个类就是 Project，它提供了 Gradle 各个能力的入口，每个 build.gradle 文件都会生成一个 project 对象。project 类提供的能力如下。后面我们会逐个分析这些能力：
 
-![Project提供的能力](/imgs/Project提供的能力.png)
+![Project提供的能力](/imgs/Project提供的能力.webp)
 
 ## Gradle 文件操作
 
@@ -104,7 +104,7 @@ Gradle 的常见的项目结构如下：
 
 本文要讲解的 Gradle 的文件操作的知识点如下：
 
-![Gradle文件操作](/imgs/Gradle文件操作.png)
+![Gradle文件操作](/imgs/Gradle文件操作.webp)
 
 ### 复制文件
 
@@ -536,7 +536,7 @@ tasks.register('copyWithTruncate', Copy) {
 
 文件树(file tree)是一个文件集合，具有 FileTree 类型。它保留了它所包含的文件的目录结构，这意味着文件树中的所有路径都必须有一个共享的父目录。要将文件树转换为平面集合，可以使用 FileTree.getFiles() 方法。下图说明了在复制文件的常见情况下文件树和文件集合之间的区别:
 
-![FileTree和FileCollection](/imgs/FileTree和FileCollection.png)
+![FileTree和FileCollection](/imgs/FileTree和FileCollection.webp)
 
 创建文件树最简单的方法是将文件或目录传递给 Project.fileTree(java.lang.Object) 方法。这将创建该目录中所有文件和目录的树(但不是基本目录本身)。以下示例演示了如何使用，此外，还演示了如何使用 Ant 样式模式过滤文件和目录：
 
@@ -681,7 +681,7 @@ layout.buildDirectory = layout.projectDirectory.dir('output')
 
 从 Gradle 的角度来看，将文件压缩实际上更像是一个复制操作，只是目标目录是压缩文件(zip，tar等)而不是系统中的目录(dir)。所以 Gradle 中压缩框架的设计，能够看见 Copy 操作的影子。下图为压缩相关任务的一个继承图：
 
-![Copy任务继承图](/imgs/Copy任务继承图.png)
+![Copy任务继承图](/imgs/Copy任务继承图.webp)
 
 使用压缩任务时，我们需要指定存档的目标目录(destinationDirectory)和名称(archiveFileName)，注意不是使用 into() 方法指定了，这两个都是必需的(示例见 packageDistribution 任务)。但是通常在自定义任务中，我们不会看到它们的显式设置，这是因为大多数项目都应用了 Base Plugin(The Base Plugin (gradle.org))。该 Plugin 为这些属性提供了一些默认值。下面一个示例演示了这一点。
 
@@ -906,7 +906,7 @@ Custom properties，即自定义 properties。我们可以自定义一个 proper
 
 比如我们在 local.properties 文件中定义个 isAPK 变量：
 
-![local_property_文件定义属性变量](/imgs/local_property_文件定义属性变量.png)
+![local_property_文件定义属性变量](/imgs/local_property_文件定义属性变量.webp)
 
 定义了属性后，我们就可以在项目根目录的 build.gradle 文件中读取值：
 
@@ -943,7 +943,7 @@ Gradle 提供了惰性属性(Lazy properties)(属性的懒加载)，该属性会
 
 Gradle 的懒加载相关类如下：
 
-![Property相关类](/imgs/Property相关类.png)
+![Property相关类](/imgs/Property相关类.webp)
 
 #### 基础说明
 
@@ -1154,7 +1154,7 @@ DirectoryProperty 还可用于分别通过 DirectoryProperty.dir(String) 和 Dir
 
 如图是 Gradle 提供的能力，主要是 gradle 描述相关、项目相关、构建流程相关三块。我们最主要关心的就是和构建流程相关的知识
 
-![Gradle提供的能力](/imgs/Gradle提供的能力.png)
+![Gradle提供的能力](/imgs/Gradle提供的能力.webp)
 
 ## Gradle 构建流程
 
@@ -1168,7 +1168,7 @@ DirectoryProperty 还可用于分别通过 DirectoryProperty.dir(String) 和 Dir
 
 具体的执行流程如下图：
 
-![Gradle执行流程](/imgs/Gradle执行流程.png)
+![Gradle执行流程](/imgs/Gradle执行流程.webp)
 
 我们可以通过 Gradle 提供的构建流程相关方法，hook gradle 构建流程的关键节点。其中 addListener 方法中可以添加的 Listener 类型为：
 
@@ -1194,13 +1194,13 @@ DirectoryProperty 还可用于分别通过 DirectoryProperty.dir(String) 和 Dir
 
 Gradle 任务执行方式为：
 
-![Gradle任务执行方式](/imgs/Gradle任务执行方式.png)
+![Gradle任务执行方式](/imgs/Gradle任务执行方式.webp)
 
 ## Settings 类功能
 
 因为 Gradle 的初始化阶段和 settings.gradle 文件息息相关，而 settings.gradle 文件又和 Settings 对象一一对应。所以在介绍 Gradle 的初始化流程前，我们需要看下 Settings 类，Settings 接口类的定义如下：
 
-![Settings_API_说明](/imgs/Settings_API_说明.png)
+![Settings_API_说明](/imgs/Settings_API_说明.webp)
 
 注：在 project、settings、gradle 中查询某个项目实例时，应注意带上冒号( : )。在 gradle 中，冒号即文件路径分隔符，对应 Linux 下的 /。
 
@@ -1228,7 +1228,7 @@ Gradle 自身使用的依赖，通常是在 .gradle 文件中写 java/groovy/kot
 
 上述说明可用下面的图片阐述：
 
-![依赖说明](/imgs/依赖说明.png)
+![依赖说明](/imgs/依赖说明.webp)
 
 一段依赖配置的典型代码如下：
 
@@ -1350,7 +1350,7 @@ plugins {
 
 在 gradle 中，我们可以使用以下方式导入远程或者本地依赖。其具体方式如图：
 
-![Gradle依赖导入说明](/imgs/Gradle依赖导入说明.png)
+![Gradle依赖导入说明](/imgs/Gradle依赖导入说明.webp)
 
 #### allprojects & dependencyResolutionManagement
 
@@ -1524,7 +1524,7 @@ include ':libTest'
 
 Gradle Task 功能众多，本文将按照以下要点进行讲解。
 
-![Task类讲解](/imgs/Task类讲解.png)
+![Task类讲解](/imgs/Task类讲解.webp)
 
 ### task 含义
 
@@ -1560,11 +1560,11 @@ task clean(type: Delete) {
 
 #### Task API 说明
 
-![Task_API](/imgs/Task_API.png)
+![Task_API](/imgs/Task_API.webp)
 
 #### TaskContainer API 说明
 
-![TaskContainer_API](/imgs/TaskContainer_API.png)
+![TaskContainer_API](/imgs/TaskContainer_API.webp)
 
 ### task 的描述
 
@@ -1576,7 +1576,7 @@ task clean(type: Delete) {
 
 - group 用于将任务聚合起来。比如下图的 build 和 help 就是不同的 group
 
-   ![Task_Group_实例](/imgs/Task_Group_实例.png)
+   ![Task_Group_实例](/imgs/Task_Group_实例.webp)
 
 - path 为任务的位置。此值可以不用设置，创建任务后，使用 [:projectName:]taskName 即可找到任务，当在 project 内查找任务时可以省略 project 名
 
@@ -1617,7 +1617,7 @@ Lifecycle 任务是本身不工作的任务。它们通常没有任何任务 act
 
 - build：依赖于 check、assemble 任务。该任务旨在构建一切，包括运行所有测试任务、生成目标产物和生成文档。应尽量少将任务直接与 build 任务关联，因为 check 和 assemble 任务通常更合适
 
-![lifecycle_task](/imgs/lifecycle_task.png)
+![lifecycle_task](/imgs/lifecycle_task.webp)
 
 #### other task
 
@@ -1627,11 +1627,11 @@ Gradle 还内置了其它很多用途的 task，想要了解具体的用途和�
 
 每个 task 都属于一个 project，一个 project 可以包含多个 task，这些 task 都存放在 project 的 task container 中。TaskContainer 是 Collection 的一个实现类，TaskContainer 具有的能力，是其本身及其父类定义的。TaskContainer 简要的继承关系如下：
 
-![TaskContainer继承图](/imgs/TaskContainer继承图.png)
+![TaskContainer继承图](/imgs/TaskContainer继承图.webp)
 
 想要从 TaskContainer 中找到我们需要的 task 示例(或 task provider)，我们主要使用以下几种方式：
 
-![task定位方式](/imgs/task定位方式.png)
+![task定位方式](/imgs/task定位方式.webp)
 
 使用方式如下：
 
@@ -1909,7 +1909,7 @@ tasks.register("test") {
 
 Gradle 提供了几种忽略任务(跳过任务执行)的途径：
 
-![task忽略](/imgs/task忽略.png)
+![task忽略](/imgs/task忽略.webp)
 
 #### 使用 onlyIf 方法
 
@@ -2016,7 +2016,7 @@ IncrementalTask​​Inputs API 已被弃用，最终将被删除。新的 Input
 
 - ouputs 代表任务使用输入执行对应操作后，生成的输出
 
-![Gradle增量构建模型图](/imgs/Gradle增量构建模型图.png)
+![Gradle增量构建模型图](/imgs/Gradle增量构建模型图.webp)
 
 要利用增量构建支持，我们需要向 Gradle 提供与任务有关的输入和输出(tasks' inputs and outputs)信息，当然任务也可以被配置为仅具有输出(only have outputs)。在执行任务之前，Gradle 会检查输出，如果输出没有更改，将跳过任务的执行。在实际构建中，任务通常也有输入——包括源文件、资源和属性。 Gradle 在执行任务之前检查输入和输出都没有改变。
 
@@ -2906,7 +2906,7 @@ Gradle 和其他管理工具的一个明显差别是 Gradle 还有一个 Variant
 
 #### Maven 组件模型
 
-![Maven组件模型](/imgs/Maven组件模型.png)
+![Maven组件模型](/imgs/Maven组件模型.webp)
 
 #### Gradle 组件模型
 
@@ -2918,7 +2918,7 @@ Gradle 中有区分两种组件：本地组件和外部组件。前者是如 Pro
 
 组件定义变体的数量没有限制。虽然通常一个组件至少有一个变体。虽然组件的功能通常被变体代替，但是组件也能对外公开文档或源代码等内容。对于相同用途的不同使用者(消费者)，组件也可以定义不同的变体。例如在编译时，针对 Linux、Windows 和 macOS 系统，组件能有不同的 headers。
 
-![Gradle组件模型](/imgs/Gradle组件模型.png)
+![Gradle组件模型](/imgs/Gradle组件模型.webp)
 
 ### 变体
 
@@ -2936,7 +2936,7 @@ Gradle 中有区分两种组件：本地组件和外部组件。前者是如 Pro
 
 属性包含 Gradle 官方文档中介绍了几种 Gradle 定义的标准属性和开发者自定以的属性：
 
-![变体属性介绍](/imgs/变体属性介绍.png)
+![变体属性介绍](/imgs/变体属性介绍.webp)
 
 ##### 自定义属性
 
@@ -2995,7 +2995,7 @@ configurations {
 
 变体的匹配过程可以将 Gradle 视作一个选择器。消费者定义变体应具备哪些属性，以及属性具备哪些值；生产者(即变体)也定义自己哪些属性和值。两者将信息交给 Gradle，由 Gradle 的依赖管理引擎(Gradle's dependency management engine)选择最为匹配的变体。
 
-![Gradle的依赖管理引擎](/imgs/Gradle的依赖管理引擎.png)
+![Gradle的依赖管理引擎](/imgs/Gradle的依赖管理引擎.webp)
 
 Gradle 通过将消费者请求的属性与生产者定义的属性进行匹配，来选择变体(variant aware selection)。注意有两个例外绕过算法定义的规则：
 
@@ -3471,7 +3471,7 @@ task printConfig {
 
 使用 project.getComponents() 方法可以获取到当前项目的组件产物，我们在任务中打印出 Component 的实际类型，得到的结果是 DefaultAdhocSoftwareComponent。以 javaPlugin 为例，DefaultAdhocSoftwareComponent 的相关类如下：
 
-![Component相关类](/imgs/Component相关类.png)
+![Component相关类](/imgs/Component相关类.webp)
 
 我们实际上已经在上图中把 Component - Variant - Configuration - Artifact 这条线连起来了。针对该图，有以下说明：
 
@@ -3507,11 +3507,11 @@ Gradle 项目声明的每个依赖项都有特定的适用范围。例如，一�
 
 许多 Gradle 插件都会向我们的项目添加预定义好的配置。例如，Java 插件添加配置以表示进行源代码编译、执行测试等时所需的各种类路径(详情见[The Java Plugin (gradle.org)](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management))。
 
-![Configuration示例图](/imgs/Configuration示例图.png)
+![Configuration示例图](/imgs/Configuration示例图.webp)
 
 按照惯例，我们还是先把配置和配置集合的类图放上，方便按点讲解功能点：
 
-![Configuration_API](/imgs/Configuration_API.png)
+![Configuration_API](/imgs/Configuration_API.webp)
 
 可以看出，Configuration 的大量功能都于依赖相关。实际上，Configuration 和 DependencyHandler 提供的许多功能都相同，只是二者的作用范围不同：前者针对的是 Configuration 中的所有依赖，后者针对的是单个依赖。
 
@@ -3519,11 +3519,11 @@ Gradle 项目声明的每个依赖项都有特定的适用范围。例如，一�
 
 一个配置可以扩展其他配置以形成继承的层次结构。子配置继承了为父配置声明的全部依赖项集合。配置的继承被 Gradle 的核心插件大量使用(如 Java 插件)。例如，testImplementation 配置扩展了 implementation 配置。使用配置的继承有一个实际目的：测试用例需要在测试类自身依赖项的基础上，测试目标代码的依赖项。例如一个 Java 项目如果在代码中导入了 Guava。则在使用 JUnit 编写和执行测试代码时，也需要导入 Guava。
 
-![Configuration继承](/imgs/Configuration继承.png)
+![Configuration继承](/imgs/Configuration继承.webp)
 
 在 JavaPlugin 的具体实现中，testImplementation 和 implementation 配置通过调用方法 Configuration.extendsFrom(Configuration...) 形成了继承的层次结构。配置可以扩展任何其他配置，而不管它在 build script 或 plugin 中的定义如何。
 
-![Configuration继承代码实例](/imgs/Configuration继承代码实例.png)
+![Configuration继承代码实例](/imgs/Configuration继承代码实例.webp)
 
 假设我们想要编写一套冒烟测试，每个冒烟测试用例都会进行 HTTP 调用以验证 Web 服务功能。同时该项目已经使用了 JUnit 作为底层测试框架。那么我们可以定义一个名为 smokeTest 的新配置，它从 testImplementation 配置扩展以复用现有的测试框架依赖。代码如下
 
@@ -3635,12 +3635,12 @@ configurations { someConfiguration }
 
 首先，在 ConfigurationContainer 查找 someConfiguration 时，会走到 ConfigureDelegate 的 getProperty 方法。
 
-![Configuration创建语法解释](/imgs/Configuration创建语法解释.png)
+![Configuration创建语法解释](/imgs/Configuration创建语法解释.webp)
 
 
 然后，上面的代码，重点在于拿不到进行创建时调用 _configure 方法。该方法被 NamedDomainObjectContainerConfigureDelegate._configure 方法重载。最终会调用到 ConfigurationContainer 的 create 方法。
 
-![Configuration创建语法解释2](/imgs/Configuration创建语法解释2.png)
+![Configuration创建语法解释2](/imgs/Configuration创建语法解释2.webp)
 
 所以代码 1 具备创建配置的作用。但是不建议过多的使用这种语法糖，虽然看着简洁，但是会造成阅读和理解困难。在 Gradle 的 kts 代码中，Gradle 就少了很多在 groovy 中类似的语法糖。恰好开发 Android 的主语言也是 kotlin，所以推荐使用 kts。
 
@@ -3650,7 +3650,7 @@ configurations { someConfiguration }
 
 开发软件时，我们可以利用依赖仓库来下载和使用别人已开发好的开源依赖。流行的仓库包括 Maven Central 和 Google Android 仓库等。 Gradle 为这些仓库提供了内置的速记符号。
 
-![仓库示例图](/imgs/仓库示例图.png)
+![仓库示例图](/imgs/仓库示例图.webp)
 
 RepositoryHandler API 记录了仓库可用的便捷符号。要了解所以预定义的仓库，可以看 RepositoryHandler API 的类文档。
 
@@ -3860,7 +3860,7 @@ Gradle 的版本冲突解决方案不会考虑文件依赖，所以我们在使�
 
 在大型项目中，我们通常将工程分解成不同的模块(组件化)，以提高可维护性并防止强耦合。Gradle 允许模块间定义彼此的依赖关系，以在同一工程中复用代码。Gradle 会对模块之间的依赖关系进行建模，确保各个模块按照正确的顺序进行编译。这些依赖项称为项目依赖(project dependencies)，由 ProjectDependency 类代表。这个名称代表着每个依赖模块都由一个 Gradle project 表示。
 
-![Gradle多项目构建](/imgs/Gradle多项目构建.png)
+![Gradle多项目构建](/imgs/Gradle多项目构建.webp)
 
 项目依赖的使用方式如下：
 
@@ -4709,7 +4709,7 @@ configurations.all {
 
 Gradle 中，自定义插件是一个很核心的功能。插件的入口类就是 Plugin，但是 Plugin 只有一个 apply 方法，该方法带有一个泛型参数。不过通常这个泛型参数都是 Project 类。
 
-![Plugin类定义](/imgs/Plugin类定义.png)
+![Plugin类定义](/imgs/Plugin类定义.webp)
 
 在自定义插件时，我们通常都是针对项目做配置(Configuration)、实现自定义任务(Task)等。鉴于这部分内容上面都讲过，此处就不再重复赘述了。只讲一些涉及到插件的小知识点。
 

@@ -250,7 +250,7 @@ Java-style resources: [app/src/debug/resources]
 1. 点击 IDE 右侧的 Gradle 图标。
 2. 依次转到 MyApplication > Tasks > android，然后双击 sourceSets。Gradle 执行该任务后，系统应该会打开 Run 窗口以显示输出，Run 窗口默认在 IDE 底部。位置如下，
 
-![Gradle 查看源集的任务](/imgs/AndroidGradleSourceSetTask.png)
+![Gradle 查看源集的任务](/imgs/AndroidGradleSourceSetTask.webp)
 
 注意：输出的结果中还包含了测试（Android测试，Java测试）源代码文件集。
 
@@ -260,16 +260,16 @@ Java-style resources: [app/src/debug/resources]
 
 1. 打开 Project 窗格，然后从窗格顶部的下拉菜单中选择 Project 视图。
 2. 转到 MyProject/app/src/。
-![创建源集第一二步](/imgs/创建源集第一二步.png)
+![创建源集第一二步](/imgs/创建源集第一二步.webp)
 3. 右键点击 src 目录，然后依次选择 New > Folder > Java Folder。
-![创建源集第三步](/imgs/创建源集第三步.png)
+![创建源集第三步](/imgs/创建源集第三步.webp)
 4. 从 Target Source Set 旁边的下拉菜单中，选择 debug。
 5. 点击 Finish。
-![创建源集第四五步](/imgs/创建源集第四五步.png)
+![创建源集第四五步](/imgs/创建源集第四五步.webp)
 
 当 "debug" 构建类型被指定为目标源代码文件集后，Android Studio 在创建 XML 文件时会自动创建必要的目录。如图：
 
-![指定debug为目标源集后的xml目录](/imgs/指定debug为目标源集后的xml目录.png)
+![指定debug为目标源集后的xml目录](/imgs/指定debug为目标源集后的xml目录.webp)
 
 按照相同的过程，可以创建产品变种的源代码文件集目录（如 src/demo/）和构建变体的源代码文件集目录（如 src/demoDebug/）。此外，还可以创建特定构建变体的，特定的测试源代码文件集（例如 src/androidTestDemoDebug/）。要了解详情，请查看**<u>[测试源代码文件集](https://developer.android.google.cn/studio/test/index.html#sourcesets)</u>**。
 

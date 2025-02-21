@@ -283,9 +283,9 @@ class Task implements Callable<Integer> {
 
 结果如下，有两种。因为两个线程是并行的，不存在先后顺序：
 
-![Callable_Future_ThreadPool的使用1](/imgs/Callable_Future_ThreadPool的使用1.png)
+![Callable_Future_ThreadPool的使用1](/imgs/Callable_Future_ThreadPool的使用1.webp)
 
-![Callable_Future_ThreadPool的使用2](/imgs/Callable_Future_ThreadPool的使用2.png)
+![Callable_Future_ThreadPool的使用2](/imgs/Callable_Future_ThreadPool的使用2.webp)
 
 那么`Callable + FutureTask`怎么使用呢？我们将上面的`main`方法稍微改造下。第12行代码改为下面的内容：
 
@@ -501,7 +501,7 @@ class MyThread extends Thread {
 
 运行结果：
 
-![yeild方法使用结果](/imgs/yeild方法使用结果.png)
+![yeild方法使用结果](/imgs/yeild方法使用结果.webp)
 
 在 1 处，名字为张的线程执行了`yield`函数，进入了可执行状态，`CPU`重新选择线程执行，此时`CPU`选择线程张，线程张继续执行；而在 2 处，线程杨执行了`yield`函数，进入了可执行状态，此时`CPU`选择了线程张，并没有选择线程杨。yield`的作用清晰可见。
 
@@ -772,7 +772,7 @@ public class SynchronizedTest {
 
 无论运行几次，结果都是一样，B 会在 A 线程执行完毕以后执行。符合我们的说明。
 
-![synchronized同步代码调用结果1](/imgs/synchronized同步代码调用结果1.png)
+![synchronized同步代码调用结果1](/imgs/synchronized同步代码调用结果1.webp)
 
 截止到这里，`synchronized`的两个规则就说明的差不多了。
 
@@ -1087,7 +1087,7 @@ class MyConditionService {
 
 结果为：
 
-![读写锁使用举例1](/imgs/读写锁使用举例1.png)
+![读写锁使用举例1](/imgs/读写锁使用举例1.webp)
 
 其实结果并不唯一，但大部分结果都有一个特点，那就是2个或者3个线程同时运行，因为两个线程的读操作不会冲突。不过还是会线程依次执行的情况，只是可能性比较小，因为线程的开始时间是随机的。
 
@@ -1234,7 +1234,7 @@ class Consumer2 extends Thread {
 
 我们定义了两个条件，一个是队列不为空的条件，一个是队列不为满的条件。队列为空时，消费者等待，不为空时，唤醒消费者，但是此时生产者获得了锁，故消费者无法消费（从另一种角度讲，读写互斥，不能同时进行）。队列为满时，生产者等待，不为满时，唤醒生产者，但是此时消费者获得了锁，故生产者无法生产。那是不是这样呢？看下结果：
 
-![Condition实现生产者消费者模式结果图1](/imgs/Condition实现生产者消费者模式结果图1.png)
+![Condition实现生产者消费者模式结果图1](/imgs/Condition实现生产者消费者模式结果图1.webp)
 
 结果有没有符合你的预期？如果没有，请好好思考一下，相关思路我已经在上一段讲了。
 
@@ -1358,7 +1358,7 @@ public class CountDownLatch {
 
 话不多说，上图。
 
-![Java线程池框架](/imgs/Java线程池框架.png)
+![Java线程池框架](/imgs/Java线程池框架.webp)
 
 说明：
 
@@ -1371,7 +1371,7 @@ public class CountDownLatch {
 
 再上个详细版的框架图：
 
-![Java线程池框架详细](/imgs/Java线程池框架详细.png)
+![Java线程池框架详细](/imgs/Java线程池框架详细.webp)
 
 ### `Executor`接口
 
@@ -1722,7 +1722,7 @@ public class ThreadPoolTest {
 
 上面提到过，`ThreadPoolExecutor`类的构造方法中有一个`RejectedExecutionHandler`，用于定义拒绝策略。 其实JDK提供了一些内置的拒绝策略。如下图：
 
-![线程池内置拒绝策略](/imgs/线程池内置拒绝策略.png)
+![线程池内置拒绝策略](/imgs/线程池内置拒绝策略.webp)
 
 除了上述策略之外，我们还可以自定义拒绝策略。
 

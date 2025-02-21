@@ -113,7 +113,7 @@ fun start(activity: Activity) {
 
 一个优秀的 Android 项目，应当是需要组件化的。对于本文介绍的路由插件的实现，也会使用组件化，本文会将注解的定义、注解的实现、注解的参数注入、注解的使用等步骤分到不同的组件，实现代码隔离。组件架构如图：
 
-![组件架构](/imgs/组件架构.png)
+![组件架构](/imgs/组件架构.webp)
 
 - annotation 组件中存放的是我们自定义的路由组件和相关的工具类
 - processor 组件中存放的是用于解析注解的路由注解处理器，依赖于 annotation 组件
@@ -146,7 +146,7 @@ fun start(activity: Activity) {
 4. 启动时在 RouteInitializer 中将 RouteRegister 的数据写入 RouteHub 中
 5. Router 根据 RouteHub 中的信息，向用户提供简易的跳转方式
 
-![Router流程](/imgs/Router流程.png)
+![Router流程](/imgs/Router流程.webp)
 
 最后我们来看看相关代码如何实现。
 
@@ -219,7 +219,7 @@ class RouteProcessor : AbstractProcessor() {}
 
 运行代码以后，框架会在 ProjectDir/processor/build/tmp/kapt3/classes/main/META-INF/services 目录下自动生成 javax.annotation.processing.Processor 文件，并填入 RouteProcessor，如图：
 
-![注册注解处理器](/imgs/注册注解处理器.png)
+![注册注解处理器](/imgs/注册注解处理器.webp)
 
 #### 3. 实现注解处理器
 
@@ -646,7 +646,7 @@ class RouteProcessor : AbstractProcessor() {}
 
 假如我们根据 app 模块名在 com.mustly.wellmedia.lib.commonlib.route.generated 下生成了 AppRouteRegister 类，则其效果像这样：
 
-![生成的AppRouteRegister类](/imgs/生成的AppRouteRegister类.png)
+![生成的AppRouteRegister类](/imgs/生成的AppRouteRegister类.webp)
 
 #### 4. 编译时参数注入
 

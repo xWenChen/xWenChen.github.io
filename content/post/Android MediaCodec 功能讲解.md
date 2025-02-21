@@ -193,7 +193,7 @@ if (format.containsKey(MediaFormat.KEY_CROP_TOP)
 
 下图是 Android 官方给出的 MediaCodec 的生命周期状态图：
 
-![MediaCodec的生命周期状态图](/imgs/MediaCodec的生命周期状态图.png)
+![MediaCodec的生命周期状态图](/imgs/MediaCodec的生命周期状态图.webp)
 
 Stopped 状态具有三个子状态：Uninitialized、Configured 和 Error。
 
@@ -286,7 +286,7 @@ MediaCodec 实例的另一种创建方式是使用 MediaCodec.createDecoder/Enco
 
 下表列举了 Android 定义的可以包含 csd buffers 的格式及对应的含义。为了实现正确的 MediaMuxer 轨道配置(MediaMuxer track configuration)，这些 buffers 的信息也需要在轨道格式(track format)中进行设置。标有(*)的每个参数结合，以及标有(*)的 csd 部分，必须以"\x00\x00\x00\x01"代码开头。
 
-![Android定义的csd](/imgs/Android定义的csd.png)
+![Android定义的csd](/imgs/Android定义的csd.webp)
 
 这张表的含义以后再做解释，涉及到的知识点比较多。此处就不讲了。
 
@@ -298,7 +298,7 @@ MediaCodec 实例的另一种创建方式是使用 MediaCodec.createDecoder/Enco
 
 调用了 start 方法后，MediaCodec 就开始处理数据了。MediaCodec 的处理流程如下图所示：
 
-![MediaCodec的处理流程](/imgs/MediaCodec的处理流程.png)
+![MediaCodec的处理流程](/imgs/MediaCodec的处理流程.webp)
 
 MediaCodec 处理输入数据(input data)以生成输出数据(output data)，有同步和异步两种数据处理方式。每个 Codec 都维护了一组 input buffers 和 output buffers，这些 buffer 通过 buffer-ID 标识。简单的讲，我们通过以下步骤使用 MediaCodec：
 
@@ -342,7 +342,7 @@ MediaCodec 处理输入数据(input data)以生成输出数据(output data)，�
 
 自 Android 5.0(API 等级 21) 开始，官方优先推荐异步方式处理数据：在调用 configure 方法之前设置回调。异步模式稍微改变了状态转换，在调用 flush() 方法之后，我们必须手动调用 start() 方法，以将 codec 转换到 Running 子状态并开始接收 input buffer。类似地，在调用 start() 方法后，codec 将直接转换到 Running 子状态。
 
-![异步模式状态转换](/imgs/异步模式状态转换.png)
+![异步模式状态转换](/imgs/异步模式状态转换.webp)
 
 ```java
 // 1. 创建 MediaCodec 的实例

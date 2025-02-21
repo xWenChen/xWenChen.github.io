@@ -116,9 +116,9 @@ public class NQueenProblem {
 ## 实验结果
 
 &emsp;&emsp;下图为皇后为 6 的结果：
-![6 皇后结果实例](/imgs/回溯法-N皇后问题-6皇后.png)
+![6 皇后结果实例](/imgs/回溯法-N皇后问题-6皇后.webp)
 
 &emsp;&emsp;下图为皇后为 4 的结果：
-![6 皇后结果实例](/imgs/回溯法-N皇后问题-4皇后.png)
+![6 皇后结果实例](/imgs/回溯法-N皇后问题-4皇后.webp)
 
 &emsp;&emsp;上面的实验结果可以验证代码的正确性。

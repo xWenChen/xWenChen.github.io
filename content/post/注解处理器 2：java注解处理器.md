@@ -28,7 +28,7 @@ toc: true
 
 注解处理器(Annotation Processor Tool)是 javac 的一个工具，它用来在编译时扫描和处理注解(Annotation)。其生效的时间节点是 java 代码被编译为 class 之前，所以我们可以使用 APT 扫描源码，声明新文件，新文件可以是根据 java doc 生成的 html 文件、根据 java 源代码生成的 java 文件等等。
 
-![注解处理器生效时间点](/imgs/注解处理器生效时间点.png)
+![注解处理器生效时间点](/imgs/注解处理器生效时间点.webp)
 
 我们可以自定义注解，并注册相应的注解处理器。注解处理器在 Java 5 开始就有了，但是从 Java 6(2006年12月发布) 开始才有可用的 API。
 
@@ -82,7 +82,7 @@ Processor 的每个实现类都必须提供一个公共的无参数构造函数�
 
 Processor API 如下图所示：
 
-![注解处理器API](/imgs/注解处理器API.png)
+![注解处理器API](/imgs/注解处理器API.webp)
 
 Processor 接口定义如下：
 
@@ -297,7 +297,7 @@ public interface Messager {
 
 Diagnostic.Kind 是个用于表示信息种类的枚举类，类似于我们经常使用的日志级别(error、 warning、info、debug等)：
 
-![Diagnostic_Kind枚举类](/imgs/Diagnostic_Kind枚举类.png)
+![Diagnostic_Kind枚举类](/imgs/Diagnostic_Kind枚举类.webp)
 
 ### FileObject
 
@@ -310,7 +310,7 @@ FileObject 类是 APT 工具的文件抽象。在 FileObject 的关联语境中�
 
 FileObject 的相关类如图：
 
-![FileObject的相关类](/imgs/FileObject的相关类.png)
+![FileObject的相关类](/imgs/FileObject的相关类.webp)
 
 上图中的 URI 类是 java.net.URI 类，NestingKind 是 javax.lang.model.element.NestingKind 类，Modifier 是 javax.lang.model.element.Modifier 类，此处就不细讲了；io 相关的类也不再介绍了。感兴趣的读者可以自行搜索。此处只讲下 FileObject 及其子类。
 
@@ -477,7 +477,7 @@ JavaFileManager 类表示 APT 工具在 Java 语言中针对源码文件和 clas
 
 JavaFileManager 涉及到的相关类如图：
 
-![JavaFileManager相关类](/imgs/JavaFileManager相关类.png)
+![JavaFileManager相关类](/imgs/JavaFileManager相关类.webp)
 
 #### JavaFileManager
 

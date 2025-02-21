@@ -51,17 +51,17 @@ Android 的防劫持是门大学问。涉及到众多高深的知识。本文不
 
 1. 单个生命周期示意图
 
-![单个生命周期示意图](/imgs/单个生命周期示意图.png)
+![单个生命周期示意图](/imgs/单个生命周期示意图.webp)
 
 2. A 进入 B 时的生命周期
 
 - 当 B 不透明时
 
-![页面切换生命周期1](/imgs/页面切换生命周期1.png)
+![页面切换生命周期1](/imgs/页面切换生命周期1.webp)
 
 - 当 B 透明时
 
-![页面切换生命周期2](/imgs/页面切换生命周期2.png)
+![页面切换生命周期2](/imgs/页面切换生命周期2.webp)
 
 ## 代码预设
 
@@ -158,7 +158,7 @@ public class ThisLCApplication extends Application {
 
 首先设计主界面 MainActivity。包含几个按钮：
 
-![设计MainActivity](/imgs/设计MainActivity.jpg)
+![设计MainActivity](/imgs/设计MainActivity.webp)
 
 xml 代码如下：
 
@@ -288,7 +288,7 @@ public void startOtherTransparentActivity(View view) {
 
 ThisApp 的非透明界面(ThisOpaqueActivity)显示内容如下：
 
-![ThisOpaqueActivity](/imgs/ThisOpaqueActivity.jpg)
+![ThisOpaqueActivity](/imgs/ThisOpaqueActivity.webp)
 
 XML 代码如下：
 
@@ -326,7 +326,7 @@ XML 代码如下：
 
 ThisApp 的透明界面(ThisTransparentActivity)显示内容如下：
 
-![ThisTransparentActivity](/imgs/ThisTransparentActivity.jpg)
+![ThisTransparentActivity](/imgs/ThisTransparentActivity.webp)
 
 xml 代码如下：
 
@@ -390,7 +390,7 @@ xml 代码如下：
 
 OtherApp 的非透明界面(OtherOpaqueActivity)显示内容如下：
 
-![OtherOpaqueActivity](/imgs/OtherOpaqueActivity.jpg)
+![OtherOpaqueActivity](/imgs/OtherOpaqueActivity.webp)
 
 XML 代码就不放了，和 ThisApp 的 ThisOpaqueActivity 布局完全相同，只是改了下 TextView 的文案，文案从图中可以知晓。
 
@@ -398,7 +398,7 @@ XML 代码就不放了，和 ThisApp 的 ThisOpaqueActivity 布局完全相同�
 
 OtherApp 的透明界面(OtherTransparentActivity)显示内容如下：
 
-![OtherTransparentActivity](/imgs/OtherTransparentActivity.jpg)
+![OtherTransparentActivity](/imgs/OtherTransparentActivity.webp)
 
 xml 代码和主题代码就不放了，和 ThisApp 的 ThisTransparentActivity 布局完全相同，只是改了下 TextView 的文案，文案从图中可以知晓。而 xml 中也只多了一个允许其他应用访问的设置。
 
@@ -417,7 +417,7 @@ xml 代码和主题代码就不放了，和 ThisApp 的 ThisTransparentActivity 
 
 在设计好了 APP 之后，就可以做方案验证了。根据网上现有的资料，我总结了界面覆盖检测有以下几种方法：
 
-![界面覆盖检测方案总结](/imgs/界面覆盖检测方案总结.png)
+![界面覆盖检测方案总结](/imgs/界面覆盖检测方案总结.webp)
 
 这些方案我一个个说明。
 
@@ -447,7 +447,7 @@ public static boolean checkByTopActivity(Activity activity) {
 
 但是如果你直接在 Android Studio 中使用上述的代码，Android Studio 会给出提示，如下。这说明了该方案存在高低版本兼容问题。
 
-![栈顶Activity检测方案高低版本兼容问题](/imgs/栈顶Activity检测方案高低版本兼容问题.jpg)
+![栈顶Activity检测方案高低版本兼容问题](/imgs/栈顶Activity检测方案高低版本兼容问题.webp)
 
 **经过验证，生命周期的确会影响到检测的准确性**。假设是从 A 界面进入 B 界面。
 

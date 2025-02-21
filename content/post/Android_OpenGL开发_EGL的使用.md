@@ -591,6 +591,6 @@ private boolean initWindow() {
 
 从上述的说明中，我们可以得到下面的关于 EGL 的使用的流程图：
 
-![EGL使用流程图](/imgs/EGL使用流程图.png)
+![EGL使用流程图](/imgs/EGL使用流程图.webp)
 
 以上便是关于 EGL 的使用的一些基本介绍。

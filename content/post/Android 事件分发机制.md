@@ -31,13 +31,13 @@ Tips:建议每位读者自己观看源码，遇到不懂的地方再看我文章
 
 对于所有的事件分发中的调用，都有一个明确的逻辑返回关系（如下）。差异只是在得到返回值之后的后续处理过程。
 
-![事件处理的返回值](/imgs/事件处理的返回值.png)
+![事件处理的返回值](/imgs/事件处理的返回值.webp)
 
 对于得到返回值之后的处理方式，本文会分段讲解，最后进行汇总。
 
 对于所有的事件分发，都是从最外层 Activity 向里面的 View 传递，在事件分发的过程中，其涉及到的层次结构如下：
 
-![事件分发中的层次](/imgs/事件分发中的层次.png)
+![事件分发中的层次](/imgs/事件分发中的层次.webp)
 
 各层次讲解：
 
@@ -71,7 +71,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 
 其流程如下：
 
-![Activity 中的事件分发](/imgs/Activity中的事件分发.png)
+![Activity 中的事件分发](/imgs/Activity中的事件分发.webp)
 
 当子 View 都没有处理事件时，Activity 自身会调用 onTouchEvent 处理事件，不过 Activity 的 onTouchEvent 的**默认实现永远返回 false**。别问我从哪里知道的，方法注释里写的清清楚楚的。
 
@@ -109,7 +109,7 @@ public boolean superDispatchTouchEvent(MotionEvent event) {
 
 毫不客气的讲，Android 的事件分发流程主体就是在这个方法中。理解了这个方法的逻辑，就可以理解 Android 的事件分发机制。首先我们先看看 dispatchTouchEvent 的代码行数：
 
-![ViewGroup_dispatchTouchEvent代码行数](/imgs/ViewGroup_dispatchTouchEvent代码行数.png)
+![ViewGroup_dispatchTouchEvent代码行数](/imgs/ViewGroup_dispatchTouchEvent代码行数.webp)
 
 从 2541 到 2755，ViewGroup 的 dispatchTouchEvent 方法跨越了整整 214 行，是相当多了，那么便说明这个方法是非常复杂的。但是不担心，让我们来一步步梳理。
 
@@ -506,7 +506,7 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
 - 触摸事件的分发流程讲到这里，其实我们已经知道了**触摸事件是否被处理，取决于 ViewGroup 的 dispatchTouchEvent 方法的返回值**。dispatchTouchEvent 方法返回 true，事件就被处理了；dispatchTouchEvent 方法返回 false，事件就未被处理。前面的源码查看已经可以得出 Activity 的处理默认是返回 false 的，而 Window、DecorView 的处理又是简单的调用一个方法，所以返回值实际上实际上取决于 ViewGroup 的 dispatchTouchEvent 方法。
 - 看完上面这么多，我们来画个 ViewGroup 的流程图：
 
-![ViewGroup分发流程](/imgs/ViewGroup分发流程.png)
+![ViewGroup分发流程](/imgs/ViewGroup分发流程.webp)
 
 经过一大段分析，画了个流程图出来，如果其中有不对的方法，欢迎大家指正。来总结一下：
 
@@ -780,7 +780,7 @@ private final class CheckForLongPress implements Runnable {
 
 看完了分发流程，让我们来看看实际的问题解决。现在我有个实际布局如下：
 
-![实际例子示意图](/imgs/实际例子示意图.png)
+![实际例子示意图](/imgs/实际例子示意图.webp)
 
 说明：
 
@@ -873,6 +873,6 @@ public class CustomConstraintLayout extends ConstraintLayout {
 
 讲讲三种方法的含义吧，如图。
 
-![Android事件分发方法描述](/imgs/Android事件分发方法描述.png)
+![Android事件分发方法描述](/imgs/Android事件分发方法描述.webp)
 
 那么事件分发的基础就暂时讲到这里吧。后面如果有时间，我会把多指的触摸事件给好好讲讲。这部分需要重点研究 MotionEvent 类和 ScrollView 类。

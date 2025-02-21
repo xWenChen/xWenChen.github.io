@@ -102,7 +102,7 @@ MediaPlayer 的实例可以通过两种途径创建：
 
 MediaPlayer 定义了以下播放状态，在 Idle 状态和 End 状态之间就是 MediaPlayer 对象的生命周期：
 
-![MediaPlayer的生命周期](/imgs/MediaPlayer的生命周期.png)
+![MediaPlayer的生命周期](/imgs/MediaPlayer的生命周期.webp)
 
 ### Error(错误状态)
 

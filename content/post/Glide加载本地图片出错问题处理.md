@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
 既然代码报错了，我们就得改正。修改方式有很多，同时我们仍然可以使用 Glide 管理。但是上面的代码为啥会出错呢？这就得结合源码好好排查下了。按照惯例先上一张 Glide 的加载流程图，方便后面我们叙述：
 
-![Glide的加载流程图](/imgs/Glide的加载流程图.png)
+![Glide的加载流程图](/imgs/Glide的加载流程图.webp)
 
 Glide 的加载流程，会一路经过 Glide ---> RequestManager ---> RequestBuilder -> SingleRequest，然后执行 SingleRequest.begin ---> CustomTarget.getSize -> SingleRequest.onSizeReady，最终在 onSizeReady 方法中调用到 Engine.load 方法。
 

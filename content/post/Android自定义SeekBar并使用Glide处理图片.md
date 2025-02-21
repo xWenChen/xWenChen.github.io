@@ -23,7 +23,7 @@ toc: true
 
 在最近的一个处理音频播放的需求中，视觉同事要求实现如下一个效果：
 
-![音频播放视觉示例](/imgs/音频播放视觉示例.png)
+![音频播放视觉示例](/imgs/音频播放视觉示例.webp)
 
 - 左边一个进度条，中间一个时间长度，右边一个播放按钮。当点击播放按钮时，会播放音频，并不停刷新播放进度
 
@@ -31,7 +31,7 @@ toc: true
 
 - 鉴于音视频视觉段的数量不固定，但是视觉不想重复切图，只想给一个最长的切图。所以剩下较短的段数开发自己计算比例，裁剪图片得到。
 
-![音频播放视觉切割说明](/imgs/音频播放视觉切割说明.png)
+![音频播放视觉切割说明](/imgs/音频播放视觉切割说明.webp)
 
 根据视觉提供的布局说明，则可以得到 1、2、3、4 个音视频视觉段的比例为：0.196f、0.468f、0.736f、1.0f。
 
@@ -120,7 +120,7 @@ class InnerStrokeTransformation(
 
 添加描边的步骤如下图所示：
 
-![Glide为图片添加内边框的步骤](/imgs/Glide为图片添加内边框的步骤.png)
+![Glide为图片添加内边框的步骤](/imgs/Glide为图片添加内边框的步骤.webp)
 
 可以看出，添加描边主要是两个步骤：绘制原图像、绘制描边。
 
@@ -386,7 +386,7 @@ private suspend fun loadDrawable(
 
 要为 SeekBar 设置 progressDrawable。我们需要得到一个 LayerDrawable，这个 LayerDrawable 包含两个图层的 ClipDrawable，分为代表 SeekBar 的全部进度(backgroundDrawable)和已播放进度(mProgressDrawable)。并将全部进度的 id 设置为 android.R.id.background，将已播放进度的 id 设置为 android.R.id.progress。
 
-![progressDrawable的层级](/imgs/progressDrawable的层级.png)
+![progressDrawable的层级](/imgs/progressDrawable的层级.webp)
 
 至于为什么 LayerDrawable 包含的必须是 ClipDrawable。这是因为 SeekBar 在改变进度时，会为其对应的 mProgressDrawable 设置 level。这个 level 是在 Drawable 中定义的。虽然 Drawable 的子类都可以使用，但是在官方提供的实现中，只有 ClipDrawable 会根据 level 取计算一个比例，并按照该比例裁剪 Drawable。比例的计算方式为：(level / 10000)，即 ClipDrawable 的最大 level 为 10000(一万)。只有按比例裁剪 Drawable，SeekBar 才能呈现出进度不断变化的样式。
 
