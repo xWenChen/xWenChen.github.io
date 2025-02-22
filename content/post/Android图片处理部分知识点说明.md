@@ -512,6 +512,53 @@ Android 中，要获取 Bitmap 的大小，可以通过两个方法："byteCount
 
 综上，allocationByteCount 通常大于等于 byteCount。在某些情况下，它们可能相等，但 allocationByteCount 不会小于 byteCount。
 
+## BitmapFactory 解码 Bitmap
+
+BitmapFactory解码图片，生成Bitmap时，可以使用BitmapFactory.Options进行配置。主要有几个配置需要说明：
+
+- inJustDecodeBounds：为true时指定只解码图片的尺寸等信息，不加载图片的像素数据。
+- inSampleSize：设定图片解码时的缩放倍数。比如inSampleSize=2时，图片缩小为原图的一半(二分之一)。
+- inMutable：表示解码的Bitmap是否应该是可变的。
+
+    - 如果设置为 true，解码出的位图将是可变的，可以对其进行修改。例如，改变像素、绘制等。
+    - 如果设置为 false(默认值)，解码出的位图将是不可变的，尝试修改它将抛出IllegalStateException。
+    - 该属性不能与inPreferredConfig=Bitmap.Config.HARDWARE同时设置，因为硬件解出来的位图总是不可变的。
+
+- inPreferredConfig：指定解码位图时的格式，比如RGB_565、ARGB_8888等。
+- inBitmap：类型是Bitmap，表示允许重用一个已经存在的位图，
+
+    - 新解码的位图将尝试放入这个已存在的位图中，而不是分配新的内存。这可以帮助减少内存使用和提高性能。
+    - Android 5.0以前，使用inBitmap时，有以下限制，否则会抛出IllegalArgumentException。
+       
+        - 解码的新位图仅支持jpg和png格式。
+        - 待解码图片尺寸必须与inBitmap指定的位图相同。
+        - inSampleSize必须设置为1。
+        - Options指定的inPreferredConfig会被inBitmap指定的位图覆盖。
+
+    - 使用inBitmap时，应注意传入的位图是否是可变的，如果不可变，则可能会报错。
+    - 使用inBitmap时，另外Options如果设置了位图不可变，但传入的inBitmap是可变的，最终解码的位图仍然是可变的。
+    - BitmapRegionDecoder也支持inBitmap复用。
+
+```kotlin
+// 创建一个可重用的位图
+val reusableBitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888)
+val options = BitmapFactory.Options().apply {
+    // 使位图可变
+    inMutable = true
+    // 复用位图
+    inBitmap = reusableBitmap
+}
+
+// 解码位图
+val bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image, options)
+
+// 现在可以对 bitmap 进行修改
+Canvas(bitmap).apply {
+    // 修改位图
+    drawColor(Color.RED)
+}
+```
+
 ## 判断字符串是否是颜色字符串
 
 可以用以下方式判断 Char 是否在 0 - 9、a - f、A - F 的范围内。
