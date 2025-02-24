@@ -443,7 +443,7 @@ class MyPainter extends CustomPainter {
 
 ### BlendMode
 
-BlendMode代表了画笔的混合模式。我们可以使用该参数混合Paint绘制的两个图层的内容。如果是一个图层，可能效果有时候不会达到预期。
+BlendMode代表了画笔的混合模式。我们可以使用该参数**混合Paint绘制的两个图层的内容**。如果是一个图层，可能效果有时候不会达到预期。
 
 ![BlendModeSrc](/imgs/BlendModeSrc.webp)
 
