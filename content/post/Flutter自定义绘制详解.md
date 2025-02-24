@@ -352,21 +352,94 @@ ImageShader(
 
 可以看到，两种着色器的构造函数中都有个TileMode参数。实际上，TileMode代表的是当无法填充满待绘制区域时，图片的重复模式。如图：
 
-clamp：图像边缘的延伸。比如同时这是 tmx 和 tmy 都为 TileMode.clamp 的时候的效果图如下：
+decal：对应方向不做任何处理，使用透明填充，比如tmx和tmy都为 decal 时的效果为：
 
-![tileMode+clamp说明](/imgs/tileMode+clamp说明.webp)
+![flutter_canvas_decal_decal](/imgs/flutter_canvas_decal_decal.webp)
 
-repeated：方向上重复图像。tmx 和 tmy 都为 TileMode.repeated 的时候的效果图如下：
+clamp：图像边缘的延伸 / repeated：方向上重复图像。比如这是 tmx 为 clamp，tmy 为 repeated 时的效果图：
 
-![tileMode+repeat说明](/imgs/tileMode+repeat说明.webp)
+![flutter_shader_clamp_repeated](/imgs/flutter_shader_clamp_repeated.webp)
 
-mirror：图像镜像填充，下面是 tmx 为 mirror，tmy 为 repeated的效果图。
+mirror：图像镜像填充，下面是 tmx 为 mirror，tmy 为 clamp 的效果图。
 
-![tileMode+mirror说明](/imgs/tileMode+mirror说明.webp)
+![flutter_shader_mirror_clamp](/imgs/flutter_shader_mirror_clamp.webp)
 
-decal：对应方向不做任何处理，使用透明填充，比如我们将上面的 tmy 改成 decal，就只会在 x 轴重复了。
+上面效果的代码为：
 
-![tileMode+decal说明](/imgs/tileMode+decal说明.webp)
+```dart
+import 'dart:ui' as ui;
+
+class CanvasDemo extends StatefulWidget {
+
+  @override
+  State<CanvasDemo> createState() => _CanvasDemoState();
+}
+
+class _CanvasDemoState extends State<CanvasDemo> {
+  ui.Image? image;
+
+  @override
+  void initState() {
+    if (mounted) {
+      _loadImage();
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      if (image == null) {
+        return const Text(
+          '加载中......',
+          style: TextStyle(fontSize: 24,),
+        );
+      }
+      return CustomPaint(
+        painter: MyPainter(image!), // 使用自定义绘图
+        size: const Size(500, 500),
+      );
+    });
+  }
+  // 加载assets图片
+  Future<void> _loadImage() async {
+    // 加载图片
+    final data = await rootBundle.load('pic1.png'); // 不同平台的 assets 图片写法有区别。
+    final bytes = data.buffer.asUint8List();
+    final codec = await ui.instantiateImageCodec(bytes);
+    final frameInfo = await codec.getNextFrame();
+    image = frameInfo.image;
+    setState(() {});
+  }
+}
+
+// 自定义 Painter
+class MyPainter extends CustomPainter {
+  MyPainter(this.image,);
+
+  final ui.Image image;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = ui.Rect.fromLTWH(0, 0, size.width, size.height);
+    canvas.drawRect(rect, ui.Paint()..color = Colors.red);
+
+    final paint = Paint()
+      ..isAntiAlias = true
+      ..shader = ImageShader(
+        image,
+        ui.TileMode.mirror, // 重复模式
+        ui.TileMode.clamp, // 重复模式
+        Matrix4.identity().storage,
+      );
+
+    canvas.drawRect(rect, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+}
+```
 
 ### BlendMode
 
@@ -398,17 +471,61 @@ paint
 
 ![Blending混合](/imgs/Blending混合.webp)
 
-### colorFilter
+#### colorFilter
 
-colorFilter 用于处理和融合图片颜色，类似 ColorFiltered 组件的效果。想要自定义混合后最终的取值，可以更改画笔的BlendMode，以实现想要的效果。
+colorFilter 用于处理和融合图片颜色，类似 ColorFiltered 组件的效果。colorFilter会作为src图层(一个纯色图层)，盖在原图上面，此时原图是 dst 图像。想要自定义混合后最终的取值，可以更改画笔的BlendMode，以实现想要的效果。如下代码的效果为：
 
-![colorFilter](/imgs/colorFilter.webp)
+```dart
+import 'dart:ui' as ui;
 
-### imageFilter
+class MyPainter extends CustomPainter {
+  MyPainter(this.image,);
+
+  final ui.Image image;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = ui.Rect.fromLTWH(0, 0, size.width, size.height);
+
+    final paint = Paint()
+      ..isAntiAlias = true
+      ..shader = ImageShader(
+        image,
+        ui.TileMode.repeated,
+        ui.TileMode.repeated,
+        Matrix4.identity().storage,
+      ) // ImageShader 先绘制，为 dst。
+      ..colorFilter = const ui.ColorFilter.mode(Colors.green, ui.BlendMode.srcOut); // colorFilter 后绘制，为 src。
+
+    canvas.drawRect(rect, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+}
+```
+
+![flutter_paint_color_filter](/imgs/flutter_paint_color_filter.png)
+
+#### imageFilter
 
 imageFilter是图片绘制时的过滤器。其各个效果如下：
 
-// todo 待补充接下来的内容
+- ImageFilter.blur：高斯模糊效果，可以用于对图像进行模糊处理，通常用于创建背景模糊效果或柔和的视觉效果。可以指定水平和垂直方向上的模糊强度。
+
+![flutter_paint_blur](/imgs/flutter_paint_blur.webp)
+
+- ImageFilter.dilate/erode：膨胀/腐蚀操作，将一个像素膨胀/缩小为特定范围的像素，通常用于图像处理中的形态学操作，前者可以使图像中的亮区域变得更大，后者可以缩小该区域，通常用于增强图像中的特定特征。参数可以入传入 x/y 方向上的半径。
+
+    - 注意：部分平台并为实现该操作，比如 web 平台，所以 dilate/erode API 存在兼容性问题。
+
+    ![flutter_paint_dilate](/imgs/flutter_paint_dilate.webp)
+
+#### MaskFilter
+
+Paint 对象可以设置 maskFilter 属性，可以通过 MaskFilter.blur 让画笔进行高斯模糊，BlurStyle.solid 模式会让画笔绘制时，四周产生模糊的阴影。而BlurStyle.inner/outer 则是内外产生模糊，第二参决定模糊程度，比如 2、4、6。
+
+![flutter_paint_mask_filter](/imgs/flutter_paint_mask_filter.webp)
 
 ## Canvas类
 
