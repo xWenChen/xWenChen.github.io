@@ -1211,3 +1211,14 @@ GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(startColor,
     view.background = this
 }
 ```
+
+109. native debug 的部分知识点：
+    - 符号（Symbol）常用来表示一个地址，这个地址可能是一端程序的起始地址，也可能是一个变量的起始地址，简而言之，将它当做是标记或名称即可。
+    - 链接过程中，我们将 函数 和 变量 统一称作为符号，函数名与变量名称就是符号名，其记录的地址信息就是其符号值。
+    - strip操作：在linux中，strip有脱衣服的含义，具体就是从特定文件中剥掉一些符号信息和调试信息。strip后，文件会变小，其中的符号信息会失去。输出时会只有内存地址。
+    - android中可以通过以下代码禁用 strip 操作：`android { packagingOptions { doNotStrip "*/*/libxxx.so" }`。
+    - 当在local.properties中配置ndk.dir，或者设置ANDROID_NDK_HOME时，可以让Android studio知道ndk路径的时候,此时构建系统会增加一个名为transformNativeLibsWithStripDebugSymbolForXXX的任务, 这个任务会执行strip so 操作,当没有设置 ndk 路径的时候就不会进行strip so。
+    - addr2line：addr2line是用于将程序的地址转换为源代码中的文件名和行号的工具，通常用于调试和分析崩溃日志。addr2line的用法为 `addr2line -f -e libmylibrary.so 0x12345678`。-f 选项表示输出函数名。-e 选项后面跟的是要解析的可执行文件或共享库的路径。结果会输出形如：`my_function   /path/to/source/file.cpp:42` 的内容，表示在 my_function 函数中，崩溃发生在 /path/to/source/file.cpp 文件的第 42 行。
+    - LLDB：在Android开发中，LLDB 是一个强大的调试器，主要用于调试 C、C++ 和 Objective-C 代码。它是 LLVM 项目的一部分，旨在提供高效的调试功能，支持多种平台和编程语言。而 gdb 是基于 gcc 的，在Android中，高版本目前已弃用，低版本设备上可能会用到。
+    - Android手机中有个debuggerd进程，当发生Native Crash，系统会自动调用debuggerd来将信息dump到tombstone文件中。另外也可以主动执行debuggerd(前提是手机要root，可能还需要关闭selinux)。debuggerd可以直接打印native调用栈，用法是`debuggerd [-b] PID`。
+    - `int my_counter __attribute__((aligned(8)))`用于给my_counter变量分配的内存块添加的监视点。我们必须将变量的内存地址边界分别按照 4 字节（对于 32 位处理器）或 8 字节（对于 64 位处理器）对齐。

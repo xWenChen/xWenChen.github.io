@@ -461,7 +461,11 @@ paint
 
 #### Alpha 合成
 
-第一类，Alpha 合成，其实就是 「PorterDuff」这个词所指代的算法。「PorterDuff」并不是一个具有实际意义的词组，而是两个人的名字（准确讲是姓）。这两个人当年(1984年)共同发表了一篇论文，描述了 12 种将两个图像共同绘制的操作（即算法）。而这篇论文所论述的操作，都是关于 Alpha 通道（也就是我们通俗理解的「透明度」）的计算的，后来人们就把这类计算称为Alpha 合成 ( Alpha Compositing ) 。 
+第一类，Alpha 合成，其实就是 「PorterDuff」这个词所指代的算法。「PorterDuff」并不是一个具有实际意义的词组，而是两个人的名字（准确讲是姓）。这两个人当年(1984年)共同发表了一篇论文，描述了 12 种将两个图像共同绘制的操作（即算法）。而这篇论文所论述的操作，都是关于 Alpha 通道（也就是我们通俗理解的「透明度」）的计算的，后来人们就把这类计算称为Alpha 合成 ( Alpha Compositing ) 。如下图，其中 in 代表的src和dst图像的相交区域，out代表的是不相交区域。
+
+- 比如 srcIn 表示绘制src的图像，但是只绘制src和dst的相交区域。
+
+- 比如 dstOut 表示绘制 dst 的图像，但是只绘制src和dst的不相交区域。
 
 ![Alpha合成](/imgs/Alpha合成.webp)
 
@@ -529,10 +533,329 @@ Paint 对象可以设置 maskFilter 属性，可以通过 MaskFilter.blur 让画
 
 ## Canvas类
 
-几乎所有的UI系统都会提供一个自绘UI的接口，这个接口通常会提供一块2D画布Canvas，Canvas内部封装了一些基本绘制的API，开发者可以通过Canvas绘制各种自定义图形。在Flutter中，提供了一个CustomPaint 组件，它可以结合画笔CustomPainter来实现自定义图形绘制。
+Flutter的绘制流程：
+
+1. 构建一个 Canvas 用于绘制；同时创建一个绘制指令记录器，因为绘制指令最终是要传递给 Skia 的，而 Canvas 可能会连续发起多条绘制指令，指令记录器用于收集 Canvas 在一段时间内所有的绘制指令，因此Canvas 构造函数第一个参数必须传递一个 PictureRecorder 实例。
+
+2. Canvas 绘制完成后，通过 PictureRecorder 获取绘制产物，然后将其保存在 Layer 中。
+
+3. 构建 Scene 对象，将 layer 的绘制产物和 Scene 关联起来。
+
+4. 上屏；调用window.render API 将Scene上的绘制产物发送给GPU。
+
+几乎所有的UI系统都会提供一个自绘UI的接口，这个接口通常会提供一块2D画布Canvas，Canvas内部封装了一些基本绘制的API，开发者可以通过Canvas绘制各种自定义图形。Flutter提供了一个CustomPaint组件，Canvas可以结合CustomPainter在其中实现自定义图形绘制。
 
 Canvas的常用方法有：
 
 ![FlutterCanvasAPI](/imgs/FlutterCanvasAPI.webp)
 
 针对图中的方法，我们一个个说明。
+
+### Canvas变换
+
+在 Flutter 中，Canvas可以进行变换，常见的有以下几种，注意，这些变换是对canvas本身进行的变换，不是对其上内容进行的变换，但是最终会影响到内容的绘制：
+
+- translate：对canvas进行平移操作。
+
+- rotate：旋转canvas。旋转中心在 canvas 的左上角。
+
+- scale：缩放canvas。小于1为缩小，大于1，为放大。
+
+- skew：错切canvas。错切的大小是弧度制。比如错切90度，就是二分之派。
+
+- transform：对canvas使用指定的矩阵变换，可以用来组合上面的四种效果。
+
+```dart
+@override
+void paint(Canvas canvas, Size size) {
+  final rect = ui.Rect.fromLTWH(0, 0, size.width, size.height);
+  // 绘制一个矩形
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.green);
+  // 保存当前状态
+  canvas.save();
+  // 两次translate的作用是位移到旋转中心
+  canvas.scale(0.5, 0.5);
+  canvas.translate(200, 200);
+  canvas.rotate(pi * 0.25); // 弧度值，旋转 45 度
+  canvas.translate(-100, -100); // 位移到 100，100 的位置。
+  // 绘制一个矩形
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.blue);
+  // 恢复到之前的状态
+  canvas.restore();
+}
+```
+
+![flutterCanvas变换说明](/imgs/flutterCanvas变换说明.webp)
+
+图像的错切(skew)实际上是平面景物在投影平面上的非垂直投影，错切使图像中的图形产生扭变,相当于使图像发生了倾斜。其一般有两种情况：水平方向错切、垂直方向错切。
+
+- 错切的原点是左上角。x向右是正方向，y向下是正方向。
+
+- 错切的方向是正值表示向正方向倾斜。水平方向参数为 0.2 会使图形在 x 轴方向上向右倾斜。垂直方向参数为 0.2 会使图形在 y 轴方向上向下倾斜。
+
+```dart
+@override
+void paint(Canvas canvas, Size size) {
+  // 保存当前状态
+  canvas.save();
+  canvas.save();
+  canvas.save();
+  canvas.translate(200, 200);
+  // 绿色菱形
+  canvas.skew(0.25 * pi, 0.25 * pi);
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.green);
+  canvas.restore();
+  // 红色平行四边形
+  canvas.translate(200, 0);
+  canvas.skew(0.25 * pi, 0);
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.red);
+  // 蓝色平行四边形
+  canvas.restore();
+  canvas.translate(0, 200);
+  canvas.skew(0, 0.25 * pi);
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.blue);
+  // 青色矩形
+  canvas.restore();
+  canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.cyan);
+}
+```
+最终效果为：
+
+![flutterCanvasSkew说明](/imgs/flutterCanvasSkew说明.webp)
+
+skew传入的参数是弧度制，范围为：0到2π。
+
+![flutterSkew操作](/imgs/flutterSkew操作.webp)
+
+所以canvas.skew(-0.25 * pi, -0.25 * pi)这段代码实际计算方式为：
+
+- X1=X+Y。
+- Y1=X+Y。
+- 假设正方形的边长为2X2，则变换的结果为：
+
+   - (0,0)=>(0,0)
+   - (0,1)=>(1,1) (1,0)=>(1,1)  2个点的计算结果重复了，消失了1个点。
+   - (0,2)=>(2,2) (2,0)=>(2,2) (1,1)=>(2,2) 3个点的计算结果重复了，消失了2个点。
+   - (2,2) => (4,4)  边长从2变成了4，边长增加了。
+
+从上面的例子可以看出。
+
+- 如果在x和y方向上都设置了错切，则图形最终会被压扁拉伸。而不是倾斜成平行四边形。
+- 传入的角度越逼近(90+n*180度，比如-90，90，270度)，则压缩拉伸效果越严重。因为正切函数的图像为：
+
+![正切函数图像](/imgs/正切函数图像.webp)
+
+### Canvas状态
+
+在 Flutter 中，绘图状态，如变换、剪裁、绘图属性等，都是以堆栈的形式存储的。
+
+![Canvas堆栈结构](/imgs/Canvas堆栈结构.webp)
+
+在Flutter中，Canvas的状态有以下结论：
+
+- save操作用于保存状态到堆栈，restore操作用于从堆栈中恢复状态。save和restore操作必须一一对应。
+- 绘制的内容不以堆栈存储，执行restore操作时，绘制的内容不会随着canvas的堆栈状态改变而改变。
+- canvas的状态堆栈层数有一个count计数。
+   - 入栈(save)操作时，count+1；退栈(restore)操作时，count-1。
+   - count计数从1开始，因为canvas至少有一个状态。
+   - 可以使用restoreToCount(int targetCount)跳转到指定到指定堆栈。如果targetCount<1，则canvas会退回最初的状态；如果targetCount>count，则什么都不会发生。
+- canvas的状态堆栈和canvas中的图层不是一一对应的关系。因为
+   - save操作并不会新建一个图层，此时不会应用Paint的colorFilter和blendMode等属性。只有 saveLayer 操作才会新建一个图层。此时colorFilter和blendMode等属性才能正确生效。
+
+以下的例子说明了绘制的内容不会随着canvas的堆栈状态改变而改变：
+
+```dart
+@override
+void paint(Canvas canvas, Size size) {
+    // 保存当前状态
+    canvas.save();
+    // 进行一些变换
+    canvas.translate(50, 50); // 位移
+    canvas.rotate(0.5); // 旋转 0.5 弧度
+    // 绘制一个矩形
+    canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.blue);
+    // 恢复到之前的状态
+    canvas.restore();
+    // 在恢复后的状态下绘制另一个矩形
+    canvas.drawRect(Rect.fromLTWH(0, 0, 200, 200), Paint()..color = Colors.red);
+}
+```
+
+效果图如下，可以看到canvas经过变换后绘制的蓝色区域，并未随着restore操作恢复到红色区域的位置。
+
+![canvasRestore效果说明](/imgs/canvasRestore效果说明.webp)
+
+以下例子用于说明 save 和 saveLayer 操作的区别。
+
+原图为：
+```dart
+void paint(Canvas canvas, Size size) {
+    const rect = ui.Rect.fromLTWH(0, 0, 200, 200);
+    canvas.drawRect(rect, Paint()..color = Colors.red);
+    canvas.translate(100, 100);
+    canvas.rotate(-0.25 * pi);
+    canvas.translate(-100, -100);
+    canvas.drawRect(rect, Paint()..color = Colors.green);
+}
+```
+
+![canvasSave原图](/imgs/canvasSave原图.webp)
+
+下面的代码使用了 save()，但是效果和上图一致。
+
+```dart
+void paint(Canvas canvas, Size size) {
+    const rect = ui.Rect.fromLTWH(0, 0, 200, 200);
+    canvas.save();
+    canvas.drawRect(rect, Paint()..color = Colors.red);
+    canvas.restore();
+    canvas.save();
+    canvas.translate(100, 100);
+    canvas.rotate(-0.25 * pi);
+    canvas.translate(-100, -100);
+    canvas.drawRect(rect, Paint()..color = Colors.green..blendMode=BlendMode.srcIn);
+    canvas.restore();
+}
+```
+
+只有正确使用了saveLayer()，才能正确展示效果。saveLayer要求我们传入一个Paint，该Paint用于指定blendMode。
+
+- saveLayer传入的paint最好专门用来搞混合，和用于绘制的paint区分开。比如下面的 blendPaint 和 drawPaint。
+- 要正确产生混合效果，在绘制 dst 和 src 图像时，最好都新建一个图层，并传入相同的blendMode。
+- 先绘制的图像为 dst 图像，后绘制的图像为 src 图像。
+- 如果混合效果与预期有出入，可以从几个方面判断：
+   - 可以简单理解为canvas自带了一个默认图层，是透明的。restore时会进行图像混合。
+   - 使用了硬件加速进行绘制，硬件加速的绘制可能和纯cpu的绘制有一些差异。
+   - 使用 restore 的顺序会影响图像混合的先后顺序。
+
+```dart
+void paint(Canvas canvas, Size size) {
+    const rect = ui.Rect.fromLTWH(0, 0, 200, 200);
+    
+    final drawPaint = Paint()..color = Colors.red;
+    final blendPaint = Paint()..blendMode=BlendMode.srcIn; // 混合效果的画笔单独使用一个。
+    
+    // 该图层和默认图层混合
+    canvas..saveLayer(rect, blendPaint)
+    ..drawRect(rect, drawPaint) // 先绘制的为 dst。
+    ..restore();
+    
+    // 新图层和上面混合过后的图层混合。
+    drawPaint.color = Colors.green;
+    canvas..saveLayer(rect, blendPaint)
+    ..translate(100, 100)
+    ..rotate(-0.25 * pi)
+    ..translate(-100, -100)
+    ..drawRect(rect, drawPaint) // 后绘制的为 src。
+    ..restore();
+}
+```
+
+效果能正确展示：
+
+![blendMode效果](/imgs/blendMode效果.webp)
+
+### Canvas裁剪
+
+Canvas具有clipXXX系列的方法，以用来裁剪Canvas的可绘制区域。比如ClipRRect，可以用来裁剪圆角矩形：
+
+```dart
+const rect = Rect.fromLTWH(0, 0, 200, 200);
+
+canvas
+    ..clipRRect(RRect.fromRectAndRadius(rect, const Radius.circular(8))) // 裁剪对后面的代码生效。
+    ..drawRect(rect, Paint()..color = Colors.red);
+```
+
+clipXXX系列的方法有几点值得注意。
+
+- clipXXX是对后续调用的绘制指令生效，比如上面例子中的drawRect。
+
+- 由于clipXXX和saveLayer混用时，可能产生预期之外的效果。所以建议谨慎混用clipXXX和saveLayer，由clipXXX进行代替，复杂的效果可以使用clipPath实现。
+
+### Canvas绘制
+
+canvas的绘制方法通常是 drawXXX 的命名格式，如何 drawRect、drawCircle。有几个需要说明的方法为：
+
+- canvas用于绘制图片的方法主要有两个：
+    - drawImage：加载一张图片
+    - drawImageRect，加载图片的指定区域到布局的制定范围内，可用于图片的局部加载和绘制。
+- canvas用于绘制曲线的方法有三个：
+    - drawArc：绘制一段圆弧
+    - drawOval：绘制一个椭圆
+    - drawPath：给Path添加相关的曲线路径
+- drawPoints可以用于绘制指定图形，比如三角形。
+
+对于椭圆的绘制，我们需要制定一个矩形区域，以进行椭圆的绘制，如下图，椭圆是包在矩形内的图形：
+
+![drawOval说明](/imgs/drawOval说明.webp)
+
+对于弧线的绘制，其实就是绘制椭圆的局部，所以需要加上起始角度和扫过角度。
+
+- Canvas绘制时涉及到的角度的单位都是弧度制。
+- 起始角度向右为0度。
+- 扫过角度顺时针为正，逆时针为负。
+- useCenter用于指定是否闭合矩形中心点和弧线的两端，闭合就是绘制扇形，不闭合就是绘制弧线。
+
+![drawArc说明](/imgs/drawArc说明.webp)
+
+```dart
+@override
+void paint(Canvas canvas, Size size) {
+  const rect = ui.Rect.fromLTWH(0, 0, 200, 200);
+  final drawPaint = Paint()..color = Colors.red;
+  canvas.drawArc(rect, 0, 0.5 * pi, true, drawPaint);
+}
+```
+
+![drawArc结果](/imgs/drawArc结果.webp)
+
+path可以组合多种图形和效果，绘制可以实现非常复杂的效果。
+
+- drawShader可以在图形的下方绘制阴影。
+- drawPoints可以实现画直线和曲线的效果
+    - 绘制直线时需要给到[起点坐标、终点坐标、起点坐标、终点坐标……]的坐标列表
+    - 绘制曲线是根据指定的控制点绘制的贝塞尔曲线。
+
+```dart
+void paint(Canvas canvas, Size size) {
+  // 创建一个路径，结果是等腰三角形
+  Path path = Path();
+  path.moveTo(150, 100);
+  path.lineTo(0, 200);
+  path.lineTo(300, 200);
+  path.close(); // 闭合首尾两个点，连接一条直线。
+    
+  // 绘制阴影
+  canvas.drawShadow(path, Colors.red, 10.0, true); // 10.0为偏移量。
+
+  // 使用Path绘制三角形
+  Paint paint = Paint()
+    ..color = Colors.blue
+    ..style = PaintingStyle.stroke;
+
+  canvas.drawPath(path, paint);
+
+  // 根据点绘制三角形
+  paint.color = Colors.green;
+  canvas.drawRawPoints(
+    ui.PointMode.lines, // 可以是单独的点、线、或者贝塞尔曲线。
+    // 结果是绿色的三角形
+    Float32List.fromList([
+      150.0, 150.0, // 起点
+      0.0, 250.0, // 终点
+      150.0, 150.0, // 起点
+      300.0, 250.0, // 终点
+      0.0, 250.0, // 起点
+      300.0, 250.0, // 终点
+    ]),
+    paint,
+  );
+}
+```
+
+![drawPath结果](/imgs/drawPath结果.webp)
+
+## 总结
+
+本文讲解了部分Flutter自定义绘制的知识点，还有很多内容没涉及到，但是能够满足日常开发了。Flutter自定义绘制的主要内容都在Paint和Canvas这两个类里定义了。其主要难点是Flutter Layer、Canvas Layer、BlendMode等内容的理解。但是多使用就能熟练掌握。
