@@ -42,6 +42,8 @@ Camera2的讲解文章：[Android 使用 Camera2 拍照](87B1186D69954900869DE7F
 2. 可以使用MediaCodec编码视频数据。
 3. 可以使用MediaMuxer+File+OutputStream实现将编码后的视频数据保存到mp4文件。
 
+![视频录制与编码API](/imgs/视频录制与编码API.webp)
+
 关于Camera2、MediaCodec、MediaMuxer等如何使用，此处就不介绍了，以前的文章都有介绍过。不了解的朋友可以看以前的文章。此处只讲解下部分必要的知识点。
 
 ## 整体流程
@@ -73,6 +75,7 @@ videoSize = getPreviewOutputSize(
     // 获取屏幕尺寸
     surfaceView.display,
     characteristics!!,
+    // 使用SurfaceHolder的类型获取尺寸列表
     SurfaceHolder::class.java
 )
 
@@ -83,7 +86,7 @@ fun <T>getPreviewOutputSize(
     format: Int? = null
 ): Size {
     // 取屏幕尺寸和 1080p 之间的较小值
-    val maxSize = if (hdScreen) SIZE_1080P else screenSize
+    val maxSize = SIZE_1080P
 
     // 如果提供了 format，则根据 format 决定尺寸；否则使用目标 class 决定尺寸
     val config = characteristics.get(
@@ -100,5 +103,31 @@ fun <T>getPreviewOutputSize(
     // 筛选条件自己定
     return allSizes.first()
 }
+```
+
+注意上面的尺寸写法通常是 1920 * 1080，而不是 1080 * 1920。如果尺寸设置错误，录制出来的视频是无法识别的。当我们遇到视频无效的问题时，可以考虑是否是视频设置的有问题。
+
+拿到了合适的尺寸后，我们就可以创建MediaCodec，以及创建用于编码视频的Surface。需要单独的Surface来编码视频是因为，视频预览和视频编码不是一个surface和线程。
+
+![视频录制过程中Surface的作用](/imgs/视频录制过程中Surface的作用.webp)
+
+我们可以使用下面的代码创建MediaCodec和对应的Surface。
+
+```kotlin
+val codec = MediaCodec.createEncoderByType(mimeType)
+//　根据上面确定的视频尺寸，创建 MediaFormat，mimeType是 video/mp4。
+val format = MediaFormat.createVideoFormat(mimeType, videoSize.width, videoSize.height)
+// 设置视频的颜色格式
+format.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface)
+// 设置比特率和帧率
+format.setInteger(MediaFormat.KEY_BIT_RATE, BIT_RATE)
+format.setInteger(MediaFormat.KEY_FRAME_RATE, FPS)
+// 每秒一个关键帧
+format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 1)
+codec?.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
+// 创建编码用的surface，视频预览和视频编码不是一个surface线程。
+codecSurface = codec?.createInputSurface() ?: return
+// 启动MediaCodec
+codec?.start()
 ```
 
