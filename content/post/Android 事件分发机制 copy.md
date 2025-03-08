@@ -13,6 +13,7 @@ tags:
 
 url: post/93A148F065214A6CA304B65956CEC794.html
 toc: true
+draft: true
 ---
 
 本文主要讲解了 ViewGroup 中包含 EditText 时，碰到的两个点击事件的问题。
