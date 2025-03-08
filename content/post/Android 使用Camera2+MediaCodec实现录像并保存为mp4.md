@@ -209,7 +209,7 @@ private fun dealRecordVideo(view: View?, event: MotionEvent?) {
 
 当然，相机录像是个跨进程操作，需要一个异步线程专门处理，在代码中，我们是使用cameraThread+cameraHandler承载。同时，录像的编码操作也是个异步操作，需要放到一个异步线程中处理。在代码中，我们是启动了一个异步协程处理(Dispatchers.IO)。
 
-在设置了录像的请求后，我们可以在`CameraCaptureSession.CaptureCallback`的`onCaptureCompleted`回调中将数据塞给MediaCodec。
+在设置了录像的请求后，我们可以在`CameraCaptureSession.CaptureCallback`的`onCaptureCompleted`回调中从MediaCodec里获取到已编码的数据。
 
 ```kotlin
 private val cameraThread = HandlerThread("CameraThread").apply { start() }
