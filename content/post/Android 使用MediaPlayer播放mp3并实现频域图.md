@@ -72,3 +72,84 @@ fun Int.uriPath(): String = "android.resource://${getAppContext().packageName}/$
 
 ## 待实现的动效
 
+对于待实现的动效，大致可以分为两个点进行讲解：
+
+- 图片的旋转。
+- 音乐频率柱状图的实现。
+- 播放进度条的实现。
+- 动效开关状态的实现。
+
+对于播放进度条的实现，网上有很多案例，本文就不讲了，本文只讲讲其他效果的实现。
+
+### 旋转图片
+
+在音乐播放软件的播放页面，我们常常可以看到页面中心有一个不停旋转的圆形图片。我们的demo代码也可以实现这个效果。这个效果的实现主要分为两块：
+
+- 实现图片裁剪为圆形。
+- 实现图片的旋转。
+
+要想把图片裁剪为圆形，有很多实现方式。本使用了谷歌提供的自定义控件：ShapeableImageView，并提供了其shapeAppearanceOverlay属性的样式。更加详细的用法可以自行搜索，本文就不细讲了：
+
+```xml
+<com.google.android.material.imageview.ShapeableImageView
+    android:id="@+id/ivRotate"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:scaleType="centerCrop"
+    android:src="@mipmap/bg_audio"
+    app:shapeAppearanceOverlay="@style/circleStyle"
+/>
+```
+
+circleStyle的样式代码为(代码位置在res/values/styles.xml)：
+
+```xml
+<resources>
+    <style name="circleStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
+```
+
+将图片裁剪为圆形后，我们就需要实现图片的旋转。要想实现图片的旋转，可以使用动画将图片或者图片的布局旋转起来。
+
+本文采用旋转图片布局的方式，并使用补间动画。因为不涉及位置的改变，所以使用补间动画即可。
+
+补间动画的 XML 文件放在 anim 目录下，属性动画也可保存在此目录中，但为了区分这两种类型，官方建议属性动画的目录首选 animator。
+
+旋转动画的代码如下，文件名为：res/anim/rotate.xml，实现的效果为8秒旋转一圈，旋转中心为布局的中心位置，不限次数：
+
+```xml
+<!-- 旋转动画 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate
+        android:fromDegrees="0"
+        android:toDegrees="359"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="8000"
+        android:repeatCount="-1"
+        />
+</set>
+```
+
+动画的使用方式如下：
+
+```kotlin
+// activity 中
+fun onCreate() {
+    val anim = AnimationUtils.loadAnimation(this, R.anim.rotate)
+    anim?.interpolator = LinearInterpolator()
+    binding.ivRotate.startAnimation(anim)
+}
+
+// 动画不用了，则取消掉
+fun onDestroy() {
+    binding.ivRotate.clearAnimation()
+    anim?.cancel()
+    anim = null
+}
+```
+
+这样我们就实现了圆形图片的旋转。
